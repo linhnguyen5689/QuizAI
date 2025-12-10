@@ -269,7 +269,7 @@ const Dashboard = ({ user, logout }) => {
   }
 
   return (
-    <div className="relative w-screen min-h-screen overflow-x-hidden bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900">
+    <div className="relative w-screen min-h-screen overflow-x-hidden db-background">
       {/* Animated SVG background */}
       <svg
         className="absolute top-0 left-0 z-0 w-full h-full pointer-events-none"
@@ -281,22 +281,6 @@ const Dashboard = ({ user, logout }) => {
             <stop offset="100%" stopColor="#6366f1" stopOpacity="0" />
           </radialGradient>
         </defs>
-        <circle cx="80%" cy="20%" r="300" fill="url(#g1)">
-          <animate
-            attributeName="cx"
-            values="80%;20%;80%"
-            dur="12s"
-            repeatCount="indefinite"
-          />
-        </circle>
-        <circle cx="20%" cy="80%" r="200" fill="url(#g1)">
-          <animate
-            attributeName="cy"
-            values="80%;20%;80%"
-            dur="16s"
-            repeatCount="indefinite"
-          />
-        </circle>
       </svg>
 
       <div className="relative z-10 px-4 py-8 sm:px-6 lg:px-8">

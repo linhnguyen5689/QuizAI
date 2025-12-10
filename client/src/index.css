@@ -181,4 +181,12 @@ fade-slide-enter {
   body {
     @apply bg-background text-foreground;
   }
+
+  .db-background {
+    background: linear-gradient(90deg,rgba(255, 255, 255, 1) 0%, rgba(115, 241, 255, 1) 30%, rgba(42, 154, 223, 1) 100%);
+  }
+  .login-form {
+    width: 60%;
+    padding-left: 2rem;
+  }
 }

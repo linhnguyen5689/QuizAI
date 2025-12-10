@@ -62,136 +62,128 @@ const Login = ({ login: loginUser, user }) => {
             <stop offset="100%" stopColor="#6366f1" stopOpacity="0" />
           </radialGradient>
         </defs>
-        <circle cx="80%" cy="20%" r="300" fill="url(#g1)">
-          <animate
-            attributeName="cx"
-            values="80%;20%;80%"
-            dur="12s"
-            repeatCount="indefinite"
-          />
-        </circle>
-        <circle cx="20%" cy="80%" r="200" fill="url(#g1)">
-          <animate
-            attributeName="cy"
-            values="80%;20%;80%"
-            dur="16s"
-            repeatCount="indefinite"
-          />
-        </circle>
       </svg>
       <div
         className="create-room-card"
         style={{
           zIndex: 1,
           position: "relative",
-          maxWidth: 540,
+          maxWidth: 900,
           padding: "2.5rem 2.5rem",
           margin: "48px auto",
+          display: "flex"
         }}
       >
-        <div className="mb-8 text-center">
-          <h1 className="create-room-title" style={{ fontSize: "2.2rem" }}>
-            <FaUserAstronaut className="create-room-animated-icon" />
-            Welcome Back
-          </h1>
-          <p className="create-room-subtitle">Sign in to your account</p>
-        </div>
-        {error && (
-          <div className="error-message">
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+        <img src="https://haitrieu.com/wp-content/uploads/2022/01/Logo-DH-Kien-Truc-Ha-Noi-HAU-Tra-1024x1024.png" style={{
+        width: '40%',
+        height: '40%', 
+        paddingTop: '80px',
+}}/>
+        <div className="login-form">
+          <div className="mb-8 text-center">
+            <h1 className="create-room-title" style={{ fontSize: "2.2rem" }}>
+              <FaUserAstronaut className="create-room-animated-icon" />
+              Welcome Back
+            </h1>
+            <p className="create-room-subtitle">Sign in to your account</p>
+          </div>
+          {error && (
+            <div className="error-message">
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+              <span>{error}</span>
+            </div>
+          )}
+          <form className="auth-form" onSubmit={handleSubmit}>
+            <div className="form-group">
+              <label
+                className="form-label"
+                htmlFor="email"
+                style={{ color: "#ffe259" }}
+              >
+                Email
+              </label>
+              <input
+                id="email"
+                type="email"
+                className="form-input"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Enter your email"
+                required
+                style={{ color: "#000000", backgroundColor: "#ffffff" }}
               />
-            </svg>
-            <span>{error}</span>
-          </div>
-        )}
-        <form className="auth-form" onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label
-              className="form-label"
-              htmlFor="email"
-              style={{ color: "#ffe259" }}
+            </div>
+            <div className="form-group">
+              <label
+                className="form-label"
+                htmlFor="password"
+                style={{ color: "#ffe259" }}
+              >
+                Password
+              </label>
+              <input
+                id="password"
+                type="password"
+                className="form-input"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Enter your password"
+                required
+                style={{ color: "#000000", backgroundColor: "#ffffff" }}
+              />
+            </div>
+            <button
+              type="submit"
+              className="create-button"
+              disabled={loading}
+              style={{ width: "100%", marginTop: 16 }}
             >
-              Email
-            </label>
-            <input
-              id="email"
-              type="email"
-              className="form-input"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter your email"
-              required
-              style={{ color: "#000000", backgroundColor: "#ffffff" }}
-            />
-          </div>
-          <div className="form-group">
-            <label
-              className="form-label"
-              htmlFor="password"
-              style={{ color: "#ffe259" }}
-            >
-              Password
-            </label>
-            <input
-              id="password"
-              type="password"
-              className="form-input"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="Enter your password"
-              required
-              style={{ color: "#000000", backgroundColor: "#ffffff" }}
-            />
-          </div>
-          <button
-            type="submit"
-            className="create-button"
-            disabled={loading}
-            style={{ width: "100%", marginTop: 16 }}
-          >
-            {loading ? (
-              <div
-                className="ml-44 loading-spinner"
-                style={{ height: 24, width: 24 }}
-              ></div>
-            ) : (
-              "Sign In"
-            )}
-          </button>
-        </form>
-        <div style={{ marginTop: 32, textAlign: "center" }}>
-          <Link
-            to="/forgot-password"
-            className="auth-link"
-            style={{
-              color: "#ffe259",
-              fontWeight: 600,
-              marginBottom: 8,
-              display: "inline-block",
-            }}
-          >
-            Forgot password?
-          </Link>
-          <p style={{ color: "#e0e7ff", marginTop: 8 }}>
-            Don't have an account?{" "}
+              {loading ? (
+                <div
+                  className="ml-44 loading-spinner"
+                  style={{ height: 24, width: 24 }}
+                ></div>
+              ) : (
+                "Sign In"
+              )}
+            </button>
+          </form>
+          <div style={{ marginTop: 32, textAlign: "center" }}>
             <Link
-              to="/register"
+              to="/forgot-password"
               className="auth-link"
-              style={{ color: "#f472b6", fontWeight: 600 }}
+              style={{
+                color: "#ffe259",
+                fontWeight: 600,
+                marginBottom: 8,
+                display: "inline-block",
+              }}
             >
-              Sign up
+              Forgot password?
             </Link>
-          </p>
+            <p style={{ color: "#e0e7ff", marginTop: 8 }}>
+              Don't have an account?{" "}
+              <Link
+                to="/register"
+                className="auth-link"
+                style={{ color: "#f472b6", fontWeight: 600 }}
+              >
+                Sign up
+              </Link>
+            </p>
+          </div>
         </div>
       </div>
     </div>
