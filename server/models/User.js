@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const bcrypt = require("bcryptjs");
 
 const userSchema = new mongoose.Schema(
   {
@@ -61,7 +60,7 @@ const userSchema = new mongoose.Schema(
     },
     isActive: {
       type: Boolean,
-      default: false,
+      default: true,
     },
     accountType: {
       type: String,
@@ -123,18 +122,7 @@ const userSchema = new mongoose.Schema(
   }
 );
 
-// Hash password
-userSchema.pre("save", async function (next) {
-  if (this.isModified("passwordHash")) {
-    this.passwordHash = await bcrypt.hash(this.passwordHash, 10);
-  }
-  next();
-});
-
-// Check so sánh mật khẩu
-userSchema.methods.comparePassword = async function (candidatePassword) {
-  return bcrypt.compare(candidatePassword, this.passwordHash);
-};
+// Hash password before saving
 
 // Tạo verification token
 userSchema.methods.generateVerificationToken = async function () {

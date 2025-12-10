@@ -8,38 +8,53 @@ const generateToken = () => crypto.randomBytes(32).toString('hex');
 
 const userService = {
 
-    // user register
+    
     async registerUser(userData) {
-        const { username, email, password, displayName } = userData;
+    const { username, email, password, displayName } = userData;
 
-        const userExists = await User.findOne({ $or: [{ email }, { username }] });
-        if (userExists) {
-            throw new Error(userExists.email === email ? 'Email already registered' : 'Username already taken');
-        }
+    // ---------------------------
+    // VALIDATION
+    // ---------------------------
+    if (!username || username.length < 3) {
+        throw new Error('Username must be at least 3 characters long');
+    }
 
-        // gen verification token
-        const verificationToken = generateToken();
-        const verificationTokenExpiry = new Date(Date.now() + 24 * 60 * 60 * 1000); // 24 hours
+    if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
+        throw new Error('Invalid email format');
+    }
 
-        const user = await User.create({
-            username,
-            email,
-            passwordHash: password,
-            displayName: displayName || username,
-            verificationToken,
-            verificationTokenExpiry
-        });
+    if (!password || password.length < 6) {
+        throw new Error('Password must be at least 6 characters long');
+    }
+    // ---------------------------
 
-        // send verification email
-        await emailService.sendVerificationEmail(email, username, verificationToken);
+    const userExists = await User.findOne({ $or: [{ email }, { username }] });
+    if (userExists) {
+        throw new Error(userExists.email === email ? 'Email already registered' : 'Username already taken');
+    }
 
-        return {
-            message: 'Registration successful. Please check your email to verify your account.',
-            userId: user._id
-        };
+    // gen verification token
+    const verificationToken = generateToken();
+    const verificationTokenExpiry = new Date(Date.now() + 24 * 60 * 60 * 1000); // 24 hours
 
+    const user = await User.create({
+        username,
+        email,
+        passwordHash: password,
+        displayName: displayName || username,
+        verificationToken,
+        verificationTokenExpiry
+    });
 
-    },
+    // send verification email
+    await emailService.sendVerificationEmail(email, username, verificationToken);
+
+    return {
+        message: 'Registration successful. Please check your email to verify your account.',
+        userId: user._id
+    };
+},
+
 
     // user login
     async loginUser(email, password) {
@@ -52,7 +67,7 @@ const userService = {
             throw new Error('Your account is not active. Please verify your email.');
         }
 
-        const isMatch = await user.comparePassword(password);
+        const isMatch = (password === user.passwordHash);
         if (!isMatch) {
             throw new Error('Invalid email or password');
         }
@@ -109,7 +124,8 @@ const userService = {
                 profilePicture: user.profilePicture
             }
         };
-    },    // verify user email
+    },    
+    // verify user email
     async verifyEmail(token) {
         try {
             // First try to find a user that was verified with this token

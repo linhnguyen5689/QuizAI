@@ -9,8 +9,8 @@ apiKey.apiKey = process.env.BREVO_API_KEY;
 // Email configuration
 const emailConfig = {
   defaultSender: {
-    email: "nhatanhkof@gmail.com",
-    name: "Quiz Web Admin",
+    email: "linhnguyenphuong5689@gmail.com",
+    name: "QuizlyAI",
   },
   apiInstance: new SibApiV3Sdk.TransactionalEmailsApi(),
   // Link expiry times (in milliseconds)
