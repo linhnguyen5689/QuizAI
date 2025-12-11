@@ -16,6 +16,19 @@ import {
 const DEFAULT_PROFILE_IMAGE =
   "https://cdn-icons-png.flaticon.com/512/147/147144.png";
 
+/**
+ * HAU Blue Theme constants
+ * - PRIMARY / PRIMARY_DARK / PRIMARY_LIGHT: main blue shades
+ * - MUTED_TEXT: light text color used across UI
+ * - BORDER: subtle blue border / glow
+ * Accent previously yellow is switched to a brighter blue for highlights.
+ */
+const PRIMARY = "#1E74D7"; // main blue
+const PRIMARY_DARK = "#09306a"; // darker blue background
+const PRIMARY_LIGHT = "#4BA3FF"; // lighter blue accent
+const MUTED_TEXT = "#D9EEFF"; // muted text (light blue)
+const BORDER_COLOR = "rgba(74,163,255,0.25)"; // subtle blue border
+
 const UserProfile = ({ user, updateUser }) => {
   const [formData, setFormData] = useState({
     displayName: "",
@@ -213,10 +226,28 @@ const UserProfile = ({ user, updateUser }) => {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center w-screen min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900">
-        <div className="p-8 text-center border-4 shadow-2xl bg-gradient-to-br from-indigo-800/90 via-purple-800/90 to-pink-800/90 backdrop-blur-xl rounded-3xl border-pink-400/40">
-          <div className="w-16 h-16 mx-auto border-b-2 border-pink-400 rounded-full animate-spin"></div>
-          <p className="mt-4 text-xl text-pink-200 font-orbitron">
+      <div
+        className="flex items-center justify-center w-screen min-h-screen"
+        style={{
+          background: `linear-gradient(135deg, ${PRIMARY_DARK}, ${PRIMARY})`,
+        }}
+      >
+        <div
+          className="p-8 text-center border-4 shadow-2xl rounded-3xl"
+          style={{
+            background: "rgba(255,255,255,0.02)",
+            borderColor: BORDER_COLOR,
+            backdropFilter: "blur(10px)",
+          }}
+        >
+          <div
+            className="w-16 h-16 mx-auto border-b-2 rounded-full animate-spin"
+            style={{ borderColor: PRIMARY_LIGHT }}
+          ></div>
+          <p
+            className="mt-4 text-xl font-orbitron"
+            style={{ color: MUTED_TEXT }}
+          >
             Loading profile...
           </p>
         </div>
@@ -225,7 +256,12 @@ const UserProfile = ({ user, updateUser }) => {
   }
 
   return (
-    <div className="relative w-screen min-h-screen overflow-x-hidden bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900">
+    <div
+      className="relative w-screen min-h-screen overflow-x-hidden"
+      style={{
+        background: `linear-gradient(135deg, ${PRIMARY_DARK}, ${PRIMARY})`,
+      }}
+    >
       {/* Animated SVG background */}
       <svg
         className="absolute top-0 left-0 z-0 w-full h-full pointer-events-none"
@@ -233,8 +269,8 @@ const UserProfile = ({ user, updateUser }) => {
       >
         <defs>
           <radialGradient id="g1" cx="50%" cy="50%" r="80%">
-            <stop offset="0%" stopColor="#f472b6" stopOpacity="0.5" />
-            <stop offset="100%" stopColor="#6366f1" stopOpacity="0" />
+            <stop offset="0%" stopColor={PRIMARY_LIGHT} stopOpacity="0.45" />
+            <stop offset="100%" stopColor={PRIMARY} stopOpacity="0" />
           </radialGradient>
         </defs>
         <circle cx="80%" cy="20%" r="300" fill="url(#g1)">
@@ -262,17 +298,36 @@ const UserProfile = ({ user, updateUser }) => {
           transition={{ duration: 0.8 }}
           className="flex items-center justify-between mb-8"
         >
-          <h1 className="flex items-center gap-3 text-4xl font-extrabold text-transparent md:text-5xl font-orbitron bg-clip-text bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 drop-shadow-lg">
-            <FiUser className="inline-block text-yellow-300 animate-bounce" />
+          <h1
+            className="flex items-center gap-3 text-4xl font-extrabold text-transparent md:text-5xl font-orbitron bg-clip-text drop-shadow-lg"
+            style={{
+              background: `linear-gradient(90deg, ${PRIMARY_LIGHT}, ${PRIMARY})`,
+              WebkitBackgroundClip: 'text',        // <-- required on WebKit-based browsers
+              WebkitTextFillColor: 'transparent',  // <-- make text actually transparent for clipped background
+              backgroundClip: 'text',              // <-- keep the standard prop too
+              color: 'transparent'                 // <-- fallback
+            }}
+          >
+            <FiUser
+              className="inline-block animate-bounce"
+              style={{ color: PRIMARY_LIGHT }}
+            />
             Profile
-            <FiEdit2 className="inline-block text-pink-300 animate-spin-slow" />
+            <FiEdit2
+              className="inline-block animate-spin-slow"
+              style={{ color: PRIMARY_LIGHT }}
+            />
           </h1>
 
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => navigate("/dashboard")}
-            className="flex items-center gap-2 px-6 py-3 text-white transition-all duration-300 transform border-2 shadow-lg font-orbitron bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 rounded-2xl hover:from-pink-400 hover:to-yellow-400 hover:scale-105 active:scale-95 border-white/30"
+            className="flex items-center gap-2 px-6 py-3 text-white transition-all duration-300 transform border-2 shadow-lg font-orbitron rounded-2xl"
+            style={{
+              background: `linear-gradient(90deg, ${PRIMARY_LIGHT}, ${PRIMARY})`,
+              borderColor: "rgba(255,255,255,0.18)",
+            }}
           >
             <FiArrowLeft className="w-5 h-5" />
             Back to Dashboard
@@ -283,7 +338,12 @@ const UserProfile = ({ user, updateUser }) => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="p-8 border-4 shadow-2xl bg-gradient-to-br from-indigo-800/90 via-purple-800/90 to-pink-800/90 backdrop-blur-xl rounded-3xl border-pink-400/40"
+          className="p-8 border-4 shadow-2xl rounded-3xl"
+          style={{
+            background: "rgba(255,255,255,0.02)",
+            borderColor: BORDER_COLOR,
+            backdropFilter: "blur(10px)",
+          }}
         >
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             {/* Left column - Profile picture and basic info */}
@@ -293,9 +353,19 @@ const UserProfile = ({ user, updateUser }) => {
               transition={{ duration: 0.5 }}
               className="md:col-span-1"
             >
-              <div className="p-6 border-2 bg-gradient-to-br from-indigo-900/50 via-purple-900/50 to-pink-900/50 backdrop-blur-xl rounded-2xl border-pink-400/40">
+              <div
+                className="p-6 border-2 rounded-2xl"
+                style={{
+                  background: "rgba(255,255,255,0.01)",
+                  borderColor: BORDER_COLOR,
+                  backdropFilter: "blur(8px)",
+                }}
+              >
                 <div className="relative group">
-                  <div className="w-48 h-48 mx-auto overflow-hidden border-4 rounded-full shadow-lg border-pink-400/40">
+                  <div
+                    className="w-48 h-48 mx-auto overflow-hidden border-4 rounded-full shadow-lg"
+                    style={{ borderColor: BORDER_COLOR }}
+                  >
                     <img
                       src={previewImage}
                       alt="Profile"
@@ -306,7 +376,10 @@ const UserProfile = ({ user, updateUser }) => {
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                     onClick={() => fileInputRef.current?.click()}
-                    className="absolute bottom-0 right-0 p-3 text-white transition-all duration-300 transform rounded-full shadow-lg bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 hover:from-pink-400 hover:to-yellow-400"
+                    className="absolute bottom-0 right-0 p-3 text-white transition-all duration-300 transform rounded-full shadow-lg"
+                    style={{
+                      background: `linear-gradient(90deg, ${PRIMARY_LIGHT}, ${PRIMARY})`,
+                    }}
                   >
                     <FiCamera className="w-6 h-6" />
                   </motion.button>
@@ -320,16 +393,25 @@ const UserProfile = ({ user, updateUser }) => {
                 </div>
 
                 <div className="mt-6 space-y-4">
-                  <div className="flex items-center space-x-3 text-pink-200">
-                    <FiUser className="w-5 h-5 text-yellow-400" />
+                  <div
+                    className="flex items-center space-x-3"
+                    style={{ color: MUTED_TEXT }}
+                  >
+                    <FiUser className="w-5 h-5" style={{ color: PRIMARY_LIGHT }} />
                     <span className="font-orbitron">{user.username}</span>
                   </div>
-                  <div className="flex items-center space-x-3 text-pink-200">
-                    <FiMail className="w-5 h-5 text-yellow-400" />
+                  <div
+                    className="flex items-center space-x-3"
+                    style={{ color: MUTED_TEXT }}
+                  >
+                    <FiMail className="w-5 h-5" style={{ color: PRIMARY_LIGHT }} />
                     <span className="font-orbitron">{user.email}</span>
                   </div>
-                  <div className="flex items-center space-x-3 text-pink-200">
-                    <FiCalendar className="w-5 h-5 text-yellow-400" />
+                  <div
+                    className="flex items-center space-x-3"
+                    style={{ color: MUTED_TEXT }}
+                  >
+                    <FiCalendar className="w-5 h-5" style={{ color: PRIMARY_LIGHT }} />
                     <span className="font-orbitron">
                       Joined since{" "}
                       {new Date(
@@ -348,9 +430,25 @@ const UserProfile = ({ user, updateUser }) => {
               transition={{ duration: 0.5 }}
               className="md:col-span-2"
             >
-              <div className="p-6 border-2 bg-gradient-to-br from-indigo-900/50 via-purple-900/50 to-pink-900/50 backdrop-blur-xl rounded-2xl border-pink-400/40">
-                <h2 className="flex items-center mb-6 text-2xl font-bold text-transparent font-orbitron bg-clip-text bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500">
-                  <FiEdit2 className="mr-2" />
+              <div
+                className="p-6 border-2 rounded-2xl"
+                style={{
+                  background: "rgba(255,255,255,0.01)",
+                  borderColor: BORDER_COLOR,
+                  backdropFilter: "blur(8px)",
+                }}
+              >
+                <h2
+                  className="flex items-center mb-6 text-2xl font-bold text-transparent font-orbitron bg-clip-text"
+                  style={{
+                    background: 'linear-gradient(90deg, #4BA3FF, #1E74D7)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
+                    color: 'transparent'
+                  }}
+                >
+                  <FiEdit2 className="mr-2" style={{ color: '#4BA3FF' }} />
                   Edit Information
                 </h2>
 
@@ -358,7 +456,8 @@ const UserProfile = ({ user, updateUser }) => {
                   <div>
                     <label
                       htmlFor="displayName"
-                      className="block mb-2 text-sm font-medium text-pink-200 font-orbitron"
+                      className="block mb-2 text-sm font-medium font-orbitron"
+                      style={{ color: MUTED_TEXT }}
                     >
                       Display Name
                     </label>
@@ -368,10 +467,27 @@ const UserProfile = ({ user, updateUser }) => {
                       name="displayName"
                       value={formData.displayName}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 text-pink-200 transition-all duration-200 border-2 bg-indigo-900/50 border-pink-400/40 rounded-xl focus:border-yellow-400 focus:ring-2 focus:ring-yellow-400/20 font-orbitron"
+                      className="w-full px-4 py-3 transition-all duration-200 border-2 rounded-xl font-orbitron"
                       placeholder="Enter your display name"
+                      style={{
+                        color: MUTED_TEXT,
+                        background: "rgba(0,0,0,0.06)",
+                        borderColor: BORDER_COLOR,
+                      }}
+                      // keep visual focus effect in blue
+                      onFocus={(e) => {
+                        e.currentTarget.style.borderColor = PRIMARY_LIGHT;
+                        e.currentTarget.style.boxShadow = `0 0 0 6px ${PRIMARY_LIGHT}22`;
+                      }}
+                      onBlur={(e) => {
+                        e.currentTarget.style.borderColor = BORDER_COLOR;
+                        e.currentTarget.style.boxShadow = "none";
+                      }}
                     />
-                    <p className="mt-1 text-xs text-pink-300/80 font-orbitron">
+                    <p
+                      className="mt-1 text-xs font-orbitron"
+                      style={{ color: `${MUTED_TEXT}CC` }}
+                    >
                       This name will be shown to other users
                     </p>
                   </div>
@@ -382,7 +498,12 @@ const UserProfile = ({ user, updateUser }) => {
                       whileTap={{ scale: 0.95 }}
                       type="button"
                       onClick={() => navigate("/reset-password")}
-                      className="flex items-center px-6 py-3 text-pink-200 transition-all duration-300 transform border-2 shadow-lg border-pink-400/40 font-orbitron bg-gradient-to-br from-indigo-900/50 via-purple-900/50 to-pink-900/50 rounded-xl hover:from-pink-900/50 hover:to-indigo-900/50"
+                      className="flex items-center px-6 py-3 transition-all duration-300 transform border-2 shadow-lg font-orbitron rounded-xl"
+                      style={{
+                        color: MUTED_TEXT,
+                        background: "rgba(0,0,0,0.04)",
+                        borderColor: BORDER_COLOR,
+                      }}
                     >
                       <FiLock className="mr-2" />
                       Change Password
@@ -393,7 +514,11 @@ const UserProfile = ({ user, updateUser }) => {
                       whileTap={{ scale: 0.95 }}
                       type="submit"
                       disabled={saving}
-                      className="px-6 py-3 text-white transition-all duration-300 transform border-2 shadow-lg font-orbitron bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 rounded-xl hover:from-pink-400 hover:to-yellow-400 hover:scale-105 active:scale-95 border-white/30 disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="px-6 py-3 text-white transition-all duration-300 transform border-2 shadow-lg font-orbitron rounded-xl disabled:opacity-50 disabled:cursor-not-allowed"
+                      style={{
+                        background: `linear-gradient(90deg, ${PRIMARY_LIGHT}, ${PRIMARY})`,
+                        borderColor: "rgba(255,255,255,0.18)",
+                      }}
                     >
                       {saving ? "Saving..." : "Save Changes"}
                     </motion.button>

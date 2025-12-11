@@ -242,7 +242,7 @@ const Dashboard = ({ user, logout }) => {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center w-screen min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900">
+      <div className="flex items-center justify-center w-screen min-h-screen bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700">
         <LoadingSpinner />
       </div>
     );
@@ -250,16 +250,16 @@ const Dashboard = ({ user, logout }) => {
 
   if (error) {
     return (
-      <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900">
+      <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="p-8 text-center border-4 shadow-2xl bg-gradient-to-br from-indigo-800/90 via-purple-800/90 to-pink-800/90 backdrop-blur-xl rounded-3xl border-pink-400/40"
+          className="p-8 text-center border-4 shadow-2xl bg-gradient-to-br from-blue-900/90 via-blue-800/90 to-blue-700/90 backdrop-blur-xl rounded-3xl border-blue-400/30"
         >
-          <p className="mb-4 text-xl text-pink-200 font-orbitron">{error}</p>
+          <p className="mb-4 text-xl text-blue-200 font-orbitron">{error}</p>
           <button
             onClick={() => window.location.reload()}
-            className="px-6 py-3 text-white transition-all duration-300 transform border-2 shadow-lg font-orbitron bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 rounded-2xl hover:from-pink-400 hover:to-yellow-400 hover:scale-105 active:scale-95 border-white/30"
+            className="px-6 py-3 text-white transition-all duration-300 transform border-2 shadow-lg font-orbitron bg-gradient-to-r from-blue-300 via-blue-500 to-blue-800 rounded-2xl hover:from-blue-400 hover:to-blue-600 hover:scale-105 active:scale-95 border-white/30"
           >
             Try Again
           </button>
@@ -269,7 +269,7 @@ const Dashboard = ({ user, logout }) => {
   }
 
   return (
-    <div className="relative w-screen min-h-screen overflow-x-hidden db-background">
+    <div className="relative w-screen min-h-screen overflow-x-hidden bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700">
       {/* Animated SVG background */}
       <svg
         className="absolute top-0 left-0 z-0 w-full h-full pointer-events-none"
@@ -277,10 +277,26 @@ const Dashboard = ({ user, logout }) => {
       >
         <defs>
           <radialGradient id="g1" cx="50%" cy="50%" r="80%">
-            <stop offset="0%" stopColor="#f472b6" stopOpacity="0.5" />
-            <stop offset="100%" stopColor="#6366f1" stopOpacity="0" />
+            <stop offset="0%" stopColor="#4BA3FF" stopOpacity="0.5" />
+            <stop offset="100%" stopColor="#1E74D7" stopOpacity="0" />
           </radialGradient>
         </defs>
+        <circle cx="80%" cy="20%" r="300" fill="url(#g1)">
+          <animate
+            attributeName="cx"
+            values="80%;20%;80%"
+            dur="12s"
+            repeatCount="indefinite"
+          />
+        </circle>
+        <circle cx="20%" cy="80%" r="200" fill="url(#g1)">
+          <animate
+            attributeName="cy"
+            values="80%;20%;80%"
+            dur="16s"
+            repeatCount="indefinite"
+          />
+        </circle>
       </svg>
 
       <div className="relative z-10 px-4 py-8 sm:px-6 lg:px-8">
@@ -290,10 +306,10 @@ const Dashboard = ({ user, logout }) => {
           transition={{ duration: 0.8 }}
           className="flex items-center justify-between mb-8"
         >
-          <h1 className="flex items-center gap-3 text-4xl font-extrabold text-transparent md:text-5xl font-orbitron bg-clip-text bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 drop-shadow-lg">
+          <h1 className="flex items-center gap-3 text-4xl font-extrabold text-transparent md:text-5xl font-orbitron bg-clip-text bg-gradient-to-r from-blue-300 via-blue-500 to-blue-800 drop-shadow-lg">
             <FaGamepad className="inline-block text-yellow-300 animate-bounce" />
             Dashboard
-            <FaStar className="inline-block text-pink-300 animate-spin-slow" />
+            <FaStar className="inline-block text-yellow-300 animate-spin-slow" />
           </h1>
 
           <div className="relative user-info" ref={dropdownRef}>
@@ -306,7 +322,7 @@ const Dashboard = ({ user, logout }) => {
               <img
                 src={user?.profilePicture || "/images/df_avatar.png"}
                 alt="User Avatar"
-                className="w-12 h-12 border-2 rounded-full shadow-lg border-pink-400/40"
+                className="w-12 h-12 border-2 rounded-full shadow-lg border-blue-400/30"
               />
               <span className="text-black username font-orbitron">
                 {user?.username || "User"}
@@ -319,19 +335,19 @@ const Dashboard = ({ user, logout }) => {
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
-                  className="absolute right-0 z-20 w-64 mt-2 overflow-hidden border-2 shadow-2xl top-16 bg-gradient-to-br from-indigo-800/90 via-purple-800/90 to-pink-800/90 backdrop-blur-xl rounded-2xl border-pink-400/40"
+                  className="absolute right-0 z-20 w-64 mt-2 overflow-hidden border-2 shadow-2xl top-16 bg-gradient-to-br from-blue-900/90 via-blue-800/90 to-blue-700/90 backdrop-blur-xl rounded-2xl border-blue-400/30"
                 >
-                  <div className="flex items-center gap-3 p-4 border-b dropdown-header border-pink-400/40">
+                  <div className="flex items-center gap-3 p-4 border-b dropdown-header border-blue-400/30">
                     <img
                       src={user?.profilePicture || "/images/df_avatar.png"}
                       alt="User Avatar"
-                      className="w-12 h-12 border-2 rounded-full border-pink-400/40"
+                      className="w-12 h-12 border-2 rounded-full border-blue-400/30"
                     />
                     <div className="dropdown-header-info">
-                      <div className="text-pink-200 dropdown-header-name font-orbitron">
+                      <div className="text-blue-200 dropdown-header-name font-orbitron">
                         {user?.username || "User"}
                       </div>
-                      <div className="text-sm dropdown-header-email font-orbitron text-pink-300/80">
+                      <div className="text-sm dropdown-header-email font-orbitron text-blue-300/80">
                         {user?.email || "user@example.com"}
                       </div>
                     </div>
@@ -342,9 +358,9 @@ const Dashboard = ({ user, logout }) => {
                     className="flex items-center gap-3 px-4 py-3 dropdown-item hover:bg-black/20"
                   >
                     <div className="dropdown-item-icon">
-                      <FaUser className="w-5 h-5 text-yellow-400" />
+                      <FaUser className="w-5 h-5 text-blue-300" />
                     </div>
-                    <span className="text-pink-200 dropdown-item-text font-orbitron">
+                    <span className="text-blue-200 dropdown-item-text font-orbitron">
                       Profile
                     </span>
                   </Link>
@@ -354,9 +370,9 @@ const Dashboard = ({ user, logout }) => {
                     className="flex items-center gap-3 px-4 py-3 dropdown-item hover:bg-black/20 "
                   >
                     <div className="dropdown-item-icon">
-                      <FaUserFriends className="w-5 h-5 text-yellow-400" />
+                      <FaUserFriends className="w-5 h-5 text-blue-300" />
                     </div>
-                    <span className="text-pink-200 dropdown-item-text font-orbitron ">
+                    <span className="text-blue-200 dropdown-item-text font-orbitron ">
                       Friends
                     </span>
                   </Link>
@@ -368,9 +384,9 @@ const Dashboard = ({ user, logout }) => {
                       className="flex items-center gap-3 px-4 py-3 dropdown-item hover:bg-black/20"
                     >
                       <div className="dropdown-item-icon">
-                        <FaUserCog className="w-5 h-5 text-yellow-400" />
+                        <FaUserCog className="w-5 h-5 text-blue-300" />
                       </div>
-                      <span className="text-pink-200 dropdown-item-text font-orbitron">
+                      <span className="text-blue-200 dropdown-item-text font-orbitron">
                         Admin Panel
                       </span>
                     </Link>
@@ -381,23 +397,23 @@ const Dashboard = ({ user, logout }) => {
                     className="flex items-center gap-3 px-4 py-3 dropdown-item hover:bg-black/20"
                   >
                     <div className="dropdown-item-icon">
-                      <FaMedal className="w-5 h-5 text-yellow-400" />
+                      <FaMedal className="w-5 h-5 text-blue-300" />
                     </div>
-                    <span className="text-pink-200 dropdown-item-text font-orbitron ">
+                    <span className="text-blue-200 dropdown-item-text font-orbitron ">
                       Achievements
                     </span>
                   </Link>
 
-                  <div className="border-t dropdown-divider border-pink-400/40"></div>
+                  <div className="border-t dropdown-divider border-blue-400/30"></div>
 
                   <button
                     onClick={handleLogout}
                     className="flex items-center w-full gap-3 px-4 py-3 text-left dropdown-item hover:bg-black/20"
                   >
                     <div className="dropdown-item-icon">
-                      <FaSignOutAlt className="w-5 h-5 text-yellow-400" />
+                      <FaSignOutAlt className="w-5 h-5 text-blue-300" />
                     </div>
-                    <span className="text-pink-200 dropdown-item-text font-orbitron ">
+                    <span className="text-blue-200 dropdown-item-text font-orbitron ">
                       Logout
                     </span>
                   </button>
@@ -411,7 +427,7 @@ const Dashboard = ({ user, logout }) => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="p-2 mb-8 border-2 shadow-2xl tab-container bg-gradient-to-br from-indigo-800/90 via-purple-800/90 to-pink-800/90 backdrop-blur-xl rounded-2xl border-pink-400/40"
+          className="p-2 mb-8 border-2 shadow-2xl tab-container bg-gradient-to-br from-blue-900/90 via-blue-800/90 to-blue-700/90 backdrop-blur-xl rounded-2xl border-blue-400/30"
         >
           <button
             className={`tab-button ${activeTab === "quizzes" ? "active" : ""}`}
@@ -460,7 +476,7 @@ const Dashboard = ({ user, logout }) => {
               transition={{ duration: 0.3 }}
             >
               <div className="flex items-center justify-between mb-6">
-                <h2 className="text-2xl font-bold text-transparent font-orbitron bg-clip-text bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500">
+                <h2 className="text-2xl font-bold text-transparent font-orbitron bg-clip-text bg-gradient-to-r from-blue-300 via-blue-500 to-blue-800">
                   My Quizzes
                 </h2>
                 <div className="flex gap-2">
@@ -468,7 +484,7 @@ const Dashboard = ({ user, logout }) => {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={() => setIsCreateQuizModalOpen(true)}
-                    className="px-6 py-3 text-white transition-all duration-300 transform border-2 shadow-lg font-orbitron bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 rounded-2xl hover:from-pink-400 hover:to-yellow-400 hover:scale-105 active:scale-95 border-white/30"
+                    className="px-6 py-3 text-white transition-all duration-300 transform border-2 shadow-lg font-orbitron bg-gradient-to-r from-blue-300 via-blue-500 to-blue-800 rounded-2xl hover:from-blue-400 hover:to-blue-600 hover:scale-105 active:scale-95 border-white/30"
                   >
                     Create New Quiz
                   </motion.button>
@@ -476,7 +492,7 @@ const Dashboard = ({ user, logout }) => {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={() => navigate("/create-ai-quiz")}
-                    className="px-6 py-3 text-white transition-all duration-300 transform border-2 shadow-lg font-orbitron bg-gradient-to-br from-indigo-600 via-purple-600 to-indigo-800 rounded-2xl hover:from-purple-600 hover:to-indigo-600 hover:scale-105 active:scale-95 border-white/30"
+                    className="px-6 py-3 text-white transition-all duration-300 transform border-2 shadow-lg font-orbitron bg-gradient-to-br from-blue-700 via-blue-800 to-blue-900 rounded-2xl hover:from-blue-800 hover:to-blue-900 hover:scale-105 active:scale-95 border-white/30"
                   >
                     Generate Quiz with AI
                   </motion.button>
@@ -490,15 +506,15 @@ const Dashboard = ({ user, logout }) => {
 
               {loading ? (
                 <div className="flex justify-center py-12">
-                  <div className="w-16 h-16 border-4 border-pink-400 rounded-full border-t-transparent animate-spin"></div>
+                  <div className="w-16 h-16 border-4 border-blue-400 rounded-full border-t-transparent animate-spin"></div>
                 </div>
               ) : filteredQuizzes.length === 0 ? (
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="text-center py-12 bg-gradient-to-br from-indigo-800/90 via-purple-800/90 to-pink-800/90 backdrop-blur-xl rounded-3xl shadow-2xl border-4 border-pink-400/40"
+                  className="text-center py-12 bg-gradient-to-br from-blue-900/90 via-blue-800/90 to-blue-700/90 backdrop-blur-xl rounded-3xl shadow-2xl border-4 border-blue-400/30"
                 >
-                  <p className="text-xl text-pink-200 font-orbitron">
+                  <p className="text-xl text-blue-200 font-orbitron">
                     Không tìm thấy quiz nào phù hợp với tìm kiếm của bạn.
                   </p>
                 </motion.div>
@@ -534,7 +550,7 @@ const Dashboard = ({ user, logout }) => {
               exit={{ opacity: 0, x: 20 }}
               transition={{ duration: 0.3 }}
             >
-              <h2 className="mb-6 text-2xl font-bold text-transparent font-orbitron bg-clip-text bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500">
+              <h2 className="mb-6 text-2xl font-bold text-transparent font-orbitron bg-clip-text bg-gradient-to-r from-blue-300 via-blue-500 to-blue-800">
                 Public Quizzes
               </h2>
 
@@ -547,9 +563,9 @@ const Dashboard = ({ user, logout }) => {
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="p-8 text-center border-4 shadow-2xl bg-gradient-to-br from-indigo-800/90 via-purple-800/90 to-pink-800/90 backdrop-blur-xl rounded-3xl border-pink-400/40"
+                  className="p-8 text-center border-4 shadow-2xl bg-gradient-to-br from-blue-900/90 via-blue-800/90 to-blue-700/90 backdrop-blur-xl rounded-3xl border-blue-400/30"
                 >
-                  <p className="text-xl text-pink-200 font-orbitron">
+                  <p className="text-xl text-blue-200 font-orbitron">
                     Không tìm thấy quiz nào phù hợp với tìm kiếm của bạn.
                   </p>
                 </motion.div>
@@ -580,7 +596,7 @@ const Dashboard = ({ user, logout }) => {
               exit={{ opacity: 0, x: 20 }}
               transition={{ duration: 0.3 }}
             >
-              <h2 className="mb-6 text-2xl font-bold text-transparent font-orbitron bg-clip-text bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500">
+              <h2 className="mb-6 text-2xl font-bold text-transparent font-orbitron bg-clip-text bg-gradient-to-r from-blue-300 via-blue-500 to-blue-800">
                 My Submissions
               </h2>
               <CollapsibleSubmissionsTable submissions={submissions} />
@@ -595,7 +611,7 @@ const Dashboard = ({ user, logout }) => {
               exit={{ opacity: 0, x: 20 }}
               transition={{ duration: 0.3 }}
             >
-              <h2 className="mb-6 text-2xl font-bold text-transparent font-orbitron bg-clip-text bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500">
+              <h2 className="mb-6 text-2xl font-bold text-transparent font-orbitron bg-clip-text bg-gradient-to-r from-blue-300 via-blue-500 to-blue-800">
                 Global Leaderboard
               </h2>
               <Leaderboard />
@@ -610,10 +626,10 @@ const Dashboard = ({ user, logout }) => {
               exit={{ opacity: 0, x: 20 }}
               transition={{ duration: 0.3 }}
             >
-              <h2 className="mb-6 text-2xl font-bold text-transparent font-orbitron bg-clip-text bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500">
+              <h2 className="mb-6 text-2xl font-bold text-transparent font-orbitron bg-clip-text bg-gradient-to-r from-blue-300 via-blue-500 to-blue-800">
                 Multiplayer Quizzes
               </h2>
-              <p className="mb-8 text-pink-200 font-orbitron">
+              <p className="mb-8 text-blue-200 font-orbitron">
                 Challenge your friends or join public quiz rooms for a competitive
                 experience.
               </p>
@@ -621,12 +637,12 @@ const Dashboard = ({ user, logout }) => {
               <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                 <motion.div
                   whileHover={{ scale: 1.02 }}
-                  className="p-6 border-2 multiplayer-card bg-gradient-to-br from-indigo-900/50 via-purple-900/50 to-pink-900/50 backdrop-blur-xl rounded-2xl border-pink-400/40"
+                  className="p-6 border-2 multiplayer-card bg-gradient-to-br from-blue-900/50 via-blue-800/50 to-blue-700/50 backdrop-blur-xl rounded-2xl border-blue-400/30"
                 >
-                  <h3 className="mb-3 text-xl font-bold text-transparent font-orbitron bg-clip-text bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500">
+                  <h3 className="mb-3 text-xl font-bold text-transparent font-orbitron bg-clip-text bg-gradient-to-r from-blue-300 via-blue-500 to-blue-800">
                     Create a Room
                   </h3>
-                  <p className="mb-6 text-pink-200 font-orbitron">
+                  <p className="mb-6 text-blue-200 font-orbitron">
                     Create a multiplayer room with one of your quizzes and invite
                     others to join.
                   </p>
@@ -641,7 +657,7 @@ const Dashboard = ({ user, logout }) => {
                         navigate("/create-room");
                       }
                     }}
-                    className="w-full px-6 py-3 text-white transition-all duration-300 transform border-2 shadow-lg font-orbitron bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 rounded-xl hover:from-pink-400 hover:to-yellow-400 hover:scale-105 active:scale-95 border-white/30"
+                    className="w-full px-6 py-3 text-white transition-all duration-300 transform border-2 shadow-lg font-orbitron bg-gradient-to-r from-blue-300 via-blue-500 to-blue-800 rounded-xl hover:from-blue-400 hover:to-blue-600 hover:scale-105 active:scale-95 border-white/30"
                   >
                     Create Room
                   </motion.button>
@@ -649,12 +665,12 @@ const Dashboard = ({ user, logout }) => {
 
                 <motion.div
                   whileHover={{ scale: 1.02 }}
-                  className="p-6 border-2 multiplayer-card bg-gradient-to-br from-indigo-900/50 via-purple-900/50 to-pink-900/50 backdrop-blur-xl rounded-2xl border-pink-400/40"
+                  className="p-6 border-2 multiplayer-card bg-gradient-to-br from-blue-900/50 via-blue-800/50 to-blue-700/50 backdrop-blur-xl rounded-2xl border-blue-400/30"
                 >
-                  <h3 className="mb-3 text-xl font-bold text-transparent font-orbitron bg-clip-text bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500">
+                  <h3 className="mb-3 text-xl font-bold text-transparent font-orbitron bg-clip-text bg-gradient-to-r from-blue-300 via-blue-500 to-blue-800">
                     Join a Room
                   </h3>
-                  <p className="mb-6 text-pink-200 font-orbitron">
+                  <p className="mb-6 text-blue-200 font-orbitron">
                     Join an existing quiz room using a room code from another
                     player.
                   </p>
@@ -662,7 +678,7 @@ const Dashboard = ({ user, logout }) => {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={() => navigate("/join-room")}
-                    className="w-full px-6 py-3 text-white transition-all duration-300 transform border-2 shadow-lg font-orbitron bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 rounded-xl hover:from-pink-400 hover:to-yellow-400 hover:scale-105 active:scale-95 border-white/30"
+                    className="w-full px-6 py-3 text-white transition-all duration-300 transform border-2 shadow-lg font-orbitron bg-gradient-to-r from-blue-300 via-blue-500 to-blue-800 rounded-xl hover:from-blue-400 hover:to-blue-600 hover:scale-105 active:scale-95 border-white/30"
                   >
                     Join Room
                   </motion.button>

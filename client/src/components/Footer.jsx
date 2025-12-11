@@ -30,7 +30,7 @@ export default function Footer() {
             className="space-y-6"
           >
             <h3 className="text-2xl font-bold text-transparent bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 bg-clip-text font-orbitron">
-              CTEWhiz
+              Quiz AI
             </h3>
             <p className="leading-relaxed text-pink-200/80 font-orbitron">
               Empowering educators and students with AI-powered quiz creation
@@ -208,7 +208,7 @@ export default function Footer() {
           className="pt-8 mt-12 text-center border-t border-pink-400/20"
         >
           <p className="text-pink-200/60 font-orbitron">
-            &copy; {new Date().getFullYear()} CTEWhiz. All rights reserved.
+            &copy; {new Date().getFullYear()} QuizAI. All rights reserved.
           </p>
         </motion.div>
       </div>

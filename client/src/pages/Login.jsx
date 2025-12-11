@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { login } from "../services/api";
 import toast from "react-hot-toast";
-import { FaUserAstronaut } from "react-icons/fa";
 import "../styles/CreateRoom.css";
 
 const Login = ({ login: loginUser, user }) => {
@@ -12,7 +11,6 @@ const Login = ({ login: loginUser, user }) => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  // ✅ Redirect nếu đã đăng nhập → về dashboard
   useEffect(() => {
     if (user) {
       navigate("/dashboard");
@@ -29,64 +27,56 @@ const Login = ({ login: loginUser, user }) => {
       toast.success("Login successful!");
       navigate("/dashboard");
     } catch (err) {
-      console.error("Login error:", err);
       setError("Invalid email or password");
     } finally {
       setLoading(false);
     }
   };
+
   useEffect(() => {
     if (error) {
-      toast.error("Invalid email or password   ", { duration: 4000 });
+      toast.error("Invalid email or password", { duration: 4000 });
     }
   }, [error]);
 
   return (
-    <div className="create-room-container">
-      {/* Animated SVG background */}
-      <svg
-        className="animated-bg-svg"
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          zIndex: 0,
-          filter: "blur(2px)",
-        }}
-      >
-        <defs>
-          <radialGradient id="g1" cx="50%" cy="50%" r="80%">
-            <stop offset="0%" stopColor="#f472b6" stopOpacity="0.5" />
-            <stop offset="100%" stopColor="#6366f1" stopOpacity="0" />
-          </radialGradient>
-        </defs>
-      </svg>
+    <div className="create-room-container" style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+      
+      {/* Card Container */}
       <div
         className="create-room-card"
         style={{
-          zIndex: 1,
-          position: "relative",
           maxWidth: 900,
           padding: "2.5rem 2.5rem",
-          margin: "48px auto",
-          display: "flex"
+          display: "flex",
+          gap: "2rem",
+          alignItems: "center",
         }}
       >
-        <img src="https://haitrieu.com/wp-content/uploads/2022/01/Logo-DH-Kien-Truc-Ha-Noi-HAU-Tra-1024x1024.png" style={{
-        width: '40%',
-        height: '40%', 
-        paddingTop: '80px',
-}}/>
-        <div className="login-form">
+
+        {/* LOGO HAU (động) */}
+        <img
+          src="https://haitrieu.com/wp-content/uploads/2022/01/Logo-DH-Kien-Truc-Ha-Noi-HAU-Tra-1024x1024.png"
+          className="logo-animated"
+          style={{
+            width: "40%",
+            height: "auto",
+            paddingTop: "20px",
+            objectFit: "contain",
+          }}
+        />
+
+        {/* FORM LOGIN */}
+        <div className="login-form" style={{ flex: 1 }}>
           <div className="mb-8 text-center">
-            <h1 className="create-room-title" style={{ fontSize: "2.2rem" }}>
-              <FaUserAstronaut className="create-room-animated-icon" />
+            <h1 className="create-room-title" style={{ fontSize: "2.2rem", color: "#003A70" }}>
               Welcome Back
             </h1>
-            <p className="create-room-subtitle">Sign in to your account</p>
+            <p className="create-room-subtitle" style={{ color: "#1E74D7" }}>
+              Sign in to your account
+            </p>
           </div>
+
           {error && (
             <div className="error-message">
               <svg
@@ -105,13 +95,12 @@ const Login = ({ login: loginUser, user }) => {
               <span>{error}</span>
             </div>
           )}
+
           <form className="auth-form" onSubmit={handleSubmit}>
+            
+            {/* EMAIL INPUT */}
             <div className="form-group">
-              <label
-                className="form-label"
-                htmlFor="email"
-                style={{ color: "#ffe259" }}
-              >
+              <label className="form-label" htmlFor="email" style={{ color: "#003A70" }}>
                 Email
               </label>
               <input
@@ -122,15 +111,13 @@ const Login = ({ login: loginUser, user }) => {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email"
                 required
-                style={{ color: "#000000", backgroundColor: "#ffffff" }}
+                style={{ backgroundColor: "#ffffff", color: "#000" }}
               />
             </div>
+
+            {/* PASSWORD INPUT */}
             <div className="form-group">
-              <label
-                className="form-label"
-                htmlFor="password"
-                style={{ color: "#ffe259" }}
-              >
+              <label className="form-label" htmlFor="password" style={{ color: "#003A70" }}>
                 Password
               </label>
               <input
@@ -141,9 +128,11 @@ const Login = ({ login: loginUser, user }) => {
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Enter your password"
                 required
-                style={{ color: "#000000", backgroundColor: "#ffffff" }}
+                style={{ backgroundColor: "#ffffff", color: "#000" }}
               />
             </div>
+
+            {/* SUBMIT BUTTON */}
             <button
               type="submit"
               className="create-button"
@@ -151,34 +140,29 @@ const Login = ({ login: loginUser, user }) => {
               style={{ width: "100%", marginTop: 16 }}
             >
               {loading ? (
-                <div
-                  className="ml-44 loading-spinner"
-                  style={{ height: 24, width: 24 }}
-                ></div>
+                <div className="loading-spinner" style={{ height: 24, width: 24 }}></div>
               ) : (
                 "Sign In"
               )}
             </button>
           </form>
+
+          {/* FOOTER LINKS */}
           <div style={{ marginTop: 32, textAlign: "center" }}>
             <Link
               to="/forgot-password"
               className="auth-link"
-              style={{
-                color: "#ffe259",
-                fontWeight: 600,
-                marginBottom: 8,
-                display: "inline-block",
-              }}
+              style={{ color: "#1E74D7", fontWeight: 600 }}
             >
               Forgot password?
             </Link>
-            <p style={{ color: "#e0e7ff", marginTop: 8 }}>
+
+            <p style={{ color: "#003A70", marginTop: 8 }}>
               Don't have an account?{" "}
               <Link
                 to="/register"
                 className="auth-link"
-                style={{ color: "#f472b6", fontWeight: 600 }}
+                style={{ color: "#1E74D7", fontWeight: 600 }}
               >
                 Sign up
               </Link>

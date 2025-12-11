@@ -162,7 +162,7 @@ function App() {
               </motion.div>
 
               <h1 className="mt-6 text-5xl font-extrabold text-transparent bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 bg-clip-text drop-shadow-lg font-orbitron">
-                CTEWhiz
+                Quiz AI
               </h1>
             </div>
           </motion.div>

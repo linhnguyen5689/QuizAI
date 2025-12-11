@@ -80,7 +80,6 @@ const CreateAIQuiz = () => {
             const errorData = JSON.parse(errorText);
             errorMessage = errorData.message || errorData.error || errorMessage;
           } catch (jsonError) {
-            // If JSON parsing fails, use the raw text if it's not empty
             if (errorText && errorText.trim()) {
               errorMessage = `Server error: ${errorText.substring(0, 100)}`;
             }
@@ -95,9 +94,7 @@ const CreateAIQuiz = () => {
       let data;
       let rawText = '';
       try {
-        // First get the raw text
         rawText = await response.text();
-        // Then try to parse it
         if (!rawText || !rawText.trim()) {
           throw new Error('Empty response from server');
         }
@@ -129,7 +126,8 @@ const CreateAIQuiz = () => {
   };
 
   return (
-    <div className="relative w-screen min-h-screen overflow-x-hidden bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900">
+    <div className="relative w-screen min-h-screen overflow-x-hidden"
+         style={{ background: 'linear-gradient(180deg, #013A6B 0%, #014F86 50%, #0166A8 100%)' }}>
       {/* Animated SVG background */}
       <svg
         className="absolute top-0 left-0 z-0 w-full h-full pointer-events-none"
@@ -137,8 +135,8 @@ const CreateAIQuiz = () => {
       >
         <defs>
           <radialGradient id="g1" cx="50%" cy="50%" r="80%">
-            <stop offset="0%" stopColor="#f472b6" stopOpacity="0.5" />
-            <stop offset="100%" stopColor="#6366f1" stopOpacity="0" />
+            <stop offset="0%" stopColor="#66D9FF" stopOpacity="0.12" />
+            <stop offset="100%" stopColor="#013A6B" stopOpacity="0" />
           </radialGradient>
         </defs>
         <circle cx="80%" cy="20%" r="300" fill="url(#g1)">
@@ -169,17 +167,20 @@ const CreateAIQuiz = () => {
           <div className="flex items-center gap-2">
             <Link
               to="/dashboard"
-              className="flex items-center gap-2 text-pink-200 hover:text-white transition-all"
+              className="flex items-center gap-2 text-[#DDEEFF] hover:text-white transition-all"
             >
-              <FaArrowLeft />
+              <FaArrowLeft className="text-[#BEE6FF]" />
               <span className="font-orbitron">Back to Dashboard</span>
             </Link>
           </div>
-          <h1 className="flex items-center gap-3 text-4xl font-extrabold text-transparent md:text-5xl font-orbitron bg-clip-text bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 drop-shadow-lg">
-            <FaRobot className="inline-block text-yellow-300 animate-bounce" />
+
+          <h1 className="flex items-center gap-3 text-4xl font-extrabold md:text-5xl font-orbitron text-transparent bg-clip-text"
+              style={{ backgroundImage: 'linear-gradient(90deg,#0077D6,#0096FF,#66D9FF)', WebkitBackgroundClip: 'text' }}>
+            <FaRobot className="inline-block text-[#66D9FF] animate-bounce" />
             Create AI Quiz
-            <FaStar className="inline-block text-pink-300 animate-spin-slow" />
+            <FaStar className="inline-block text-[#A6E7FF] animate-spin-slow" />
           </h1>
+
           <div></div> {/* Empty div for flex justify-between */}
         </motion.div>
 
@@ -189,80 +190,91 @@ const CreateAIQuiz = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="max-w-4xl mx-auto"
         >
-          <div className="p-8 border-4 shadow-2xl bg-gradient-to-br from-indigo-800/90 via-purple-800/90 to-pink-800/90 backdrop-blur-xl rounded-3xl border-pink-400/40">
-            <div className="mb-8 p-6 bg-gradient-to-br from-indigo-900/50 via-purple-900/50 to-pink-900/50 rounded-2xl border-2 border-pink-400/40">
-              <h2 className="text-2xl font-bold text-transparent font-orbitron bg-clip-text bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 mb-4">
+          <div className="p-8 border-4 shadow-2xl rounded-3xl"
+               style={{
+                 background: 'linear-gradient(180deg, rgba(0,40,74,0.75), rgba(1,58,107,0.75))',
+                 borderColor: 'rgba(8,88,158,0.35)'
+               }}>
+            <div className="mb-8 p-6 rounded-2xl border-2"
+                 style={{ background: 'linear-gradient(180deg, rgba(1,58,107,0.35), rgba(1,42,74,0.25))', borderColor: 'rgba(43,108,176,0.18)' }}>
+              <h2 className="text-2xl font-bold font-orbitron mb-4 text-[#E6F9FF]">
                 How it works:
               </h2>
-              <p className="text-pink-200 font-orbitron mb-4">
+              <p className="text-[#DDEEFF] font-orbitron mb-4">
                 Enter a topic and our AI will automatically create quiz questions for you!
                 You can specify how many questions (5-30) you want, choose a category, select a language (English or Vietnamese), and add a description to guide the question generation.
               </p>
-              <p className="text-pink-200 font-orbitron">
-                <span className="text-yellow-400 font-bold">Pro tip:</span> Adding a detailed description helps the AI generate more focused and relevant questions. For example, instead of just "Solar System", you could specify "Focus on planetary moons and their unique features."
+              <p className="text-[#DDEEFF] font-orbitron">
+                <span className="text-[#66D9FF] font-bold">Pro tip:</span> Adding a detailed description helps the AI generate more focused and relevant questions. For example, instead of just "Solar System", you could specify "Focus on planetary moons and their unique features."
               </p>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label className="block text-pink-200 font-orbitron mb-2">Quiz Title</label>
+                <label className="block text-[#CFEFFF] font-orbitron mb-2">Quiz Title</label>
                 <input
                   type="text"
                   name="title"
                   value={quizData.title}
                   onChange={handleInputChange}
                   placeholder="Leave blank to auto-generate from topic"
-                  className="w-full p-3 bg-indigo-900/50 border-2 border-pink-400/40 rounded-xl text-pink-200 placeholder-pink-300/50 focus:outline-none focus:border-pink-400 font-orbitron"
+                  className="w-full p-3 rounded-xl text-[#EAF6FF] placeholder-[#CFEFFF] focus:outline-none font-orbitron"
+                  style={{ background: 'rgba(2,60,100,0.45)', border: '2px solid rgba(43,108,176,0.16)' }}
                 />
               </div>
 
               <div>
-                <label className="block text-pink-200 font-orbitron mb-2">Topic (required)</label>
+                <label className="block text-[#CFEFFF] font-orbitron mb-2">Topic (required)</label>
                 <input
                   type="text"
                   name="topic"
                   value={quizData.topic}
                   onChange={handleInputChange}
                   placeholder="e.g., Solar System, World War II, Machine Learning"
-                  className="w-full p-3 bg-indigo-900/50 border-2 border-pink-400/40 rounded-xl text-pink-200 placeholder-pink-300/50 focus:outline-none focus:border-pink-400 font-orbitron"
+                  className="w-full p-3 rounded-xl text-[#EAF6FF] placeholder-[#CFEFFF] focus:outline-none font-orbitron"
+                  style={{ background: 'rgba(2,60,100,0.45)', border: '2px solid rgba(43,108,176,0.16)' }}
                   required
                 />
-                <p className="text-sm text-pink-300/80 mt-1 font-orbitron">
+                <p className="text-sm text-[#9FD7FF] mt-1 font-orbitron">
                   Be specific for better results: "Ancient Egyptian Mythology" instead of just "History"
                 </p>
               </div>
 
               <div>
-                <label className="block text-pink-200 font-orbitron mb-2">Description</label>
+                <label className="block text-[#CFEFFF] font-orbitron mb-2">Description</label>
                 <textarea
                   name="description"
                   value={quizData.description}
                   onChange={handleInputChange}
                   placeholder="Add specific details or context to guide the AI in generating better questions"
-                  className="w-full p-3 bg-indigo-900/50 border-2 border-pink-400/40 rounded-xl text-pink-200 placeholder-pink-300/50 focus:outline-none focus:border-pink-400 font-orbitron h-32"
+                  className="w-full p-3 rounded-xl text-[#EAF6FF] placeholder-[#CFEFFF] focus:outline-none font-orbitron h-32"
+                  style={{ background: 'rgba(2,60,100,0.45)', border: '2px solid rgba(43,108,176,0.16)' }}
                 />
-                <p className="text-sm text-pink-300/80 mt-1 font-orbitron">
+                <p className="text-sm text-[#9FD7FF] mt-1 font-orbitron">
                   The description will be used to help the AI understand the specific focus and context of your quiz
                 </p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-pink-200 font-orbitron mb-2">Category</label>
+                  <label className="block text-[#CFEFFF] font-orbitron mb-2">Category</label>
                   <select
                     name="category"
                     value={quizData.category}
                     onChange={handleInputChange}
-                    className="w-full p-3 bg-indigo-900/50 border-2 border-pink-400/40 rounded-xl text-pink-200 focus:outline-none focus:border-pink-400 font-orbitron"
+                    className="w-full p-3 rounded-xl text-[#EAF6FF] focus:outline-none font-orbitron"
+                    style={{ background: 'rgba(2,60,100,0.45)', border: '2px solid rgba(43,108,176,0.16)' }}
                   >
                     {categories.map(category => (
-                      <option key={category} value={category} className="bg-indigo-900">{category}</option>
+                      <option key={category} value={category} className="bg-[#013A6B] text-[#EAF6FF]">
+                        {category}
+                      </option>
                     ))}
                   </select>
                 </div>
 
                 <div>
-                  <label className="block text-pink-200 font-orbitron mb-2">Number of Questions (5-30)</label>
+                  <label className="block text-[#CFEFFF] font-orbitron mb-2">Number of Questions (5-30)</label>
                   <input
                     type="number"
                     name="numQuestions"
@@ -270,35 +282,36 @@ const CreateAIQuiz = () => {
                     onChange={handleNumberInput}
                     min="5"
                     max="30"
-                    className="w-full p-3 bg-indigo-900/50 border-2 border-pink-400/40 rounded-xl text-pink-200 focus:outline-none focus:border-pink-400 font-orbitron"
+                    className="w-full p-3 rounded-xl text-[#EAF6FF] focus:outline-none font-orbitron"
+                    style={{ background: 'rgba(2,60,100,0.45)', border: '2px solid rgba(43,108,176,0.16)' }}
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-pink-200 font-orbitron mb-2">Language</label>
+                <label className="block text-[#CFEFFF] font-orbitron mb-2">Language</label>
                 <div className="flex space-x-6">
-                  <label className="flex items-center">
+                  <label className="flex items-center text-[#EAF6FF]">
                     <input
                       type="radio"
                       name="language"
                       value="english"
                       checked={quizData.language === 'english'}
                       onChange={handleInputChange}
-                      className="h-5 w-5 text-pink-400 border-pink-400/40 focus:ring-pink-400"
+                      className="h-5 w-5 text-[#66D9FF] border-[#66D9FF] focus:ring-[#66D9FF]"
                     />
-                    <span className="ml-2 text-pink-200 font-orbitron">English</span>
+                    <span className="ml-2">English</span>
                   </label>
-                  <label className="flex items-center">
+                  <label className="flex items-center text-[#EAF6FF]">
                     <input
                       type="radio"
                       name="language"
                       value="vietnamese"
                       checked={quizData.language === 'vietnamese'}
                       onChange={handleInputChange}
-                      className="h-5 w-5 text-pink-400 border-pink-400/40 focus:ring-pink-400"
+                      className="h-5 w-5 text-[#66D9FF] border-[#66D9FF] focus:ring-[#66D9FF]"
                     />
-                    <span className="ml-2 text-pink-200 font-orbitron">Vietnamese</span>
+                    <span className="ml-2">Vietnamese</span>
                   </label>
                 </div>
               </div>
@@ -310,9 +323,9 @@ const CreateAIQuiz = () => {
                   name="isPublic"
                   checked={quizData.isPublic}
                   onChange={handleInputChange}
-                  className="h-5 w-5 text-pink-400 border-pink-400/40 focus:ring-pink-400"
+                  className="h-5 w-5 text-[#66D9FF] border-[#66D9FF] focus:ring-[#66D9FF]"
                 />
-                <label htmlFor="isPublic" className="ml-2 text-pink-200 font-orbitron">
+                <label htmlFor="isPublic" className="ml-2 text-[#EAF6FF] font-orbitron">
                   Make this quiz public
                 </label>
               </div>
@@ -323,16 +336,25 @@ const CreateAIQuiz = () => {
                   whileTap={{ scale: 0.95 }}
                   type="button"
                   onClick={() => navigate('/dashboard')}
-                  className="px-6 py-3 text-pink-200 transition-all duration-300 transform border-2 shadow-lg font-orbitron bg-gradient-to-br from-indigo-900/50 via-purple-900/50 to-pink-900/50 rounded-xl hover:from-pink-900/50 hover:to-indigo-900/50 hover:scale-105 active:scale-95 border-pink-400/40"
+                  className="px-6 py-3 text-[#DDEEFF] transition-all duration-300 transform border-2 rounded-xl font-orbitron"
+                  style={{
+                    background: 'rgba(1,42,74,0.35)',
+                    borderColor: 'rgba(43,108,176,0.18)'
+                  }}
                 >
                   Cancel
                 </motion.button>
+
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   type="submit"
                   disabled={isLoading || !quizData.topic}
-                  className={`px-6 py-3 text-white transition-all duration-300 transform border-2 shadow-lg font-orbitron bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 rounded-xl hover:from-pink-400 hover:to-yellow-400 hover:scale-105 active:scale-95 border-white/30 ${isLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
+                  className={`px-6 py-3 text-white transition-all duration-300 transform border-2 rounded-xl font-orbitron ${isLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
+                  style={{
+                    background: 'linear-gradient(90deg,#0077D6,#0096FF,#66D9FF)',
+                    borderColor: 'rgba(255,255,255,0.06)'
+                  }}
                 >
                   {isLoading ? (
                     <div className="flex items-center space-x-2">
@@ -344,7 +366,7 @@ const CreateAIQuiz = () => {
                     </div>
                   ) : (
                     <div className="flex items-center space-x-2">
-                      <FaRobot className="w-5 h-5" />
+                      <FaRobot className="w-5 h-5 text-[#E6F9FF]" />
                       <span>Generate Quiz</span>
                     </div>
                   )}
@@ -358,4 +380,4 @@ const CreateAIQuiz = () => {
   );
 };
 
-export default CreateAIQuiz; 
+export default CreateAIQuiz;

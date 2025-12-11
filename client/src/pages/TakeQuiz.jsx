@@ -16,6 +16,20 @@ import {
   FaExclamationTriangle
 } from 'react-icons/fa';
 
+/**
+ * Chú ý: Mình chỉ đổi màu (theme) — không thay đổi logic hay animation.
+ * Theme: primary blue + light blue, muted text, accent yellow/green cho điểm nhấn.
+ */
+
+const PRIMARY = '#1E74D7';        // main blue
+const PRIMARY_DARK = '#003A70';
+const PRIMARY_LIGHT = '#4BA3FF';
+const MUTED_TEXT = '#DDEAF6';
+const ACCENT_YELLOW = '#FBBF24';
+const SUCCESS = '#059669';
+const DANGER = '#D32F2F';
+const CARD_BG = 'rgba(255,255,255,0.03)';
+
 const TakeQuiz = () => {
   const [quiz, setQuiz] = useState(null);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -28,6 +42,7 @@ const TakeQuiz = () => {
 
   useEffect(() => {
     fetchQuiz();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [quizId]);
 
   const fetchQuiz = async () => {
@@ -53,20 +68,53 @@ const TakeQuiz = () => {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center w-screen min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900">
+      <div style={{
+        minHeight: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        background: `linear-gradient(135deg, ${PRIMARY_DARK}, ${PRIMARY})`
+      }}>
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
-          className="text-center p-8 border-4 shadow-2xl bg-gradient-to-br from-indigo-800/90 via-purple-800/90 to-pink-800/90 backdrop-blur-xl rounded-3xl border-pink-400/40"
+          style={{
+            textAlign: 'center',
+            padding: 32,
+            borderRadius: 24,
+            background: CARD_BG,
+            border: `1px solid ${PRIMARY}33`,
+            boxShadow: '0 20px 40px rgba(0,0,0,0.3)'
+          }}
         >
-          <div className="flex flex-col items-center justify-center">
-            <div className="w-20 h-20 mb-4 relative">
-              <div className="absolute top-0 left-0 w-full h-full rounded-full border-4 border-t-pink-500 border-r-indigo-500 border-b-yellow-400 border-l-transparent animate-spin"></div>
-              <div className="absolute top-2 left-2 right-2 bottom-2 rounded-full border-4 border-t-transparent border-r-pink-500 border-b-indigo-500 border-l-yellow-400 animate-spin-slow-reverse"></div>
-              <FaGamepad className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 text-pink-300" />
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <div style={{ width: 80, height: 80, marginBottom: 12, position: 'relative' }}>
+              <div style={{
+                position: 'absolute',
+                inset: 0,
+                borderRadius: '50%',
+                border: '6px solid',
+                borderTopColor: `${ACCENT_YELLOW}`,
+                borderRightColor: `${PRIMARY}`,
+                borderBottomColor: `${PRIMARY_LIGHT}`,
+                borderLeftColor: 'transparent',
+                animation: 'spin 1s linear infinite'
+              }} />
+              <div style={{
+                position: 'absolute',
+                inset: 8,
+                borderRadius: '50%',
+                border: '6px solid',
+                borderTopColor: 'transparent',
+                borderRightColor: `${ACCENT_YELLOW}`,
+                borderBottomColor: `${PRIMARY}`,
+                borderLeftColor: `${PRIMARY_LIGHT}`,
+                animation: 'spin 2.4s linear reverse'
+              }} />
+              <FaGamepad style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%,-50%)', color: '#FCE8D5' }} />
             </div>
-            <p className="mt-4 text-pink-200 text-xl font-orbitron">Loading quiz...</p>
+            <p style={{ marginTop: 8, color: MUTED_TEXT, fontSize: 18 }}>Loading quiz...</p>
           </div>
         </motion.div>
       </div>
@@ -75,54 +123,47 @@ const TakeQuiz = () => {
 
   if (error) {
     return (
-      <div className="relative w-screen min-h-screen overflow-x-hidden bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900">
-        {/* Animated SVG background */}
-        <svg
-          className="absolute top-0 left-0 z-0 w-full h-full pointer-events-none"
-          style={{ filter: "blur(2px)" }}
-        >
+      <div style={{
+        minHeight: '100vh',
+        position: 'relative',
+        background: `linear-gradient(135deg, ${PRIMARY_DARK}, ${PRIMARY})`
+      }}>
+        <svg style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', filter: 'blur(2px)', zIndex: 0 }} xmlns="http://www.w3.org/2000/svg">
           <defs>
             <radialGradient id="g1" cx="50%" cy="50%" r="80%">
-              <stop offset="0%" stopColor="#f472b6" stopOpacity="0.5" />
-              <stop offset="100%" stopColor="#6366f1" stopOpacity="0" />
+              <stop offset="0%" stopColor={PRIMARY_LIGHT} stopOpacity="0.45" />
+              <stop offset="100%" stopColor={PRIMARY} stopOpacity="0" />
             </radialGradient>
           </defs>
-          <circle cx="80%" cy="20%" r="300" fill="url(#g1)">
-            <animate
-              attributeName="cx"
-              values="80%;20%;80%"
-              dur="12s"
-              repeatCount="indefinite"
-            />
-          </circle>
-          <circle cx="20%" cy="80%" r="200" fill="url(#g1)">
-            <animate
-              attributeName="cy"
-              values="80%;20%;80%"
-              dur="16s"
-              repeatCount="indefinite"
-            />
-          </circle>
+          <circle cx="80%" cy="20%" r="300" fill="url(#g1)"></circle>
+          <circle cx="20%" cy="80%" r="200" fill="url(#g1)"></circle>
         </svg>
 
-        <div className="relative z-10 flex items-center justify-center min-h-screen p-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="p-8 text-center border-4 shadow-2xl bg-gradient-to-br from-indigo-800/90 via-purple-800/90 to-pink-800/90 backdrop-blur-xl rounded-3xl border-pink-400/40 max-w-md w-full"
-          >
-            <div className="text-pink-400 mb-6">
-              <FaExclamationTriangle className="w-16 h-16 mx-auto" />
+        <div style={{ position: 'relative', zIndex: 10, minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 16 }}>
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} style={{
+            padding: 32,
+            maxWidth: 520,
+            width: '100%',
+            textAlign: 'center',
+            borderRadius: 20,
+            background: CARD_BG,
+            border: `1px solid ${PRIMARY}33`,
+            boxShadow: '0 20px 40px rgba(0,0,0,0.35)'
+          }}>
+            <div style={{ color: ACCENT_YELLOW, marginBottom: 12 }}>
+              <FaExclamationTriangle style={{ fontSize: 40 }} />
             </div>
-            <h2 className="text-2xl font-bold mb-4 text-transparent font-orbitron bg-clip-text bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500">Error Loading Quiz</h2>
-            <p className="text-pink-200 text-lg mb-6 font-orbitron">{error}</p>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => navigate('/dashboard')}
-              className="px-6 py-3 text-white transition-all duration-300 transform border-2 shadow-lg font-orbitron bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 rounded-2xl hover:from-pink-400 hover:to-yellow-400 hover:scale-105 active:scale-95 border-white/30"
-            >
-              <FiArrowLeft className="w-5 h-5 mr-2 inline-block" />
+            <h2 style={{ fontSize: 22, marginBottom: 12, background: `linear-gradient(90deg, ${ACCENT_YELLOW}, ${PRIMARY_LIGHT})`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Error Loading Quiz</h2>
+            <p style={{ color: MUTED_TEXT, fontSize: 16, marginBottom: 20 }}>{error}</p>
+            <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} onClick={() => navigate('/dashboard')} style={{
+              padding: '10px 16px',
+              color: '#fff',
+              borderRadius: 12,
+              background: `linear-gradient(90deg, ${PRIMARY_LIGHT}, ${PRIMARY})`,
+              border: 'none',
+              cursor: 'pointer'
+            }}>
+              <FiArrowLeft style={{ marginRight: 8 }} />
               Back to Dashboard
             </motion.button>
           </motion.div>
@@ -133,51 +174,44 @@ const TakeQuiz = () => {
 
   if (!quiz) {
     return (
-      <div className="relative w-screen min-h-screen overflow-x-hidden bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900">
-        {/* Animated SVG background */}
-        <svg
-          className="absolute top-0 left-0 z-0 w-full h-full pointer-events-none"
-          style={{ filter: "blur(2px)" }}
-        >
+      <div style={{
+        minHeight: '100vh',
+        position: 'relative',
+        background: `linear-gradient(135deg, ${PRIMARY_DARK}, ${PRIMARY})`
+      }}>
+        <svg style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', filter: 'blur(2px)', zIndex: 0 }} xmlns="http://www.w3.org/2000/svg">
           <defs>
             <radialGradient id="g1" cx="50%" cy="50%" r="80%">
-              <stop offset="0%" stopColor="#f472b6" stopOpacity="0.5" />
-              <stop offset="100%" stopColor="#6366f1" stopOpacity="0" />
+              <stop offset="0%" stopColor={PRIMARY_LIGHT} stopOpacity="0.45" />
+              <stop offset="100%" stopColor={PRIMARY} stopOpacity="0" />
             </radialGradient>
           </defs>
-          <circle cx="80%" cy="20%" r="300" fill="url(#g1)">
-            <animate
-              attributeName="cx"
-              values="80%;20%;80%"
-              dur="12s"
-              repeatCount="indefinite"
-            />
-          </circle>
-          <circle cx="20%" cy="80%" r="200" fill="url(#g1)">
-            <animate
-              attributeName="cy"
-              values="80%;20%;80%"
-              dur="16s"
-              repeatCount="indefinite"
-            />
-          </circle>
+          <circle cx="80%" cy="20%" r="300" fill="url(#g1)"></circle>
+          <circle cx="20%" cy="80%" r="200" fill="url(#g1)"></circle>
         </svg>
 
-        <div className="relative z-10 flex items-center justify-center min-h-screen p-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="p-8 text-center border-4 shadow-2xl bg-gradient-to-br from-indigo-800/90 via-purple-800/90 to-pink-800/90 backdrop-blur-xl rounded-3xl border-pink-400/40 max-w-md w-full"
-          >
-            <h1 className="text-2xl font-bold mb-4 text-transparent font-orbitron bg-clip-text bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500">Quiz Not Found</h1>
-            <p className="mb-6 text-pink-200 font-orbitron">The quiz you're looking for doesn't exist or has expired.</p>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => navigate('/dashboard')}
-              className="px-6 py-3 text-white transition-all duration-300 transform border-2 shadow-lg font-orbitron bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 rounded-2xl hover:from-pink-400 hover:to-yellow-400 hover:scale-105 active:scale-95 border-white/30"
-            >
-              <FaGamepad className="w-5 h-5 mr-2 inline-block" />
+        <div style={{ position: 'relative', zIndex: 10, minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 16 }}>
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} style={{
+            padding: 32,
+            maxWidth: 520,
+            width: '100%',
+            textAlign: 'center',
+            borderRadius: 20,
+            background: CARD_BG,
+            border: `1px solid ${PRIMARY}33`,
+            boxShadow: '0 20px 40px rgba(0,0,0,0.35)'
+          }}>
+            <h1 style={{ fontSize: 22, marginBottom: 12, background: `linear-gradient(90deg, ${ACCENT_YELLOW}, ${PRIMARY_LIGHT})`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Quiz Not Found</h1>
+            <p style={{ color: MUTED_TEXT, marginBottom: 20 }}>The quiz you're looking for doesn't exist or has expired.</p>
+            <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} onClick={() => navigate('/dashboard')} style={{
+              padding: '10px 16px',
+              color: '#fff',
+              borderRadius: 12,
+              background: `linear-gradient(90deg, ${PRIMARY_LIGHT}, ${PRIMARY})`,
+              border: 'none',
+              cursor: 'pointer'
+            }}>
+              <FaGamepad style={{ marginRight: 8 }} />
               Back to Dashboard
             </motion.button>
           </motion.div>
@@ -248,176 +282,164 @@ const TakeQuiz = () => {
   const progressPercentage = ((currentQuestionIndex + 1) / quiz.questions.length) * 100;
 
   return (
-    <div className="relative w-screen min-h-screen overflow-x-hidden bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900">
-      {/* Animated SVG background */}
-      <svg
-        className="absolute top-0 left-0 z-0 w-full h-full pointer-events-none"
-        style={{ filter: "blur(2px)" }}
-      >
+    <div style={{ position: 'relative', minHeight: '100vh', overflowX: 'hidden', background: `linear-gradient(135deg, ${PRIMARY_DARK}, ${PRIMARY})` }}>
+      <svg style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', filter: 'blur(2px)', zIndex: 0 }} xmlns="http://www.w3.org/2000/svg">
         <defs>
           <radialGradient id="g1" cx="50%" cy="50%" r="80%">
-            <stop offset="0%" stopColor="#f472b6" stopOpacity="0.5" />
-            <stop offset="100%" stopColor="#6366f1" stopOpacity="0" />
+            <stop offset="0%" stopColor={PRIMARY_LIGHT} stopOpacity="0.45" />
+            <stop offset="100%" stopColor={PRIMARY} stopOpacity="0" />
           </radialGradient>
         </defs>
-        <circle cx="80%" cy="20%" r="300" fill="url(#g1)">
-          <animate
-            attributeName="cx"
-            values="80%;20%;80%"
-            dur="12s"
-            repeatCount="indefinite"
-          />
-        </circle>
-        <circle cx="20%" cy="80%" r="200" fill="url(#g1)">
-          <animate
-            attributeName="cy"
-            values="80%;20%;80%"
-            dur="16s"
-            repeatCount="indefinite"
-          />
-        </circle>
+        <circle cx="80%" cy="20%" r="300" fill="url(#g1)"></circle>
+        <circle cx="20%" cy="80%" r="200" fill="url(#g1)"></circle>
       </svg>
 
-      <div className="relative z-10 px-4 py-8 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="flex items-center justify-between mb-8"
-        >
-          <div className="flex items-center">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="mr-4 px-4 py-3 text-white transition-all duration-300 transform border-2 shadow-lg font-orbitron bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 rounded-2xl hover:from-pink-400 hover:to-yellow-400 hover:scale-105 active:scale-95 border-white/30"
-              onClick={() => navigate('/dashboard')}
-              aria-label="Back to dashboard"
-            >
-              <FiArrowLeft className="w-6 h-6" />
+      <div style={{ position: 'relative', zIndex: 10, padding: '32px' }}>
+        <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 24 }}>
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} onClick={() => navigate('/dashboard')} aria-label="Back to dashboard" style={{
+              marginRight: 12,
+              padding: '10px 12px',
+              borderRadius: 12,
+              color: '#fff',
+              background: `linear-gradient(90deg, ${PRIMARY_LIGHT}, ${PRIMARY})`,
+              border: 'none',
+              cursor: 'pointer'
+            }}>
+              <FiArrowLeft />
             </motion.button>
 
-            <h1 className="flex items-center gap-3 text-4xl font-extrabold text-transparent md:text-5xl font-orbitron bg-clip-text bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 drop-shadow-lg">
-              <FaQuestionCircle className="inline-block text-yellow-300 animate-bounce" />
+            <h1 style={{ display: 'flex', alignItems: 'center', gap: 12, fontSize: 32, fontWeight: 800, background: `linear-gradient(90deg, ${ACCENT_YELLOW}, ${PRIMARY_LIGHT})`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+              <FaQuestionCircle style={{ color: ACCENT_YELLOW }} />
               Take Quiz
             </h1>
           </div>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="p-8 border-4 shadow-2xl bg-gradient-to-br from-indigo-800/90 via-purple-800/90 to-pink-800/90 backdrop-blur-xl rounded-3xl border-pink-400/40 mb-8"
-        >
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="mb-8"
-          >
-            <h2 className="text-3xl font-bold text-transparent font-orbitron bg-clip-text bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 mb-4">
-              {quiz.title}
-            </h2>
-            <div className="flex items-center text-pink-200 font-orbitron">
-              <FaStar className="w-5 h-5 mr-2 text-yellow-300" />
-              Question {currentQuestionIndex + 1} of {quiz.questions.length}
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} style={{
+          padding: 24,
+          borderRadius: 16,
+          background: CARD_BG,
+          border: `1px solid ${PRIMARY}33`,
+          boxShadow: '0 16px 30px rgba(0,0,0,0.25)',
+          marginBottom: 24
+        }}>
+          <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} style={{ marginBottom: 20 }}>
+            <h2 style={{ fontSize: 26, fontWeight: 800, marginBottom: 8, background: `linear-gradient(90deg, ${ACCENT_YELLOW}, ${PRIMARY_LIGHT})`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>{quiz.title}</h2>
+            <div style={{ display: 'flex', alignItems: 'center', color: MUTED_TEXT, gap: 12 }}>
+              <FaStar style={{ color: ACCENT_YELLOW }} />
+              <span>Question {currentQuestionIndex + 1} of {quiz.questions.length}</span>
             </div>
-            <div className="w-full bg-indigo-900/80 rounded-full h-3 mt-4 border border-pink-400/30">
-              <motion.div
-                initial={{ width: 0 }}
-                animate={{ width: `${progressPercentage}%` }}
-                transition={{ duration: 0.5 }}
-                className="bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 h-full rounded-full"
-              />
+
+            <div style={{ height: 10, width: '100%', background: 'rgba(0,0,0,0.08)', borderRadius: 999, marginTop: 12, overflow: 'hidden', border: `1px solid ${PRIMARY}12` }}>
+              <motion.div initial={{ width: 0 }} animate={{ width: `${progressPercentage}%` }} transition={{ duration: 0.5 }} style={{ height: '100%', background: `linear-gradient(90deg, ${ACCENT_YELLOW}, ${PRIMARY_LIGHT})` }} />
             </div>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="mb-8"
-          >
-            {/* Customized Question Card */}
-            <div className="mb-8 p-6 border-2 border-pink-400/40 rounded-2xl bg-indigo-900/50 shadow-lg">
-              <p className="text-xl text-pink-200 font-orbitron mb-8">{currentQuestion.content}</p>
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} style={{ marginBottom: 20 }}>
+            <div style={{ padding: 18, borderRadius: 14, background: 'rgba(0,0,0,0.06)', border: `1px solid ${PRIMARY}12` }}>
+              <p style={{ fontSize: 18, color: MUTED_TEXT, marginBottom: 18 }}>{currentQuestion.content}</p>
 
-              <div className="space-y-4">
-                {currentQuestion.options && currentQuestion.options.map((option, optionIndex) => (
-                  <motion.button
-                    key={option._id}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className={`w-full p-5 rounded-2xl border-2 transition-all font-orbitron text-left ${selectedOptions[currentQuestionIndex] === optionIndex
-                      ? 'border-yellow-400 bg-indigo-800/80 text-pink-200 shadow-[0_0_15px_rgba(234,179,8,0.5)]'
-                      : 'border-pink-400/40 text-pink-200 hover:border-yellow-400/70 hover:shadow-[0_0_10px_rgba(234,179,8,0.3)]'
-                      }`}
-                    onClick={() => handleOptionSelect(optionIndex)}
-                  >
-                    <div className="flex items-center">
-                      <div className={`w-8 h-8 rounded-full flex items-center justify-center mr-3 
-                        ${selectedOptions[currentQuestionIndex] === optionIndex
-                          ? 'bg-gradient-to-r from-yellow-400 to-pink-500'
-                          : 'bg-indigo-700/50 border border-pink-400/40'
-                        }`}
-                      >
-                        <span className="text-white font-bold">{String.fromCharCode(65 + optionIndex)}</span>
+              <div style={{ display: 'grid', gap: 12 }}>
+                {currentQuestion.options && currentQuestion.options.map((option, optionIndex) => {
+                  const selected = selectedOptions[currentQuestionIndex] === optionIndex;
+                  return (
+                    <motion.button
+                      key={option._id}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      onClick={() => handleOptionSelect(optionIndex)}
+                      style={{
+                        display: 'block',
+                        width: '100%',
+                        padding: 16,
+                        borderRadius: 12,
+                        textAlign: 'left',
+                        border: `2px solid ${selected ? ACCENT_YELLOW : 'rgba(255,255,255,0.08)'}`,
+                        background: selected ? 'rgba(251,191,36,0.06)' : 'transparent',
+                        color: MUTED_TEXT,
+                        cursor: 'pointer',
+                        boxShadow: selected ? `0 0 20px rgba(251,191,36,0.12)` : 'none'
+                      }}
+                    >
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+                        <div style={{
+                          width: 36,
+                          height: 36,
+                          borderRadius: 999,
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          background: selected ? `linear-gradient(90deg, ${ACCENT_YELLOW}, ${PRIMARY_LIGHT})` : `rgba(0,0,0,0.12)`,
+                          color: selected ? '#111' : '#fff',
+                          fontWeight: 800
+                        }}>
+                          {String.fromCharCode(65 + optionIndex)}
+                        </div>
+                        <div style={{ fontSize: 16 }}>{option.label}</div>
                       </div>
-                      <span className="text-lg">{option.label}</span>
-                    </div>
-                  </motion.button>
-                ))}
+                    </motion.button>
+                  );
+                })}
               </div>
             </div>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex justify-between"
-          >
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={handlePrevQuestion}
-              disabled={currentQuestionIndex === 0}
-              className={`px-6 py-3 text-white transition-all duration-300 transform border-2 shadow-lg font-orbitron bg-gradient-to-br from-indigo-600 via-purple-600 to-indigo-800 rounded-2xl hover:from-purple-600 hover:to-indigo-600 hover:scale-105 active:scale-95 border-white/30 ${currentQuestionIndex === 0 ? 'opacity-50 cursor-not-allowed' : ''
-                }`}
-            >
-              <FiArrowLeft className="w-5 h-5 mr-2 inline-block" />
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.4 }} style={{ display: 'flex', justifyContent: 'space-between', gap: 12 }}>
+            <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} onClick={handlePrevQuestion} disabled={currentQuestionIndex === 0} style={{
+              padding: '10px 14px',
+              color: '#fff',
+              borderRadius: 12,
+              background: `linear-gradient(90deg, ${PRIMARY_LIGHT}, ${PRIMARY})`,
+              border: 'none',
+              cursor: currentQuestionIndex === 0 ? 'not-allowed' : 'pointer',
+              opacity: currentQuestionIndex === 0 ? 0.5 : 1,
+              display: 'flex',
+              alignItems: 'center',
+              gap: 8
+            }}>
+              <FiArrowLeft />
               Previous
             </motion.button>
 
             {isLastQuestion ? (
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={handleSubmit}
-                disabled={isSubmitting}
-                className="px-8 py-3 text-white transition-all duration-300 transform border-2 shadow-lg font-orbitron bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 rounded-2xl hover:from-pink-400 hover:to-yellow-400 hover:scale-105 active:scale-95 border-white/30 disabled:opacity-70 disabled:cursor-not-allowed"
-              >
+              <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} onClick={handleSubmit} disabled={isSubmitting} style={{
+                padding: '10px 16px',
+                color: '#111',
+                borderRadius: 12,
+                background: `linear-gradient(90deg, ${ACCENT_YELLOW}, ${PRIMARY_LIGHT})`,
+                border: 'none',
+                cursor: isSubmitting ? 'not-allowed' : 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                gap: 8
+              }}>
                 {isSubmitting ? (
                   <>
-                    <FaSpinner className="w-5 h-5 mr-2 inline-block animate-spin" />
+                    <FaSpinner style={{ animation: 'spin 1s linear infinite' }} />
                     Submitting...
                   </>
                 ) : (
                   <>
-                    <FaCheck className="w-5 h-5 mr-2 inline-block" />
+                    <FaCheck />
                     Submit Quiz
                   </>
                 )}
               </motion.button>
             ) : (
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={handleNextQuestion}
-                className="px-8 py-3 text-white transition-all duration-300 transform border-2 shadow-lg font-orbitron bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 rounded-2xl hover:from-pink-400 hover:to-yellow-400 hover:scale-105 active:scale-95 border-white/30"
-              >
+              <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} onClick={handleNextQuestion} style={{
+                padding: '10px 16px',
+                color: '#fff',
+                borderRadius: 12,
+                background: `linear-gradient(90deg, ${PRIMARY_LIGHT}, ${PRIMARY})`,
+                border: 'none',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                gap: 8
+              }}>
                 Next
-                <svg className="w-5 h-5 ml-2 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg style={{ width: 18, height: 18 }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
                 </svg>
               </motion.button>

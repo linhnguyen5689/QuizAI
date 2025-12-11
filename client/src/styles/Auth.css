@@ -1,46 +1,59 @@
-/* Auth.css - Styles for authentication pages */
+/* Auth.css - HAU theme (Hanoi Architectural University) */
+
+/* ==========================================================================
+   Theme variables (HAU palette)
+   ========================================================================== */
 :root {
-  --primary-gradient: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
-  --secondary-gradient: linear-gradient(135deg, #10B981 0%, #059669 100%);
-  --accent-gradient: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
-  --danger-gradient: linear-gradient(135deg, #EF4444 0%, #DC2626 100%);
-  --primary-color: #6366F1;
-  --secondary-color: #10B981;
-  --accent-color: #F59E0B;
-  --danger-color: #EF4444;
-  --text-primary: #1F2937;
-  --text-secondary: #4B5563;
-  --text-tertiary: #6B7280;
-  --bg-primary: #F9FAFB;
-  --bg-secondary: #FFFFFF;
-  --bg-tertiary: #F3F4F6;
-  --border-color: #E5E7EB;
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.05);
-  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.1);
+  --primary-dark: #003A70;      /* deep HAU blue */
+  --primary: #1E74D7;           /* main HAU blue */
+  --primary-light: #4BA3FF;     /* lighter accent */
+
+  --success: #059669;           /* keep green for success */
+  --danger: #D32F2F;            /* danger red */
+
+  --text-primary: #0F1724;      /* dark text */
+  --text-secondary: #475569;    /* secondary text */
+  --text-tertiary: #6B7280;     /* tertiary text */
+
+  --bg-primary: #F5F7FA;        /* page background */
+  --bg-card: #FFFFFF;           /* card background */
+  --bg-alt: #EDF6FF;            /* subtle blue alt */
+
+  --border-color: #DDEAF6;     /* light blue border */
+
+  --shadow-sm: 0 1px 3px rgba(0, 58, 112, 0.06);
+  --shadow-md: 0 6px 18px rgba(0, 58, 112, 0.10);
+  --shadow-lg: 0 14px 40px rgba(0, 58, 112, 0.12);
+
+  --primary-gradient: linear-gradient(135deg, #1E74D7 0%, #003A70 100%);
+  --soft-gradient: linear-gradient(135deg, #E8F7FF 0%, #DFF4FF 100%);
 }
 
-/* Auth container */
+/* ==========================================================================
+   Auth container
+   ========================================================================== */
 .auth-container {
   min-height: 100vh;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #E6F0F3 0%, #D2F2F4 100%);
+  background: var(--soft-gradient);
   padding: 2rem;
   box-sizing: border-box;
 }
 
-/* Auth card */
+/* ==========================================================================
+   Auth card
+   ========================================================================== */
 .auth-card {
-  background-color: var(--bg-secondary);
-  border-radius: 1.5rem;
+  background-color: var(--bg-card);
+  border-radius: 1.25rem;
   box-shadow: var(--shadow-lg);
   width: 100%;
-  max-width: 450px;
-  padding: 2.5rem;
-  border-top: 4px solid var(--primary-color);
+  max-width: 480px;
+  padding: 2.25rem;
+  border-top: 4px solid var(--primary);
   position: relative;
   overflow: hidden;
 }
@@ -53,34 +66,38 @@
   width: 100%;
   height: 5px;
   background: var(--primary-gradient);
-  opacity: 0.8;
+  opacity: 0.95;
 }
 
-/* Auth header */
+/* ==========================================================================
+   Auth header
+   ========================================================================== */
 .auth-header {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1.75rem;
 }
 
 .auth-title {
-  font-size: 2rem;
+  font-size: 1.95rem;
   font-weight: 800;
-  color: var(--text-primary);
-  margin-bottom: 0.5rem;
-  letter-spacing: -0.025em;
+  color: var(--primary-dark);
+  margin-bottom: 0.35rem;
+  letter-spacing: -0.02em;
 }
 
 .auth-subtitle {
-  color: var(--text-tertiary);
-  font-size: 1rem;
-  margin-bottom: 1.5rem;
+  color: var(--text-secondary);
+  font-size: 0.98rem;
+  margin-bottom: 1.25rem;
 }
 
-/* Auth form */
+/* ==========================================================================
+   Auth form
+   ========================================================================== */
 .auth-form {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.25rem;
 }
 
 .form-group {
@@ -90,8 +107,8 @@
 }
 
 .form-label {
-  font-weight: 600;
-  color: var(--text-primary);
+  font-weight: 700;
+  color: var(--primary-dark);
   font-size: 0.95rem;
 }
 
@@ -101,21 +118,26 @@
   border: 1px solid var(--border-color);
   border-radius: 0.75rem;
   font-size: 1rem;
-  transition: all 0.2s ease;
-  background-color: var(--bg-tertiary);
+  transition: all 0.18s ease;
+  background-color: #FFFFFF;
+  color: var(--text-primary);
+  box-shadow: var(--shadow-sm);
 }
 
 .form-input:focus {
   outline: none;
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+  border-color: var(--primary);
+  box-shadow: 0 6px 18px rgba(30, 116, 215, 0.12);
+  transform: translateY(-1px);
 }
 
 .form-input::placeholder {
   color: var(--text-tertiary);
 }
 
-/* Auth button */
+/* ==========================================================================
+   Auth button
+   ========================================================================== */
 .auth-button {
   width: 100%;
   padding: 0.75rem 1.5rem;
@@ -123,16 +145,16 @@
   color: white;
   border: none;
   border-radius: 0.75rem;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 1rem;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.28s ease;
   margin-top: 1rem;
   box-shadow: var(--shadow-md);
 }
 
 .auth-button:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px);
   box-shadow: var(--shadow-lg);
 }
 
@@ -140,28 +162,34 @@
   opacity: 0.7;
   cursor: not-allowed;
   transform: none;
+  box-shadow: var(--shadow-sm);
 }
 
-/* Auth links */
+/* ==========================================================================
+   Auth links
+   ========================================================================== */
 .auth-links {
-  margin-top: 1.5rem;
+  margin-top: 1.25rem;
   text-align: center;
   color: var(--text-tertiary);
   font-size: 0.95rem;
 }
 
 .auth-link {
-  color: var(--primary-color);
+  color: var(--primary);
   font-weight: 600;
   text-decoration: none;
-  transition: all 0.2s ease;
+  transition: all 0.18s ease;
 }
 
 .auth-link:hover {
   text-decoration: underline;
+  color: var(--primary-dark);
 }
 
-/* Success state */
+/* ==========================================================================
+   Success state
+   ========================================================================== */
 .auth-success {
   text-align: center;
   padding: 2rem;
@@ -170,28 +198,35 @@
 .success-icon {
   width: 64px;
   height: 64px;
-  margin: 0 auto 1.5rem;
-  color: var(--secondary-color);
+  margin: 0 auto 1.25rem;
+  color: var(--primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(30,116,215,0.12), rgba(0,58,112,0.06));
+  border-radius: 12px;
 }
 
 .success-title {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 1rem;
+  color: var(--primary-dark);
+  margin-bottom: 0.75rem;
 }
 
 .success-message {
   color: var(--text-secondary);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .success-email {
-  font-weight: 600;
-  color: var(--text-primary);
+  font-weight: 700;
+  color: var(--primary-dark);
 }
 
-/* Error state */
+/* ==========================================================================
+   Error state
+   ========================================================================== */
 .auth-error {
   text-align: center;
   padding: 2rem;
@@ -200,59 +235,30 @@
 .error-icon {
   width: 64px;
   height: 64px;
-  margin: 0 auto 1.5rem;
-  color: var(--danger-color);
+  margin: 0 auto 1.25rem;
+  color: var(--danger);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(211, 47, 47, 0.06);
+  border-radius: 12px;
 }
 
 .error-title {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 1rem;
+  color: var(--primary-dark);
+  margin-bottom: 0.75rem;
 }
 
 .error-message {
   color: var(--text-secondary);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
-/* Responsive adjustments */
-@media (max-width: 640px) {
-  .auth-container {
-    padding: 1rem;
-  }
-  
-  .auth-card {
-    padding: 2rem;
-  }
-  
-  .auth-title {
-    font-size: 1.75rem;
-  }
-}
-
-/* Full screen adjustments */
-@media (min-width: 1200px) {
-  .auth-container {
-    padding: 3rem;
-  }
-  
-  .auth-card {
-    max-width: 500px;
-  }
-}
-
-@media (min-width: 1600px) {
-  .auth-container {
-    padding: 5rem;
-  }
-  
-  .auth-card {
-    max-width: 550px;
-  }
-}
-
-/* Loading spinner */
+/* ==========================================================================
+   Loading spinner
+   ========================================================================== */
 .loading-spinner {
   display: inline-block;
   width: 1rem;
@@ -271,10 +277,48 @@
   }
 }
 
-/* Success icon */
-.success-icon svg {
-  width: 64px;
-  height: 64px;
-  color: var(--secondary-color);
-  margin: 0 auto 1.5rem;
-} 
+/* ==========================================================================
+   Responsive adjustments
+   ========================================================================== */
+@media (max-width: 640px) {
+  .auth-container {
+    padding: 1rem;
+  }
+  
+  .auth-card {
+    padding: 1.5rem;
+    border-radius: 1rem;
+  }
+  
+  .auth-title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .auth-container {
+    padding: 3rem;
+  }
+  
+  .auth-card {
+    max-width: 520px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .auth-container {
+    padding: 5rem;
+  }
+  
+  .auth-card {
+    max-width: 620px;
+  }
+}
+
+/* ==========================================================================
+   Misc small helpers
+   ========================================================================== */
+.form-help {
+  font-size: 0.9rem;
+  color: var(--text-tertiary);
+}
