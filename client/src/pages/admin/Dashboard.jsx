@@ -55,7 +55,6 @@ const Dashboard = () => {
                     <CardContent>
                         <div className="text-2xl font-bold">+23.4%</div>
                         <p className="text-xs text-muted-foreground">
-                            +4.1% so với tháng trước
                         </p>
                     </CardContent>
                 </Card>
