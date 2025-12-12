@@ -36,6 +36,7 @@ import { SidebarProvider } from "./components/ui/sidebar";
 import Friends from "./components/Friends";
 import CreateQuiz from "./pages/CreateQuiz";
 import CreateAIQuiz from "./pages/CreateAIQuiz";
+import CreateAIQuiz2 from "./pages/CreateAIQuiz2";
 import EditQuiz from "./pages/EditQuiz";
 import Achievements from "./pages/Achievements";
 import Admin from "./pages/Admin";
@@ -386,6 +387,7 @@ function App() {
         />
 
         <Route path="*" element={<NotFound />} />
+        <Route path="/create-ai-quiz-2" element={<CreateAIQuiz2 />} />
       </Routes>
     </div>
   );

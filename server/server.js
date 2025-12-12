@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
@@ -69,3 +71,9 @@ const server = app.listen(PORT, () => {
 
 // Setup Socket.io
 setupSocketServer(server);
+
+const aqgRoutes = require("./aqg/aqgRoutes");
+app.use("/api/aqg", aqgRoutes);
+
+const aqgQuizRoutes = require("./routes/aqgQuizRoutes");
+app.use("/api/aqg", aqgQuizRoutes);

@@ -29,6 +29,7 @@ import {
   FaUserCog,
   FaEdit,
 } from "react-icons/fa";
+import { FaRobot } from "react-icons/fa";
 
 const Dashboard = ({ user, logout }) => {
   const [quizzes, setQuizzes] = useState([]);
@@ -479,23 +480,52 @@ const Dashboard = ({ user, logout }) => {
                 <h2 className="text-2xl font-bold text-transparent font-orbitron bg-clip-text bg-gradient-to-r from-blue-300 via-blue-500 to-blue-800">
                   My Quizzes
                 </h2>
-                <div className="flex gap-2">
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={() => setIsCreateQuizModalOpen(true)}
-                    className="px-6 py-3 text-white transition-all duration-300 transform border-2 shadow-lg font-orbitron bg-gradient-to-r from-blue-300 via-blue-500 to-blue-800 rounded-2xl hover:from-blue-400 hover:to-blue-600 hover:scale-105 active:scale-95 border-white/30"
-                  >
-                    Create New Quiz
-                  </motion.button>
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={() => navigate("/create-ai-quiz")}
-                    className="px-6 py-3 text-white transition-all duration-300 transform border-2 shadow-lg font-orbitron bg-gradient-to-br from-blue-700 via-blue-800 to-blue-900 rounded-2xl hover:from-blue-800 hover:to-blue-900 hover:scale-105 active:scale-95 border-white/30"
-                  >
-                    Generate Quiz with AI
-                  </motion.button>
+                <div className="flex flex-col gap-4 mb-6 md:flex-row md:items-center md:justify-between">
+                  <h2 className="text-2xl font-bold text-transparent font-orbitron bg-clip-text bg-gradient-to-r from-blue-300 via-blue-500 to-blue-800">
+                    My Quizzes
+                  </h2>
+
+                  {/* 3 BUTTON ACTIONS */}
+                  <div className="grid w-full gap-3 md:w-auto md:flex">
+
+                    {/* Create New Quiz */}
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={() => setIsCreateQuizModalOpen(true)}
+                      className="justify-center px-6 py-3 text-white transition-all duration-300 transform border-2 shadow-lg font-orbitron 
+                                bg-gradient-to-r from-blue-300 via-blue-500 to-blue-800 rounded-2xl hover:from-blue-400 hover:to-blue-600 
+                                hover:scale-105 active:scale-95 border-white/30"
+                    >
+                      Create New Quiz
+                    </motion.button>
+
+                    {/* AI Generator 1.0 */}
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={() => navigate("/create-ai-quiz")}
+                      className="justify-center px-6 py-3 text-white transition-all duration-300 transform border-2 shadow-lg font-orbitron 
+                                bg-gradient-to-br from-blue-700 via-blue-800 to-blue-900 rounded-2xl hover:from-blue-800 hover:to-blue-900 
+                                hover:scale-105 active:scale-95 border-white/30"
+                    >
+                      AI Quiz Generator 1.0
+                    </motion.button>
+
+                    {/* ⭐ AI Generator 2.0 */}
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={() => navigate("/create-ai-quiz-2")}
+                      className="justify-center px-6 py-3 text-white transition-all duration-300 transform border-2 shadow-lg font-orbitron
+                                bg-gradient-to-br from-purple-600 via-purple-700 to-purple-900 rounded-2xl hover:from-purple-500 hover:to-purple-800 
+                                hover:scale-105 active:scale-95 border-white/30 flex items-center gap-2"
+                    >
+                      <FaRobot className="w-5 h-5 text-yellow-300 animate-bounce" />
+                      AI Quiz Generator 2.0
+                    </motion.button>
+
+                  </div>
                 </div>
               </div>
 

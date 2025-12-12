@@ -148,18 +148,18 @@ export default function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start space-x-3">
                 <FaEnvelope className="w-5 h-5 mt-1 text-yellow-400" />
-                <span className="text-pink-200/60 font-orbitron">support@ctequiz.com</span>
+                <span className="text-pink-200/60 font-orbitron">linhnguyenphuong5689@gmail.com</span>
               </li>
               <li className="flex items-start space-x-3">
                 <FaPhone className="w-5 h-5 mt-1 text-yellow-400" />
-                <span className="text-pink-200/60 font-orbitron">+84 123-4567</span>
+                <span className="text-pink-200/60 font-orbitron">+84 866 963 4561</span>
               </li>
               <li className="flex items-start space-x-3">
                 <FaMapMarkerAlt className="w-5 h-5 mt-1 text-yellow-400" />
                 <span className="text-pink-200/60 font-orbitron">
-                  123 Nguyen van linh
+                  Kim No, Dong Anh
                   <br />
-                  Vietnam, Da Nang
+                  Ha Noi, Viet Nam
                 </span>
               </li>
             </ul>
