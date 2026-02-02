@@ -1,123 +1,105 @@
+// server/aqg/aqgController.js
 const { extractTextFromFile } = require("./extractText");
-const OpenAI = require("openai");
-
-// ====== OPENAI INIT ======
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
+const { generateLocalQuiz } = require("./localAQG");
+const { generateAdvanced } = require("./advancedAQG");
+const { generateOpenAIQuiz } = require("./openaiAQG");
+const { deduplicateQuestions, normalizeQuestions } = require("./aiPostprocess");
 
 // ======================================================
-// 1) PROMPT GENERATOR
-// ======================================================
-function buildQuizPrompt({ text, numQuestions, difficulty, language, mode }) {
-  return `
-You are an expert educational quiz generator. Create a high-quality multiple-choice quiz.
-
-### SOURCE MATERIAL:
-${text}
-
-### REQUIREMENTS:
-- Generate exactly **${numQuestions} questions**
-- Each question must have **4 answer choices**
-- Only **1** correct answer
-- Difficulty level: **${difficulty}**
-- Language: **${language === "vi" ? "Vietnamese" : "English"}**
-- No repeated questions, no ambiguous content.
-
-### MODE:
-${mode === "template"
-    ? "Use simple template patterns (fast but basic)."
-    : "Use deep semantic understanding to generate varied, natural, higher-quality questions."
-}
-
-### JSON OUTPUT FORMAT:
-{
-  "questions": [
-    {
-      "question": "...",
-      "options": ["A...", "B...", "C...", "D..."],
-      "answer": 0
-    }
-  ]
-}
-
-Return ONLY JSON with no explanation.
-`;
-}
-
-// ======================================================
-// 2) DATA CLEANING HELPERS
-// ======================================================
-function removeDuplicates(questions) {
-  const seen = new Set();
-  return questions.filter((q) => {
-    const key = q.question.trim().toLowerCase();
-    if (seen.has(key)) return false;
-    seen.add(key);
-    return true;
-  });
-}
-
-function sanitizeQuestion(q) {
-  if (!Array.isArray(q.options) || q.options.length !== 4) {
-    q.options = [...(q.options || []).slice(0, 4)];
-    while (q.options.length < 4) q.options.push("N/A");
-  }
-
-  if (typeof q.answer !== "number" || q.answer < 0 || q.answer > 3) {
-    q.answer = 0;
-  }
-
-  return q;
-}
-
-// ======================================================
-// 3) FILE UPLOAD → TEXT EXTRACTION
+// FILE UPLOAD → TEXT EXTRACTION (PREPROCESS STEP)
 // ======================================================
 exports.uploadFile = async (req, res) => {
   try {
+    console.log("=== AQG UPLOAD DEBUG ===");
+    console.log("req.headers.content-type:", req.headers["content-type"]);
+    console.log("req.file:", req.file);
+    console.log("req.body:", req.body);
+
+    if (!req.file) {
+      return res.status(400).json({
+        success: false,
+        message: "No file received by server",
+      });
+    }
+
     const filePath = req.file.path;
-    const extractedText = await extractTextFromFile(filePath);
+    console.log("filePath:", filePath);
+
+    const extractedText = await extractTextFromFile(req.file);
 
     return res.json({
       success: true,
       text: extractedText,
     });
   } catch (err) {
+    console.error("UPLOAD FILE CRASH:", err);
     return res.status(500).json({
       success: false,
-      error: err.message || "Failed to extract text",
+      error: err.message,
     });
   }
 };
 
 // ======================================================
-// 4) AI QUIZ GENERATION ENDPOINT
+// AI 2.0 – GENERATE QUIZ (PREVIEW, NO DB SAVE)
 // ======================================================
-const { generateLocalQuestions } = require("./localAQG");
-
-exports.generateQuiz = async (req, res) => {
+exports.generateQuiz2 = async (req, res) => {
   try {
-    const { text, numQuestions } = req.body;
+    const {
+      mode = "LOCAL_AI",
+      text,
+      difficulty = "medium",
+      numQuestions = 10,
+      language = "en",
+    } = req.body;
 
     if (!text) {
       return res.status(400).json({
         success: false,
-        message: "Missing text input",
+        message: "Missing input text",
       });
     }
 
-    const questions = generateLocalQuestions(text, numQuestions || 10);
+    let questions;
+
+    if (mode === "ADVANCED_AI") {
+      questions = await generateOpenAIQuiz({
+        text,
+        difficulty,
+        numQuestions,
+        language,
+      });
+    } else {
+      questions = generateLocalQuiz({
+        text,
+        difficulty,
+        numQuestions,
+      });
+    }
+
+    console.log("=== LOCAL_AI DEBUG ===");
+    console.log("mode:", mode);
+    console.log("questions type:", typeof questions);
+    console.log("is array:", Array.isArray(questions));
+    console.log("questions:", questions);
+
+    //questions = deduplicateQuestions(questions);
+    //questions = normalizeQuestions(questions);
 
     return res.json({
       success: true,
+      mode,
       questions,
     });
-  } catch (err) {
-    console.error("Local AQG error:", err);
+  } 
+  catch (err) {
+    console.error("=== AQG GENERATE ERROR ===");
+    console.error(err);
+    console.error(err.stack);
     return res.status(500).json({
       success: false,
-      message: "Local AQG generation failed",
+      message: "Quiz generation failed",
     });
   }
 };
+

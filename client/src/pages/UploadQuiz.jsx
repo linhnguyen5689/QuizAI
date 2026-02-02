@@ -1,3 +1,4 @@
+// client/src/pages/UploadQuiz.jsx
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { uploadQuiz } from '../services/api';
@@ -20,15 +21,15 @@ const UploadQuiz = () => {
   const navigate = useNavigate();
 
   const categories = [
-    'General Knowledge',
-    'Science',
-    'History',
-    'Geography',
-    'Mathematics',
-    'Literature',
-    'Sports',
-    'Entertainment',
-    'Technology',
+    'Intro computer science',
+    'Intro ICT',
+    'Programming fundamentals',
+    'Data structures & algorithms',
+    'OOP',
+    'Computer architecture',
+    'Operating systems',
+    'Databases',
+    'Digital signal processing',
     'Other'
   ];
 

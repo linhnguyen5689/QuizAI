@@ -1,11 +1,65 @@
+// server/services/quizService.js
 const Quiz = require("../models/Quiz");
 const User = require("../models/User");
 const Submission = require("../models/Submission");
-const { generateQuizQuestions } = require("../utils/gemini");
+const { generateQuizQuestions } = require("../utils/openai");
 const fs = require('fs');
 const pdfParse = require('pdf-parse');
 
+function normalizePreviewQuestions(previewQuestions) {
+  if (!Array.isArray(previewQuestions)) {
+    throw new Error("Questions must be an array");
+  }
+
+  return previewQuestions.map((q, index) => {
+    if (
+      !q.question ||
+      !Array.isArray(q.options) ||
+      typeof q.answer !== "number"
+    ) {
+      throw new Error(`Invalid preview question at index ${index}`);
+    }
+
+    return {
+      content: q.question,
+      options: q.options.map((opt, idx) => ({
+        label: opt,
+        isCorrect: idx === q.answer,
+      })),
+    };
+  });
+}
+
+
 const quizService = {
+  async createQuizFromAQGPreview(userId, aqgData) {
+    try {
+      if (!aqgData.questions || !Array.isArray(aqgData.questions)) {
+        throw new Error("Preview questions are required");
+      }
+
+      // Chuyển đổi câu hỏi từ định dạng preview sang định dạng quiz
+      const normalizedQuestions = normalizePreviewQuestions(aqgData.questions);
+
+      const quiz = await Quiz.create({
+        title: aqgData.title || "AI Generated Quiz", // Mặc định là "AI Generated Quiz" nếu không có
+        description: aqgData.description || "", // Mặc định là chuỗi rỗng nếu không có
+        category: aqgData.category || "Other", // Mặc định là "Other" nếu không có
+        questions: normalizedQuestions, // Sử dụng questions đã chuẩn hóa
+        createdBy: userId, // Gán userId từ tham số
+        isPublic: aqgData.isPublic || false, // Mặc định là false nếu không có
+      });
+      
+      return {
+        message: "Quiz created successfully from AQG",
+        quiz,
+      };
+    } catch (error) {
+      console.error("Error creating AQG quiz:", error);
+      throw error;
+    }
+  },
+
   async createQuiz(userId, quizData) {
     try {
       if (
@@ -351,75 +405,76 @@ const quizService = {
   },
 };
 
-// Simple PDF parser function
 const parsePdfForQuestions = async (filePath) => {
   try {
-    const dataBuffer = fs.readFileSync(filePath);
-    const data = await pdfParse(dataBuffer);
-    const text = data.text;
+    const buffer = fs.readFileSync(filePath);
+    const pdfData = await pdfParse(buffer);
 
-    // Simple question extraction (this is a basic implementation)
-    // In a real application, you'd want more sophisticated parsing
-    const lines = text.split('\n').filter(line => line.trim());
-    const questions = [];
+    let text = pdfData.text
+      .replace(/\r/g, "")
+      .replace(/\n{2,}/g, "\n")
+      .trim();
 
-    // Look for patterns like "1. Question text?" or "Question: text"
-    let currentQuestion = null;
-    let questionCounter = 1;
+    // Split questions safely (không phụ thuộc newline)
+    const blocks = text.split(/(?=\d+\.\s)/);
 
-    for (let i = 0; i < lines.length; i++) {
-      const line = lines[i].trim();
+    const questions = blocks
+      .map(block => {
+        const lines = block
+          .split("\n")
+          .map(l => l.trim())
+          .filter(Boolean);
 
-      // Check if line looks like a question
-      if (line.includes('?') || line.toLowerCase().includes('question')) {
-        if (currentQuestion) {
-          questions.push(currentQuestion);
+        if (lines.length < 6) return null;
+        if (!/^\d+\./.test(lines[0])) return null;
+
+        const content = lines[0].replace(/^\d+\.\s*/, "");
+
+        const options = [];
+        let correctAnswer = "";
+
+        for (const line of lines) {
+          if (/^[A-D]\./.test(line)) {
+            options.push({
+              label: line.slice(2).trim(),
+              isCorrect: false
+            });
+          }
+
+          if (/^Answer\s*:/i.test(line)) {
+            correctAnswer = line
+              .split(":")[1]
+              ?.trim()
+              .replace(/[^A-D]/g, "");
+          }
         }
 
-        currentQuestion = {
-          content: line,
-          options: [
-            { label: "Option A", isCorrect: false },
-            { label: "Option B", isCorrect: true },
-            { label: "Option C", isCorrect: false },
-            { label: "Option D", isCorrect: false }
-          ]
+        if (options.length !== 4 || !["A", "B", "C", "D"].includes(correctAnswer)) {
+          return null;
+        }
+
+        // Mark correct option
+        const correctIndex = correctAnswer.charCodeAt(0) - 65;
+        options[correctIndex].isCorrect = true;
+
+        return {
+          content,
+          options
         };
-      }
-    }
+      })
+      .filter(Boolean);
 
-    // Add the last question if exists
-    if (currentQuestion) {
-      questions.push(currentQuestion);
-    }
-
-    // If no questions found, create a default one
     if (questions.length === 0) {
-      questions.push({
-        content: "Sample question from PDF: " + lines[0] || "Default question",
-        options: [
-          { label: "Option A", isCorrect: false },
-          { label: "Option B", isCorrect: true },
-          { label: "Option C", isCorrect: false },
-          { label: "Option D", isCorrect: false }
-        ]
-      });
+      throw new Error("No valid questions found in PDF");
     }
 
     return questions;
+
   } catch (error) {
-    console.error('Error parsing PDF:', error);
-    // Return a default question if parsing fails
-    return [{
-      content: "Default question - PDF parsing failed",
-      options: [
-        { label: "Option A", isCorrect: false },
-        { label: "Option B", isCorrect: true },
-        { label: "Option C", isCorrect: false },
-        { label: "Option D", isCorrect: false }
-      ]
-    }];
+    console.error("Error parsing PDF:", error);
+    throw error;
   }
 };
+
 
 module.exports = quizService;

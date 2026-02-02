@@ -11,7 +11,7 @@ export default function CreateAIQuiz2() {
 
   const [file, setFile] = useState(null);
   const [inputText, setInputText] = useState("");
-  const [mode, setMode] = useState("semantic");
+  const [mode, setMode] = useState("LOCAL_AI");
   const [numQuestions, setNumQuestions] = useState(10);
   const [difficulty, setDifficulty] = useState("medium");
   const [language, setLanguage] = useState("en");
@@ -57,7 +57,7 @@ export default function CreateAIQuiz2() {
       const payload = {
         text: inputText,
         numQuestions,
-        mode,
+        mode,    // LOCAL_AI | ADVANCED_AI
         difficulty,
         language,
       };
@@ -91,7 +91,7 @@ export default function CreateAIQuiz2() {
         isPublic,
         };
 
-        const res = await aqgService.saveQuiz(payload);
+        const res = await aqgService.saveAQGQuiz(payload);
 
         if (res.success) {
         alert("Quiz saved successfully!");
@@ -103,6 +103,15 @@ export default function CreateAIQuiz2() {
     }
     };
 
+    const handleSaveAQG = async () => {
+      await aqgService.saveAQGQuiz({
+        title,
+        description,
+        category,
+        isPublic,
+        questions: previewQuestions // 🔥 QUAN TRỌNG
+      });
+    };
 
   const clearFile = () => {
     setFile(null);
@@ -192,8 +201,8 @@ export default function CreateAIQuiz2() {
                 <label>
                   Mode
                   <select value={mode} onChange={(e)=>setMode(e.target.value)}>
-                    <option value="template">Template-based (Fast)</option>
-                    <option value="semantic">Semantic-based (Best)</option>
+                    <option value="LOCAL_AI">Local AI (Fast)</option>
+                    <option value="ADVANCED_AI">Advanced AI (Best)</option>
                   </select>
                 </label>
 

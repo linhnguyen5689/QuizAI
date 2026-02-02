@@ -58,7 +58,7 @@ const userService = {
 
     // user login
     async loginUser(email, password) {
-        const user = await User.findOne({ email });
+        const user = await User.findOne({ email: email.toLowerCase() });
         if (!user) {
             throw new Error('Invalid email or password');
         }
@@ -67,7 +67,7 @@ const userService = {
             throw new Error('Your account is not active. Please verify your email.');
         }
 
-        const isMatch = (password === user.passwordHash);
+        const isMatch = await user.comparePassword(password);
         if (!isMatch) {
             throw new Error('Invalid email or password');
         }
@@ -75,7 +75,6 @@ const userService = {
         user.lastLogin = new Date();
         await user.save();
 
-        // gen JWT token
         const token = jwt.sign(
             { userId: user._id, accountType: user.accountType },
             process.env.JWT_SECRET || 'quiz_secret_key',

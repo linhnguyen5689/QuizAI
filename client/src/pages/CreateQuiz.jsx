@@ -29,16 +29,16 @@ const CreateQuiz = () => {
   const navigate = useNavigate();
 
   const categories = [
-    "General Knowledge",
-    "Science",
-    "History",
-    "Geography",
-    "Mathematics",
-    "Literature",
-    "Sports",
-    "Entertainment",
-    "Technology",
-    "Other",
+    'Intro computer science',
+    'Intro ICT',
+    'Programming fundamentals',
+    'Data structures & algorithms',
+    'OOP',
+    'Computer architecture',
+    'Operating systems',
+    'Databases',
+    'Digital signal processing',
+    'Other'
   ];
 
   const validateForm = () => {

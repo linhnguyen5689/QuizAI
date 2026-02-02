@@ -1,10 +1,12 @@
+// server/aqg/extractText.js
 const pdfParse = require("pdf-parse");
 const fs = require("fs");
 const path = require("path");
 const docxParser = require("docx-parser");
 
-exports.extractTextFromFile = async (filePath) => {
-  const ext = path.extname(filePath).toLowerCase();
+exports.extractTextFromFile = async (file) => {
+  const ext = path.extname(file.originalname).toLowerCase();
+  const filePath = file.path;
 
   if (ext === ".pdf") {
     const dataBuffer = fs.readFileSync(filePath);
@@ -19,7 +21,7 @@ exports.extractTextFromFile = async (filePath) => {
   if (ext === ".docx") {
     return new Promise((resolve, reject) => {
       docxParser.parseDocx(filePath, (data) => {
-        if (!data) reject("Failed to parse DOCX");
+        if (!data) reject(new Error("Failed to parse DOCX"));
         resolve(data);
       });
     });

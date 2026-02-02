@@ -1,3 +1,4 @@
+// server/controllers/quizController.js
 const quizService = require("../services/quizService");
 const submissionService = require("../services/submissionService");
 
@@ -239,7 +240,30 @@ const createQuizWithAI = async (req, res) => {
   }
 };
 
-const quizController = {
+// POST /api/quizzes/aqg-preview
+const createQuizFromAQGPreview = async (req, res) => {
+  try {
+    const result = await quizService.createQuizFromAQGPreview(
+      req.user._id,
+      req.body
+    );
+
+    res.status(201).json({
+      success: true,
+      message: result.message,
+      quiz: result.quiz,
+    });
+  } catch (error) {
+    console.error("AQG SAVE ERROR:", error);
+    res.status(400).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
+// Export all controller functions
+module.exports = {
   createQuiz,
   getPublicQuizzes,
   createQuizFromPDF,
@@ -249,7 +273,6 @@ const quizController = {
   deleteQuiz,
   submitQuizAnswers,
   getQuizSubmissions,
-  createQuizWithAI
+  createQuizWithAI,
+  createQuizFromAQGPreview
 };
-
-module.exports = quizController;

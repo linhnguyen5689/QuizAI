@@ -125,7 +125,7 @@ const styles = `
  * HAU Blue Theme constants (only colors — thay đổi ở đây nếu muốn biến theme)
  * - giữ accent nhỏ (vàng/teal) cho điểm nhấn ở icon / star rating
  */
-const PRIMARY = "#0859A6";         // HAU main blue
+const PRIMARY = "#000";         // HAU main blue
 const PRIMARY_DARK = "#04345B";
 const PRIMARY_LIGHT = "#4EA0FF";
 const PAGE_BG_START = "#021A36";

@@ -29,7 +29,7 @@ const quizSchema = new mongoose.Schema({
     },
     category: {
         type: String,
-        enum: ['General Knowledge', 'Science', 'History', 'Geography', 'Mathematics', 'Literature', 'Sports', 'Entertainment', 'Technology', 'Other'],
+        enum: ['Intro computer science', 'Intro ICT', 'Programming fundamentals', 'Data structures & algorithms', 'OOP', 'Computer architecture', 'Operating systems', 'Databases', 'Digital signal processing', 'Other'],
         default: 'Other'
     },
     language: {

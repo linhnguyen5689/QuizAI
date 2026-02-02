@@ -32,16 +32,16 @@ const EditQuiz = () => {
     const navigate = useNavigate();
 
     const categories = [
-        "General Knowledge",
-        "Science",
-        "History",
-        "Geography",
-        "Mathematics",
-        "Literature",
-        "Sports",
-        "Entertainment",
-        "Technology",
-        "Other",
+        "Intro computer science",
+        "Intro ICT",
+        "Programming fundamentals",
+        "Data structures & algorithms",
+        "OOP",
+        "Computer architecture",
+        "Operating systems",
+        "Databases",
+        "Digital signal processing",
+        "Other"
     ];
 
     // Fetch quiz data when component mounts
