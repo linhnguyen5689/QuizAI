@@ -3,7 +3,7 @@ const { extractTextFromFile } = require("./extractText");
 const { generateLocalQuiz } = require("./localAQG");
 const { generateAdvanced } = require("./advancedAQG");
 const { generateOpenAIQuiz } = require("./openaiAQG");
-const { deduplicateQuestions, normalizeQuestions } = require("./aiPostprocess");
+const { deduplicateQuestions, normalizeQuestions } = require("./aiPostProcess");
 
 // ======================================================
 // FILE UPLOAD → TEXT EXTRACTION (PREPROCESS STEP)

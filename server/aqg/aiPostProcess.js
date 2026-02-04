@@ -1,4 +1,4 @@
-// server/aqg/aiPostprocess.js
+// server/aqg/aiPostProcess.js
 
 /**
  * ==================================================
