@@ -163,7 +163,7 @@ const Achievements = () => {
                         borderColor: 'rgba(43,108,176,0.28)'
                     }}
                 >
-                    <p className="mb-4 text-xl" style={{ color: '#EAF6FF', fontFamily: 'Orbitron, sans-serif' }}>{error}</p>
+                    <p className="mb-4 text-xl" style={{ color: '#EAF6FF', fontFamily: 'Nunito, sans-serif' }}>{error}</p>
                     <button
                         onClick={() => window.location.reload()}
                         className="px-6 py-3 text-white transition-all duration-300 transform border-2 rounded-2xl"
@@ -192,7 +192,7 @@ const Achievements = () => {
                     className="p-8 text-center border-4 shadow-2xl rounded-3xl"
                     style={{ background: 'linear-gradient(180deg, rgba(1,42,74,0.85), rgba(1,58,107,0.85))', borderColor: 'rgba(43,108,176,0.28)' }}
                 >
-                    <p className="mb-4 text-xl" style={{ color: '#EAF6FF', fontFamily: 'Orbitron, sans-serif' }}>No achievements available yet.</p>
+                    <p className="mb-4 text-xl" style={{ color: '#EAF6FF', fontFamily: 'Nunito, sans-serif' }}>No achievements available yet.</p>
                     <button
                         onClick={handleCheckAchievements}
                         className="px-6 py-3 text-white transition-all duration-300 transform border-2 rounded-2xl"
@@ -207,7 +207,7 @@ const Achievements = () => {
 
     return (
         <div className="relative w-screen min-h-screen overflow-x-hidden"
-             style={{ background: 'linear-gradient(180deg, #013A6B 0%, #014F86 50%, #0166A8 100%)' }}>
+             style={{ background: 'linear-gradient(180deg, #013A6B 0%, #014F86 50%, #0166A8 100%)', fontFamily: "'Nunito', sans-serif" }}>
             {/* Animated SVG background */}
             <svg
                 className="absolute top-0 left-0 z-0 w-full h-full pointer-events-none"
@@ -257,7 +257,7 @@ const Achievements = () => {
                         </motion.button>
 
                         <h1 className="flex items-center gap-3 text-4xl font-extrabold md:text-5xl"
-                            style={{ color: 'transparent', backgroundImage: 'linear-gradient(90deg,#0077D6,#0096FF,#66D9FF)', WebkitBackgroundClip: 'text', fontFamily: 'Orbitron, sans-serif' }}>
+                            style={{ color: 'transparent', backgroundImage: 'linear-gradient(90deg,#0077D6,#0096FF,#66D9FF)', WebkitBackgroundClip: 'text', fontFamily: 'Nunito, sans-serif' }}>
                             <FaMedal className="inline-block" style={{ color: '#66D9FF' }} />
                             Achievements
                             <FaStar className="inline-block" style={{ color: '#A6E7FF' }} />
@@ -294,7 +294,7 @@ const Achievements = () => {
                                     className="w-12 h-12 border-2 rounded-full shadow-lg"
                                     style={{ borderColor: 'rgba(43,108,176,0.28)' }}
                                 />
-                                <span className="font-orbitron" style={{ color: '#EAF6FF' }}>
+                                <span className="font-nunito" style={{ color: '#EAF6FF' }}>
                                     {user?.username}
                                 </span>
                             </motion.div>
@@ -316,7 +316,7 @@ const Achievements = () => {
                                                 style={{ borderColor: 'rgba(43,108,176,0.28)' }}
                                             />
                                             <div>
-                                                <div style={{ color: '#EAF6FF', fontFamily: 'Orbitron, sans-serif' }}>
+                                                <div style={{ color: '#EAF6FF', fontFamily: 'Nunito, sans-serif' }}>
                                                     {user?.displayName || user?.username}
                                                 </div>
                                                 <div className="text-sm" style={{ color: '#CFEFFF', opacity: 0.9 }}>
@@ -404,7 +404,7 @@ const Achievements = () => {
                     className="p-8 mb-12 rounded-3xl"
                     style={{ background: 'linear-gradient(180deg, rgba(1,42,74,0.85), rgba(1,58,107,0.85))', border: '4px solid rgba(43,108,176,0.28)' }}
                 >
-                    <h2 className="mb-4 text-2xl font-bold" style={{ color: '#EAF6FF', fontFamily: 'Orbitron, sans-serif' }}>Progress Overview</h2>
+                    <h2 className="mb-4 text-2xl font-bold" style={{ color: '#EAF6FF', fontFamily: 'Nunito, sans-serif' }}>Progress Overview</h2>
                     <div className="flex items-center gap-6">
                         <div className="flex-1">
                             <div className="h-6 rounded-full overflow-hidden" style={{ background: 'rgba(0,0,0,0.15)' }}>
@@ -416,7 +416,7 @@ const Achievements = () => {
                                 />
                             </div>
                         </div>
-                        <span className="text-2xl font-bold" style={{ color: '#66D9FF', fontFamily: 'Orbitron, sans-serif' }}>
+                        <span className="text-2xl font-bold" style={{ color: '#66D9FF', fontFamily: 'Nunito, sans-serif' }}>
                             {unlockedAchievements.length}/{achievements.length}
                         </span>
                     </div>
@@ -425,7 +425,7 @@ const Achievements = () => {
                 {/* Unlocked Achievements */}
                 {unlockedAchievements.length > 0 && (
                     <div className="mb-16">
-                        <h2 className="mb-8 text-2xl font-bold flex items-center gap-2" style={{ color: '#66D9FF', fontFamily: 'Orbitron, sans-serif' }}>
+                        <h2 className="mb-8 text-2xl font-bold flex items-center gap-2" style={{ color: '#66D9FF', fontFamily: 'Nunito, sans-serif' }}>
                             <FaCrown style={{ color: '#66D9FF' }} />
                             Unlocked
                         </h2>
@@ -464,7 +464,7 @@ const Achievements = () => {
                 {/* Locked Achievements */}
                 {lockedAchievements.length > 0 && (
                     <div>
-                        <h2 className="mb-8 text-2xl font-bold flex items-center gap-2" style={{ color: '#BFD6E9', fontFamily: 'Orbitron, sans-serif' }}>
+                        <h2 className="mb-8 text-2xl font-bold flex items-center gap-2" style={{ color: '#BFD6E9', fontFamily: 'Nunito, sans-serif' }}>
                             <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M18.364 5.636l-1.414 1.414A9 9 0 105.636 18.364l1.414-1.414" /></svg>
                             Locked
                         </h2>

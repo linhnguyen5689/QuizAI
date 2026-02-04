@@ -235,12 +235,12 @@ const CreateQuiz = () => {
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="text-center mb-10"
               >
-                <h1 className="text-4xl md:text-5xl font-extrabold font-orbitron text-transparent bg-clip-text bg-gradient-to-r from-[#0077D6] via-[#0096FF] to-[#66D9FF] drop-shadow-lg mb-2 flex items-center justify-center gap-3">
+                <h1 className="text-4xl md:text-5xl font-extrabold font-nunito text-transparent bg-clip-text bg-gradient-to-r from-[#0077D6] via-[#0096FF] to-[#66D9FF] drop-shadow-lg mb-2 flex items-center justify-center gap-3">
                   <FaGamepad className="inline-block text-[#66D9FF] animate-bounce" />
                   Create New Quiz
                   <FaStar className="inline-block text-[#A6E7FF] animate-spin-slow" />
                 </h1>
-                <p className="text-lg text-[#DDEEFF] font-orbitron tracking-wide drop-shadow">Create a quiz manually by adding questions and answers</p>
+                <p className="text-lg text-[#DDEEFF] font-nunito tracking-wide drop-shadow">Create a quiz manually by adding questions and answers</p>
               </motion.div>
 
               <form onSubmit={handleSubmit}>
@@ -252,7 +252,7 @@ const CreateQuiz = () => {
                 >
                   <label
                     htmlFor="title"
-                    className="block text-sm font-bold mb-2 font-orbitron tracking-wide"
+                    className="block text-sm font-bold mb-2 font-nunito tracking-wide"
                     style={{ color: "#BEE6FF" }}
                   >
                     Quiz Title
@@ -263,13 +263,13 @@ const CreateQuiz = () => {
                     name="title"
                     value={formData.title}
                     onChange={handleChange}
-                    className={`w-full px-4 py-3 border-2 rounded-xl font-orbitron text-lg bg-black/40 text-[#EAF6FF] placeholder:text-[#BEE6FF] focus:ring-2 transition-colors shadow-lg ${
+                    className={`w-full px-4 py-3 border-2 rounded-xl font-nunito text-lg bg-black/40 text-[#EAF6FF] placeholder:text-[#BEE6FF] focus:ring-2 transition-colors shadow-lg ${
                       errors.title ? "border-red-500 focus:ring-red-200" : "border-[#2B6CB0] focus:border-[#66D9FF]"
                     }`}
                     placeholder="Enter a title for your quiz"
                   />
                   {errors.title && (
-                    <p className="mt-1 text-sm text-red-400 font-orbitron">{errors.title}</p>
+                    <p className="mt-1 text-sm text-red-400 font-nunito">{errors.title}</p>
                   )}
                 </motion.div>
 
@@ -281,7 +281,7 @@ const CreateQuiz = () => {
                 >
                   <label
                     htmlFor="description"
-                    className="block text-sm font-bold mb-2 font-orbitron tracking-wide"
+                    className="block text-sm font-bold mb-2 font-nunito tracking-wide"
                     style={{ color: "#BEE6FF" }}
                   >
                     Description (Optional)
@@ -292,13 +292,13 @@ const CreateQuiz = () => {
                     value={formData.description}
                     onChange={handleChange}
                     rows="3"
-                    className={`w-full px-4 py-3 border-2 rounded-xl font-orbitron text-lg bg-black/40 text-[#EAF6FF] placeholder:text-[#BEE6FF] focus:ring-2 transition-colors shadow-lg ${
+                    className={`w-full px-4 py-3 border-2 rounded-xl font-nunito text-lg bg-black/40 text-[#EAF6FF] placeholder:text-[#BEE6FF] focus:ring-2 transition-colors shadow-lg ${
                       errors.description ? "border-red-500 focus:ring-red-200" : "border-[#2B6CB0] focus:border-[#66D9FF]"
                     }`}
                     placeholder="Describe what this quiz is about"
                   ></textarea>
                   {errors.description && (
-                    <p className="mt-1 text-sm text-red-400 font-orbitron">
+                    <p className="mt-1 text-sm text-red-400 font-nunito">
                       {errors.description}
                     </p>
                   )}
@@ -312,7 +312,7 @@ const CreateQuiz = () => {
                 >
                   <label
                     htmlFor="category"
-                    className="block text-sm font-bold mb-2 font-orbitron tracking-wide"
+                    className="block text-sm font-bold mb-2 font-nunito tracking-wide"
                     style={{ color: "#BEE6FF" }}
                   >
                     Category
@@ -322,7 +322,7 @@ const CreateQuiz = () => {
                     name="category"
                     value={formData.category}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border-2 border-[#2B6CB0] rounded-xl font-orbitron text-lg bg-black/40 text-[#EAF6FF] focus:border-[#66D9FF] focus:ring-2 transition-colors shadow-lg"
+                    className="w-full px-4 py-3 border-2 border-[#2B6CB0] rounded-xl font-nunito text-lg bg-black/40 text-[#EAF6FF] focus:border-[#66D9FF] focus:ring-2 transition-colors shadow-lg"
                   >
                     {categories.map((category) => (
                       <option key={category} value={category} className="bg-black/80 text-[#0f172a]">
@@ -338,7 +338,7 @@ const CreateQuiz = () => {
                   transition={{ duration: 0.8, delay: 0.6 }}
                   className="mb-8"
                 >
-                  <label className="flex items-center font-orbitron text-[#DCEEFF]">
+                  <label className="flex items-center font-nunito text-[#DCEEFF]">
                     <input
                       type="checkbox"
                       name="isPublic"
@@ -348,7 +348,7 @@ const CreateQuiz = () => {
                     />
                     <span className="ml-2">Make this quiz public</span>
                   </label>
-                  <p className="text-sm text-[#CFE8FF] mt-1 ml-6 font-orbitron">
+                  <p className="text-sm text-[#CFE8FF] mt-1 ml-6 font-nunito">
                     Public quizzes can be viewed and taken by everyone
                   </p>
                 </motion.div>
@@ -360,7 +360,7 @@ const CreateQuiz = () => {
                   className="mb-8"
                 >
                   <div className="flex justify-between items-center mb-4">
-                    <h2 className="text-2xl font-bold font-orbitron text-[#66D9FF] drop-shadow">Questions</h2>
+                    <h2 className="text-2xl font-bold font-nunito text-[#66D9FF] drop-shadow">Questions</h2>
                   </div>
 
                   {formData.questions.map((question, questionIndex) => (
@@ -373,12 +373,12 @@ const CreateQuiz = () => {
                       style={{ background: "linear-gradient(180deg, rgba(0,0,0,0.45), rgba(1,42,74,0.35))", borderColor: "rgba(43,108,176,0.25)" }}
                     >
                       <div className="flex justify-between items-start mb-4">
-                        <h3 className="text-lg font-bold font-orbitron text-[#DDEEFF]">Question {questionIndex + 1}</h3>
+                        <h3 className="text-lg font-bold font-nunito text-[#DDEEFF]">Question {questionIndex + 1}</h3>
                         {formData.questions.length > 1 && (
                           <button
                             type="button"
                             onClick={() => removeQuestion(questionIndex)}
-                            className="text-[#88C8FF] hover:text-[#BEE6FF] font-orbitron flex items-center space-x-1 transition drop-shadow-glow"
+                            className="text-[#88C8FF] hover:text-[#BEE6FF] font-nunito flex items-center space-x-1 transition drop-shadow-glow"
                           >
                             <FiTrash2 className="w-5 h-5 animate-pulse" />
                             <span>Delete</span>
@@ -387,7 +387,7 @@ const CreateQuiz = () => {
                       </div>
 
                       <div className="mb-4">
-                        <label className="block text-sm font-bold mb-2 font-orbitron" style={{ color: "#BEE6FF" }}>Question Content</label>
+                        <label className="block text-sm font-bold mb-2 font-nunito" style={{ color: "#BEE6FF" }}>Question Content</label>
                         <input
                           type="text"
                           value={question.text}
@@ -398,7 +398,7 @@ const CreateQuiz = () => {
                               e.target.value
                             )
                           }
-                          className={`w-full px-4 py-3 border-2 rounded-xl font-orbitron text-lg bg-black/40 text-[#EAF6FF] placeholder:text-[#BEE6FF] focus:ring-2 transition-colors shadow-lg ${
+                          className={`w-full px-4 py-3 border-2 rounded-xl font-nunito text-lg bg-black/40 text-[#EAF6FF] placeholder:text-[#BEE6FF] focus:ring-2 transition-colors shadow-lg ${
                             errors[`question_${questionIndex}`]
                               ? "border-red-500 focus:ring-red-200"
                               : "border-[#2B6CB0] focus:border-[#66D9FF]"
@@ -406,14 +406,14 @@ const CreateQuiz = () => {
                           placeholder="Enter your question"
                         />
                         {errors[`question_${questionIndex}`] && (
-                          <p className="mt-1 text-sm text-red-400 font-orbitron">
+                          <p className="mt-1 text-sm text-red-400 font-nunito">
                             {errors[`question_${questionIndex}`]}
                           </p>
                         )}
                       </div>
 
                       <div className="space-y-3">
-                        <label className="block text-sm font-bold mb-2 font-orbitron" style={{ color: "#BEE6FF" }}>Options</label>
+                        <label className="block text-sm font-bold mb-2 font-nunito" style={{ color: "#BEE6FF" }}>Options</label>
                         {question.options.map((option, optionIndex) => (
                           <div
                             key={optionIndex}
@@ -449,7 +449,7 @@ const CreateQuiz = () => {
                                   e.target.value
                                 )
                               }
-                              className={`flex-1 px-4 py-3 border-2 rounded-xl font-orbitron text-lg bg-black/40 text-[#EAF6FF] placeholder:text-[#BEE6FF] focus:ring-2 transition-colors shadow-lg ${
+                              className={`flex-1 px-4 py-3 border-2 rounded-xl font-nunito text-lg bg-black/40 text-[#EAF6FF] placeholder:text-[#BEE6FF] focus:ring-2 transition-colors shadow-lg ${
                                 errors[`option_${questionIndex}_${optionIndex}`]
                                   ? "border-red-500 focus:ring-red-200"
                                   : "border-[#2B6CB0] focus:border-[#66D9FF]"
@@ -459,7 +459,7 @@ const CreateQuiz = () => {
                           </div>
                         ))}
                         {errors[`question_${questionIndex}_correct`] && (
-                          <p className="mt-1 text-sm text-red-400 font-orbitron">
+                          <p className="mt-1 text-sm text-red-400 font-nunito">
                             {errors[`question_${questionIndex}_correct`]}
                           </p>
                         )}
@@ -470,7 +470,7 @@ const CreateQuiz = () => {
                     <button
                       type="button"
                       onClick={addQuestion}
-                      className="px-6 py-2 font-orbitron rounded-xl text-white shadow-lg border-2"
+                      className="px-6 py-2 font-nunito rounded-xl text-white shadow-lg border-2"
                       style={{ background: "linear-gradient(90deg,#0077D6,#0096FF,#66D9FF)", borderColor: "rgba(255,255,255,0.06)" }}
                     >
                       <FiPlus className="w-5 h-5 inline-block mr-2 align-middle animate-bounce text-[#E6F9FF]" />
@@ -488,7 +488,7 @@ const CreateQuiz = () => {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="flex-1 py-4 px-6 font-orbitron text-white font-bold rounded-2xl shadow-xl border-2 focus:outline-none focus:ring-2 transition-all duration-300 transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed text-xl"
+                    className="flex-1 py-4 px-6 font-nunito text-white font-bold rounded-2xl shadow-xl border-2 focus:outline-none focus:ring-2 transition-all duration-300 transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed text-xl"
                     style={{ background: "linear-gradient(90deg,#0077D6,#0096FF,#66D9FF)", borderColor: "rgba(255,255,255,0.06)" }}
                   >
                     {loading ? (
@@ -523,7 +523,7 @@ const CreateQuiz = () => {
                   <button
                     type="button"
                     onClick={() => navigate("/dashboard")}
-                    className="flex-1 py-4 px-6 font-orbitron bg-black/40 text-[#DDEEFF] font-bold rounded-2xl border-2"
+                    className="flex-1 py-4 px-6 font-nunito bg-black/40 text-[#DDEEFF] font-bold rounded-2xl border-2"
                     style={{ borderColor: "rgba(43,108,176,0.25)" }}
                   >
                     Cancel

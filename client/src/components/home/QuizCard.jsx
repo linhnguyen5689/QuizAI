@@ -54,13 +54,13 @@ const QuizCard = ({ quiz, onDelete, isCreator = false }) => {
         {/* Header */}
         <div className="flex items-center justify-between mb-4">
           <motion.h3
-            className="text-xl font-semibold text-pink-200 transition-colors duration-300 group-hover:text-yellow-400 font-orbitron"
+            className="text-xl font-semibold text-pink-200 transition-colors duration-300 group-hover:text-yellow-400 font-nunito"
             whileHover={{ scale: 1.02 }}
           >
             {quiz.title}
           </motion.h3>
           <motion.span
-            className="px-3 py-1 text-sm font-medium text-yellow-400 rounded-full bg-yellow-400/10 font-orbitron"
+            className="px-3 py-1 text-sm font-medium text-yellow-400 rounded-full bg-yellow-400/10 font-nunito"
             whileHover={{ scale: 1.05 }}
           >
             {quiz.questions?.length || 0} questions
@@ -68,7 +68,7 @@ const QuizCard = ({ quiz, onDelete, isCreator = false }) => {
         </div>
 
         {/* Description */}
-        <p className="mb-6 text-pink-200/80 transition-colors duration-300 line-clamp-2 group-hover:text-pink-200 font-orbitron">
+        <p className="mb-6 text-pink-200/80 transition-colors duration-300 line-clamp-2 group-hover:text-pink-200 font-nunito">
           {quiz.description || "No description provided"}
         </p>
 
@@ -126,7 +126,7 @@ const QuizCard = ({ quiz, onDelete, isCreator = false }) => {
           >
             <Link
               to={`/quiz/${quiz._id}`}
-              className="inline-flex items-center px-6 py-3 text-sm font-medium text-white transition-all duration-300 shadow-lg rounded-xl bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 hover:from-pink-400 hover:to-yellow-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500 hover:shadow-xl font-orbitron"
+              className="inline-flex items-center px-6 py-3 text-sm font-medium text-white transition-all duration-300 shadow-lg rounded-xl bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 hover:from-pink-400 hover:to-yellow-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500 hover:shadow-xl font-nunito"
             >
               <FaPlay className="w-4 h-4 mr-2" />
               Take Quiz

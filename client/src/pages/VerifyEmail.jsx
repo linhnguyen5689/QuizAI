@@ -113,7 +113,7 @@ const VerifyEmail = () => {
                   <FaEnvelope className="w-10 h-10 text-white" />
                 </div>
               </motion.div>
-              <h2 className="text-2xl font-bold text-transparent bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 bg-clip-text font-orbitron">
+              <h2 className="text-2xl font-bold text-transparent bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 bg-clip-text font-nunito">
                 Verifying Your Email
               </h2>
             </div>
@@ -129,7 +129,7 @@ const VerifyEmail = () => {
               </div>
             </div>
 
-            <p className="text-pink-200 font-orbitron">
+            <p className="text-pink-200 font-nunito">
               Please wait while we verify your email address...
             </p>
           </motion.div>
@@ -185,10 +185,10 @@ const VerifyEmail = () => {
               >
                 <FaExclamationTriangle className="w-10 h-10 text-rose-500" />
               </motion.div>
-              <h2 className="text-2xl font-bold text-transparent bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 bg-clip-text font-orbitron mb-2">
+              <h2 className="text-2xl font-bold text-transparent bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 bg-clip-text font-nunito mb-2">
                 Verification Failed
               </h2>
-              <p className="text-pink-200 font-orbitron mb-6">{error}</p>
+              <p className="text-pink-200 font-nunito mb-6">{error}</p>
             </div>
 
             <div className="space-y-3">
@@ -199,7 +199,7 @@ const VerifyEmail = () => {
                 >
                   <Link
                     to="/register"
-                    className="inline-flex items-center justify-center w-full gap-2 px-6 py-3 bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 text-white font-medium rounded-xl hover:from-pink-400 hover:to-yellow-400 transition-all duration-300 shadow-lg hover:shadow-xl font-orbitron"
+                    className="inline-flex items-center justify-center w-full gap-2 px-6 py-3 bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 text-white font-medium rounded-xl hover:from-pink-400 hover:to-yellow-400 transition-all duration-300 shadow-lg hover:shadow-xl font-nunito"
                   >
                     Register Again
                     <FaArrowRight className="w-4 h-4" />
@@ -212,7 +212,7 @@ const VerifyEmail = () => {
                 >
                   <Link
                     to="/login"
-                    className="inline-flex items-center justify-center w-full gap-2 px-6 py-3 bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 text-white font-medium rounded-xl hover:from-pink-400 hover:to-yellow-400 transition-all duration-300 shadow-lg hover:shadow-xl font-orbitron"
+                    className="inline-flex items-center justify-center w-full gap-2 px-6 py-3 bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 text-white font-medium rounded-xl hover:from-pink-400 hover:to-yellow-400 transition-all duration-300 shadow-lg hover:shadow-xl font-nunito"
                   >
                     Go to Login
                     <FaArrowRight className="w-4 h-4" />
@@ -226,7 +226,7 @@ const VerifyEmail = () => {
               >
                 <Link
                   to="/help/verify-email"
-                  className="inline-flex items-center justify-center w-full gap-2 px-6 py-3 text-pink-200 font-medium rounded-xl border border-pink-400/30 hover:bg-pink-400/10 transition-all duration-300 font-orbitron mt-2"
+                  className="inline-flex items-center justify-center w-full gap-2 px-6 py-3 text-pink-200 font-medium rounded-xl border border-pink-400/30 hover:bg-pink-400/10 transition-all duration-300 font-nunito mt-2"
                 >
                   <FaInfoCircle className="w-4 h-4" />
                   Need Help?
@@ -295,13 +295,13 @@ const VerifyEmail = () => {
             >
               <FaCheckCircle className="w-10 h-10 text-white" />
             </motion.div>
-            <h2 className="text-2xl font-bold text-transparent bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 bg-clip-text font-orbitron mb-2">
+            <h2 className="text-2xl font-bold text-transparent bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 bg-clip-text font-nunito mb-2">
               Email Verified Successfully!
             </h2>
           </div>
 
           <div className="space-y-4">
-            <p className="text-pink-200 font-orbitron mb-4">
+            <p className="text-pink-200 font-nunito mb-4">
               Your account is now active and ready to use. You can create and take quizzes, track your progress, and more!
             </p>
 
@@ -311,23 +311,23 @@ const VerifyEmail = () => {
               transition={{ delay: 0.3 }}
               className="p-4 rounded-xl bg-gradient-to-br from-indigo-900/60 to-purple-900/60 border border-pink-400/30"
             >
-              <p className="text-transparent bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 bg-clip-text font-orbitron font-bold mb-2">
+              <p className="text-transparent bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 bg-clip-text font-nunito font-bold mb-2">
                 What's next?
               </p>
               <ul className="space-y-2 text-left">
-                <li className="flex items-center text-pink-200 font-orbitron">
+                <li className="flex items-center text-pink-200 font-nunito">
                   <div className="w-5 h-5 mr-2 rounded-full bg-gradient-to-r from-yellow-400 to-pink-500 flex items-center justify-center">
                     <FaCheckCircle className="w-3 h-3 text-white" />
                   </div>
                   Log in to your account
                 </li>
-                <li className="flex items-center text-pink-200 font-orbitron">
+                <li className="flex items-center text-pink-200 font-nunito">
                   <div className="w-5 h-5 mr-2 rounded-full bg-gradient-to-r from-yellow-400 to-pink-500 flex items-center justify-center">
                     <FaCheckCircle className="w-3 h-3 text-white" />
                   </div>
                   Complete your profile
                 </li>
-                <li className="flex items-center text-pink-200 font-orbitron">
+                <li className="flex items-center text-pink-200 font-nunito">
                   <div className="w-5 h-5 mr-2 rounded-full bg-gradient-to-r from-yellow-400 to-pink-500 flex items-center justify-center">
                     <FaCheckCircle className="w-3 h-3 text-white" />
                   </div>
@@ -346,7 +346,7 @@ const VerifyEmail = () => {
             >
               <Link
                 to="/login"
-                className="inline-flex items-center justify-center w-full gap-2 px-6 py-3 bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 text-white font-medium rounded-xl hover:from-pink-400 hover:to-yellow-400 transition-all duration-300 shadow-lg hover:shadow-xl font-orbitron"
+                className="inline-flex items-center justify-center w-full gap-2 px-6 py-3 bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 text-white font-medium rounded-xl hover:from-pink-400 hover:to-yellow-400 transition-all duration-300 shadow-lg hover:shadow-xl font-nunito"
               >
                 <FaUnlock className="w-5 h-5" />
                 Login Now

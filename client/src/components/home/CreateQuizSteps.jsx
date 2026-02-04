@@ -139,7 +139,7 @@ const FeatureItem = memo(({ feature, index, activeStep }) => {
       <div className="flex items-center justify-center w-8 h-8 rounded-full bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500">
         <FaCheckCircle className="w-5 h-5 text-white" />
       </div>
-      <span className="text-pink-200 font-orbitron">{feature}</span>
+      <span className="text-pink-200 font-nunito">{feature}</span>
     </motion.li>
   );
 });
@@ -163,10 +163,10 @@ const FeatureCard = memo(({ feature, index, hoveredFeature, setHoveredFeature })
           }`}>
           <FeatureIcon icon={feature.icon} />
         </div>
-        <h4 className="mb-2 font-bold text-transparent bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 bg-clip-text font-orbitron">
+        <h4 className="mb-2 font-bold text-transparent bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 bg-clip-text font-nunito">
           {feature.title}
         </h4>
-        <p className="text-xs text-pink-200 font-orbitron leading-relaxed">
+        <p className="text-xs text-pink-200 font-nunito leading-relaxed">
           {feature.description}
         </p>
       </div>
@@ -252,7 +252,7 @@ function CreateQuizSteps() {
                     </div>
                   )}
                 </motion.div>
-                <span className="text-sm font-medium font-orbitron">{step.title}</span>
+                <span className="text-sm font-medium font-nunito">{step.title}</span>
               </motion.button>
             ))}
           </div>
@@ -281,12 +281,12 @@ function CreateQuizSteps() {
                 <div className="absolute inset-0 bg-gradient-to-t from-indigo-900/80 to-transparent" />
 
                 {/* Simplified floating badges */}
-                <div className="absolute top-6 right-6 px-4 py-2 rounded-full bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 text-white font-orbitron text-sm font-bold shadow-lg">
+                <div className="absolute top-6 right-6 px-4 py-2 rounded-full bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 text-white font-nunito text-sm font-bold shadow-lg">
                   Step {activeStep + 1} of {steps.length}
                 </div>
 
                 <div className="absolute bottom-6 left-6">
-                  <span className="px-4 py-2 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-orbitron text-sm font-bold shadow-lg">
+                  <span className="px-4 py-2 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-nunito text-sm font-bold shadow-lg">
                     {steps[activeStep].subtitle}
                   </span>
                 </div>
@@ -295,20 +295,20 @@ function CreateQuizSteps() {
               {/* Content Section */}
               <div className="p-8 bg-gradient-to-br from-indigo-900/90 via-purple-900/90 to-pink-900/90">
                 <div className="mb-6">
-                  <h3 className="mb-2 text-3xl font-bold text-transparent bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 bg-clip-text font-orbitron">
+                  <h3 className="mb-2 text-3xl font-bold text-transparent bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 bg-clip-text font-nunito">
                     {steps[activeStep].title}
                   </h3>
-                  <p className="text-lg font-medium text-pink-400 font-orbitron">
+                  <p className="text-lg font-medium text-pink-400 font-nunito">
                     {steps[activeStep].subtitle}
                   </p>
                 </div>
 
-                <p className="mb-8 text-pink-200 font-orbitron">
+                <p className="mb-8 text-pink-200 font-nunito">
                   {steps[activeStep].description}
                 </p>
 
                 <div className="mb-8">
-                  <h4 className="mb-4 text-xl font-bold text-transparent bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 bg-clip-text font-orbitron">
+                  <h4 className="mb-4 text-xl font-bold text-transparent bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 bg-clip-text font-nunito">
                     Key Features:
                   </h4>
                   <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -328,7 +328,7 @@ function CreateQuizSteps() {
                   <motion.button
                     onClick={prevStep}
                     disabled={activeStep === 0}
-                    className={`flex items-center gap-2 px-6 py-3 rounded-xl font-medium transition-colors font-orbitron ${activeStep === 0
+                    className={`flex items-center gap-2 px-6 py-3 rounded-xl font-medium transition-colors font-nunito ${activeStep === 0
                       ? "text-gray-500 cursor-not-allowed"
                       : "text-pink-400 hover:text-white hover:bg-pink-500/20"
                       }`}
@@ -342,7 +342,7 @@ function CreateQuizSteps() {
                   <motion.button
                     onClick={nextStep}
                     disabled={activeStep === steps.length - 1}
-                    className={`flex items-center gap-2 px-6 py-3 rounded-xl font-medium transition-colors font-orbitron ${activeStep === steps.length - 1
+                    className={`flex items-center gap-2 px-6 py-3 rounded-xl font-medium transition-colors font-nunito ${activeStep === steps.length - 1
                       ? "bg-gray-800/50 text-gray-500 cursor-not-allowed"
                       : "bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 text-white hover:shadow-[0_0_10px_rgba(236,72,153,0.5)]"
                       }`}
@@ -367,7 +367,7 @@ function CreateQuizSteps() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="mt-12 p-6 rounded-2xl border-2 border-pink-400/30 bg-gradient-to-br from-indigo-900/80 via-purple-900/80 to-pink-900/80 shadow-[0_0_15px_rgba(236,72,153,0.2)]"
           >
-            <h3 className="mb-6 text-center text-2xl font-bold text-transparent bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 bg-clip-text font-orbitron">
+            <h3 className="mb-6 text-center text-2xl font-bold text-transparent bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 bg-clip-text font-nunito">
               More Powerful Quiz Features
             </h3>
 

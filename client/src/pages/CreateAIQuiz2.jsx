@@ -120,7 +120,9 @@ export default function CreateAIQuiz2() {
   };
 
   return (
-    <div className="ai2-page">
+    <div 
+      className="ai2-page"
+      style={{ fontFamily: "'Nunito', sans-serif" }}>
       <div className="ai2-background">
         <svg className="blob blob-1" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
           <g transform="translate(300,300)">
@@ -145,9 +147,6 @@ export default function CreateAIQuiz2() {
           </div>
           <div className="header-actions">
             <button className="btn ghost" onClick={() => navigate(-1)}>Back</button>
-            <button className="btn accent" onClick={handleGenerate}>
-              {loading ? <FaSpinner className="spin" /> : "Generate"}
-            </button>
           </div>
         </header>
 

@@ -419,7 +419,7 @@ function QuizGame({ user: propUser }) {
               <FaGamepad className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8"
                           style={{ color: PRIMARY_LIGHT }} />
             </div>
-            <p className="mt-4 text-xl" style={{ color: MUTED_TEXT, fontFamily: 'Orbitron, sans-serif' }}>Loading quiz game...</p>
+            <p className="mt-4 text-xl" style={{ color: MUTED_TEXT, fontFamily: 'Nunito, sans-serif' }}>Loading quiz game...</p>
           </div>
         </motion.div>
       </div>
@@ -478,7 +478,7 @@ function QuizGame({ user: propUser }) {
               <FaExclamationTriangle className="w-16 h-16 mx-auto" />
             </div>
             <h2 className="text-2xl font-bold mb-4" style={{
-              fontFamily: 'Orbitron, sans-serif',
+              fontFamily: 'Nunito, sans-serif',
               background: `linear-gradient(90deg, ${PRIMARY_LIGHT}, ${PRIMARY})`,
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent'
@@ -567,7 +567,7 @@ function QuizGame({ user: propUser }) {
             }}
           >
             <h1 className="text-2xl font-bold mb-4" style={{
-              fontFamily: 'Orbitron, sans-serif',
+              fontFamily: 'Nunito, sans-serif',
               background: `linear-gradient(90deg, ${PRIMARY_LIGHT}, ${PRIMARY})`,
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent'
@@ -654,7 +654,7 @@ function QuizGame({ user: propUser }) {
 
               <h1 className="flex items-center gap-3 text-4xl font-extrabold md:text-5xl"
                   style={{
-                    fontFamily: 'Orbitron, sans-serif',
+                    fontFamily: 'Nunito, sans-serif',
                     background: `linear-gradient(90deg, ${PRIMARY_LIGHT}, ${PRIMARY})`,
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
@@ -670,7 +670,7 @@ function QuizGame({ user: propUser }) {
               background: `linear-gradient(90deg, ${PRIMARY}, ${PRIMARY_DARK})`,
               borderRadius: 999,
               color: '#fff',
-              fontFamily: 'Orbitron, sans-serif'
+              fontFamily: 'Nunito, sans-serif'
             }}>
               Room: {room.code}
             </div>
@@ -694,7 +694,7 @@ function QuizGame({ user: propUser }) {
                   <div>
                     <div className="flex justify-between items-center mb-6">
                       <h3 className="text-2xl font-bold mb-0" style={{
-                        fontFamily: 'Orbitron, sans-serif',
+                        fontFamily: 'Nunito, sans-serif',
                         background: `linear-gradient(90deg, ${PRIMARY_LIGHT}, ${PRIMARY})`,
                         WebkitBackgroundClip: 'text',
                         WebkitTextFillColor: 'transparent'
@@ -707,7 +707,7 @@ function QuizGame({ user: propUser }) {
                           background: `linear-gradient(90deg, ${PRIMARY_LIGHT}, ${PRIMARY})`,
                           borderRadius: 999,
                           color: '#fff',
-                          fontFamily: 'Orbitron, sans-serif',
+                          fontFamily: 'Nunito, sans-serif',
                           fontSize: '1rem',
                           boxShadow: '0 8px 20px rgba(30,116,215,0.15)'
                         }}>
@@ -718,7 +718,7 @@ function QuizGame({ user: propUser }) {
 
                     <div className="mb-8 p-6 rounded-2xl shadow-lg"
                          style={{ background: `${PRIMARY_DARK}66`, border: `2px solid ${PRIMARY}33` }}>
-                      <p style={{ color: MUTED_TEXT, fontSize: '1.125rem', fontFamily: 'Orbitron, sans-serif' }}>{quiz.questions[currentQuestion].content}</p>
+                      <p style={{ color: MUTED_TEXT, fontSize: '1.125rem', fontFamily: 'Nunito, sans-serif' }}>{quiz.questions[currentQuestion].content}</p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -737,7 +737,7 @@ function QuizGame({ user: propUser }) {
                               background: selectedAnswer === option._id ? `${PRIMARY}99` : `${PRIMARY_DARK}55`,
                               color: '#fff',
                               boxShadow: selectedAnswer === option._id ? `0 0 15px rgba(30,116,215,0.45)` : 'none',
-                              fontFamily: 'Orbitron, sans-serif'
+                              fontFamily: 'Nunito, sans-serif'
                             }}
                           >
                             <p className="text-lg">{option.label}</p>
@@ -751,7 +751,7 @@ function QuizGame({ user: propUser }) {
                         animate={{ opacity: 1, y: 0 }}
                         className="mt-6 text-center"
                       >
-                        <p style={{ color: PRIMARY_LIGHT, fontWeight: 700, fontFamily: 'Orbitron, sans-serif' }}>
+                        <p style={{ color: PRIMARY_LIGHT, fontWeight: 700, fontFamily: 'Nunito, sans-serif' }}>
                           Answer submitted! Moving to next question...
                         </p>
                       </motion.div>
@@ -759,7 +759,7 @@ function QuizGame({ user: propUser }) {
                   </div>
                 ) : (
                   <div className="text-center py-8">
-                    <p style={{ color: MUTED_TEXT, fontFamily: 'Orbitron, sans-serif' }}>
+                    <p style={{ color: MUTED_TEXT, fontFamily: 'Nunito, sans-serif' }}>
                       {currentQuestion >= (quiz?.questions?.length || 0)
                         ? "You've completed all questions! Waiting for results..."
                         : "Loading question..."}
@@ -786,7 +786,7 @@ function QuizGame({ user: propUser }) {
                 }}
               >
                 <h3 className="text-xl font-bold mb-4" style={{
-                  fontFamily: 'Orbitron, sans-serif',
+                  fontFamily: 'Nunito, sans-serif',
                   background: `linear-gradient(90deg, ${PRIMARY_LIGHT}, ${PRIMARY})`,
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent'
@@ -807,7 +807,7 @@ function QuizGame({ user: propUser }) {
                       }}
                     />
                   </div>
-                  <p style={{ color: MUTED_TEXT, marginTop: 8, fontFamily: 'Orbitron, sans-serif' }}>
+                  <p style={{ color: MUTED_TEXT, marginTop: 8, fontFamily: 'Nunito, sans-serif' }}>
                     Question {currentQuestion + 1} of {quiz?.questions?.length || 0}
                   </p>
                 </div>
@@ -829,7 +829,7 @@ function QuizGame({ user: propUser }) {
                       >
                         {getUserInitial(participant.userId)}
                       </div>
-                      <p style={{ color: MUTED_TEXT, marginTop: 6, fontSize: 12, fontFamily: 'Orbitron, sans-serif' }}>{getUserName(participant.userId)}</p>
+                      <p style={{ color: MUTED_TEXT, marginTop: 6, fontSize: 12, fontFamily: 'Nunito, sans-serif' }}>{getUserName(participant.userId)}</p>
                     </motion.div>
                   ))}
                 </div>
@@ -934,7 +934,7 @@ function QuizGame({ user: propUser }) {
 
               <h1 className="flex items-center gap-3 text-4xl font-extrabold md:text-5xl"
                   style={{
-                    fontFamily: 'Orbitron, sans-serif',
+                    fontFamily: 'Nunito, sans-serif',
                     background: `linear-gradient(90deg, ${PRIMARY_LIGHT}, ${PRIMARY})`,
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
@@ -950,7 +950,7 @@ function QuizGame({ user: propUser }) {
               background: `linear-gradient(90deg, ${PRIMARY_LIGHT}, ${PRIMARY})`,
               borderRadius: 999,
               color: '#fff',
-              fontFamily: 'Orbitron, sans-serif'
+              fontFamily: 'Nunito, sans-serif'
             }}>
               Completed
             </div>
@@ -972,7 +972,7 @@ function QuizGame({ user: propUser }) {
               >
                 <div className="text-center mb-6">
                   <h2 className="text-2xl font-bold mb-2" style={{
-                    fontFamily: 'Orbitron, sans-serif',
+                    fontFamily: 'Nunito, sans-serif',
                     background: `linear-gradient(90deg, ${PRIMARY_LIGHT}, ${PRIMARY})`,
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent'
@@ -1023,14 +1023,14 @@ function QuizGame({ user: propUser }) {
                                    border: '4px solid rgba(255,255,255,0.2)',
                                    boxShadow: '0 10px 30px rgba(0,0,0,0.2)'
                                  }}>
-                              <span className="text-2xl font-bold" style={{ color: '#fff', fontFamily: 'Orbitron, sans-serif' }}>{getUserInitial(participant.userId)}</span>
+                              <span className="text-2xl font-bold" style={{ color: '#fff', fontFamily: 'Nunito, sans-serif' }}>{getUserInitial(participant.userId)}</span>
                             </div>
-                            <p className="text-center font-semibold mb-2 w-24 truncate" style={{ color: MUTED_TEXT, fontFamily: 'Orbitron, sans-serif' }}>{getUserName(participant.userId)}</p>
+                            <p className="text-center font-semibold mb-2 w-24 truncate" style={{ color: MUTED_TEXT, fontFamily: 'Nunito, sans-serif' }}>{getUserName(participant.userId)}</p>
                             <p className="text-lg font-bold" style={{
                               background: `linear-gradient(90deg, ${PRIMARY_LIGHT}, ${PRIMARY})`,
                               WebkitBackgroundClip: 'text',
                               WebkitTextFillColor: 'transparent',
-                              fontFamily: 'Orbitron, sans-serif'
+                              fontFamily: 'Nunito, sans-serif'
                             }}>{participant.score} pts</p>
                             <motion.div
                               className={`${heights[index]} w-24 ${marginTop[index]} rounded-t-lg flex items-start justify-center`}
@@ -1053,7 +1053,7 @@ function QuizGame({ user: propUser }) {
                                 color: '#fff',
                                 fontWeight: 700,
                                 border: '2px solid rgba(255,255,255,0.2)',
-                                fontFamily: 'Orbitron, sans-serif'
+                                fontFamily: 'Nunito, sans-serif'
                               }}>
                                 {positions[index]}
                               </span>
@@ -1072,7 +1072,7 @@ function QuizGame({ user: propUser }) {
                       style={{ border: `2px solid ${PRIMARY}33` }}
                     >
                       <div style={{ background: `linear-gradient(90deg, ${PRIMARY}, ${PRIMARY_DARK})`, color: '#fff', padding: '12px 16px' }}>
-                        <h3 style={{ fontWeight: 700, fontFamily: 'Orbitron, sans-serif' }}>Complete Rankings</h3>
+                        <h3 style={{ fontWeight: 700, fontFamily: 'Nunito, sans-serif' }}>Complete Rankings</h3>
                       </div>
                       <div style={{ borderTop: `1px solid ${PRIMARY}33` }}>
                         {participants.sort((a, b) => b.score - a.score).map((participant, index) => (
@@ -1101,20 +1101,20 @@ function QuizGame({ user: propUser }) {
                                 background: index === 0 ? `linear-gradient(90deg, ${PRIMARY_LIGHT}, ${PRIMARY})` : `linear-gradient(90deg, ${PRIMARY}, ${PRIMARY_DARK})`,
                                 color: '#fff'
                               }}>
-                                <span style={{ fontFamily: 'Orbitron, sans-serif', fontSize: 12 }}>{index + 1}</span>
+                                <span style={{ fontFamily: 'Nunito, sans-serif', fontSize: 12 }}>{index + 1}</span>
                               </div>
                               <div>
-                                <p style={{ margin: 0, fontWeight: 600, color: MUTED_TEXT, fontFamily: 'Orbitron, sans-serif' }}>
+                                <p style={{ margin: 0, fontWeight: 600, color: MUTED_TEXT, fontFamily: 'Nunito, sans-serif' }}>
                                   {getUserName(participant.userId)}
                                   {getUserId(participant.userId) === user?._id && (
-                                    <span style={{ marginLeft: 8, fontSize: 12, background: PRIMARY_LIGHT, color: PRIMARY_DARK, padding: '2px 8px', borderRadius: 999, fontFamily: 'Orbitron, sans-serif' }}>YOU</span>
+                                    <span style={{ marginLeft: 8, fontSize: 12, background: PRIMARY_LIGHT, color: PRIMARY_DARK, padding: '2px 8px', borderRadius: 999, fontFamily: 'Nunito, sans-serif' }}>YOU</span>
                                   )}
                                 </p>
                               </div>
                             </div>
                             <div style={{
                               fontWeight: 700,
-                              fontFamily: 'Orbitron, sans-serif',
+                              fontFamily: 'Nunito, sans-serif',
                               background: `linear-gradient(90deg, ${PRIMARY_LIGHT}, ${PRIMARY})`,
                               WebkitBackgroundClip: 'text',
                               WebkitTextFillColor: 'transparent'
@@ -1259,7 +1259,7 @@ function QuizGame({ user: propUser }) {
 
             <h1 className="flex items-center gap-3 text-4xl font-extrabold md:text-5xl"
                 style={{
-                  fontFamily: 'Orbitron, sans-serif',
+                  fontFamily: 'Nunito, sans-serif',
                   background: `linear-gradient(90deg, ${PRIMARY_LIGHT}, ${PRIMARY})`,
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
@@ -1293,7 +1293,7 @@ function QuizGame({ user: propUser }) {
                 fontSize: 28,
                 fontWeight: 800,
                 marginBottom: 8,
-                fontFamily: 'Orbitron, sans-serif',
+                fontFamily: 'Nunito, sans-serif',
                 background: `linear-gradient(90deg, ${PRIMARY_LIGHT}, ${PRIMARY})`,
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent'

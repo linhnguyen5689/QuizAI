@@ -245,7 +245,7 @@ const UserProfile = ({ user, updateUser }) => {
             style={{ borderColor: PRIMARY_LIGHT }}
           ></div>
           <p
-            className="mt-4 text-xl font-orbitron"
+            className="mt-4 text-xl font-nunito"
             style={{ color: MUTED_TEXT }}
           >
             Loading profile...
@@ -299,7 +299,7 @@ const UserProfile = ({ user, updateUser }) => {
           className="flex items-center justify-between mb-8"
         >
           <h1
-            className="flex items-center gap-3 text-4xl font-extrabold text-transparent md:text-5xl font-orbitron bg-clip-text drop-shadow-lg"
+            className="flex items-center gap-3 text-4xl font-extrabold text-transparent md:text-5xl font-nunito bg-clip-text drop-shadow-lg"
             style={{
               background: `linear-gradient(90deg, ${PRIMARY_LIGHT}, ${PRIMARY})`,
               WebkitBackgroundClip: 'text',        // <-- required on WebKit-based browsers
@@ -323,7 +323,7 @@ const UserProfile = ({ user, updateUser }) => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => navigate("/dashboard")}
-            className="flex items-center gap-2 px-6 py-3 text-white transition-all duration-300 transform border-2 shadow-lg font-orbitron rounded-2xl"
+            className="flex items-center gap-2 px-6 py-3 text-white transition-all duration-300 transform border-2 shadow-lg font-nunito rounded-2xl"
             style={{
               background: `linear-gradient(90deg, ${PRIMARY_LIGHT}, ${PRIMARY})`,
               borderColor: "rgba(255,255,255,0.18)",
@@ -398,21 +398,21 @@ const UserProfile = ({ user, updateUser }) => {
                     style={{ color: MUTED_TEXT }}
                   >
                     <FiUser className="w-5 h-5" style={{ color: PRIMARY_LIGHT }} />
-                    <span className="font-orbitron">{user.username}</span>
+                    <span className="font-nunito">{user.username}</span>
                   </div>
                   <div
                     className="flex items-center space-x-3"
                     style={{ color: MUTED_TEXT }}
                   >
                     <FiMail className="w-5 h-5" style={{ color: PRIMARY_LIGHT }} />
-                    <span className="font-orbitron">{user.email}</span>
+                    <span className="font-nunito">{user.email}</span>
                   </div>
                   <div
                     className="flex items-center space-x-3"
                     style={{ color: MUTED_TEXT }}
                   >
                     <FiCalendar className="w-5 h-5" style={{ color: PRIMARY_LIGHT }} />
-                    <span className="font-orbitron">
+                    <span className="font-nunito">
                       Joined since{" "}
                       {new Date(
                         user.registrationDate || Date.now()
@@ -439,7 +439,7 @@ const UserProfile = ({ user, updateUser }) => {
                 }}
               >
                 <h2
-                  className="flex items-center mb-6 text-2xl font-bold text-transparent font-orbitron bg-clip-text"
+                  className="flex items-center mb-6 text-2xl font-bold text-transparent font-nunito bg-clip-text"
                   style={{
                     background: 'linear-gradient(90deg, #4BA3FF, #1E74D7)',
                     WebkitBackgroundClip: 'text',
@@ -456,7 +456,7 @@ const UserProfile = ({ user, updateUser }) => {
                   <div>
                     <label
                       htmlFor="displayName"
-                      className="block mb-2 text-sm font-medium font-orbitron"
+                      className="block mb-2 text-sm font-medium font-nunito"
                       style={{ color: MUTED_TEXT }}
                     >
                       Display Name
@@ -467,7 +467,7 @@ const UserProfile = ({ user, updateUser }) => {
                       name="displayName"
                       value={formData.displayName}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 transition-all duration-200 border-2 rounded-xl font-orbitron"
+                      className="w-full px-4 py-3 transition-all duration-200 border-2 rounded-xl font-nunito"
                       placeholder="Enter your display name"
                       style={{
                         color: MUTED_TEXT,
@@ -485,7 +485,7 @@ const UserProfile = ({ user, updateUser }) => {
                       }}
                     />
                     <p
-                      className="mt-1 text-xs font-orbitron"
+                      className="mt-1 text-xs font-nunito"
                       style={{ color: `${MUTED_TEXT}CC` }}
                     >
                       This name will be shown to other users
@@ -498,7 +498,7 @@ const UserProfile = ({ user, updateUser }) => {
                       whileTap={{ scale: 0.95 }}
                       type="button"
                       onClick={() => navigate("/reset-password")}
-                      className="flex items-center px-6 py-3 transition-all duration-300 transform border-2 shadow-lg font-orbitron rounded-xl"
+                      className="flex items-center px-6 py-3 transition-all duration-300 transform border-2 shadow-lg font-nunito rounded-xl"
                       style={{
                         color: MUTED_TEXT,
                         background: "rgba(0,0,0,0.04)",
@@ -514,7 +514,7 @@ const UserProfile = ({ user, updateUser }) => {
                       whileTap={{ scale: 0.95 }}
                       type="submit"
                       disabled={saving}
-                      className="px-6 py-3 text-white transition-all duration-300 transform border-2 shadow-lg font-orbitron rounded-xl disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="px-6 py-3 text-white transition-all duration-300 transform border-2 shadow-lg font-nunito rounded-xl disabled:opacity-50 disabled:cursor-not-allowed"
                       style={{
                         background: `linear-gradient(90deg, ${PRIMARY_LIGHT}, ${PRIMARY})`,
                         borderColor: "rgba(255,255,255,0.18)",

@@ -49,21 +49,21 @@ const QuizCard = ({ quiz, onDelete, showCreator = false, isCreator }) => {
 
   return (
     <div className="relative quiz-card bg-gradient-to-br from-indigo-800/90 via-purple-800/90 to-pink-800/90 backdrop-blur-xl rounded-3xl shadow-2xl border-4 border-pink-400/40 hover:shadow-[0_0_40px_10px_rgba(236,72,153,0.7)] transition-all duration-500 group">
-      <div className="p-6 h-full">
+      <div className="h-28">
         {/* Header row with title and status badge */}
-        <div className="flex justify-between items-start mb-4">
-          <h3 className="text-xl font-bold text-transparent font-orbitron bg-clip-text bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 pr-2 flex-1 overflow-hidden text-ellipsis whitespace-nowrap" title={quiz.title}>
+        <div className="flex justify-between items-start mb-2">
+          <h3 className="text-xl font-bold text-transparent font-nunito bg-clip-text bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 pr-2 flex-1 overflow-hidden text-ellipsis whitespace-nowrap" title={quiz.title}>
             {quiz.title}
           </h3>
           <div className="flex items-center flex-shrink-0">
             {/* Status badge - Public/Private */}
             <div className="mr-2">
               {quiz.isPublic ? (
-                <span className="inline-block px-3 py-1 text-sm text-green-800 bg-green-100 rounded-full font-orbitron">
+                <span className="inline-block px-3 py-1 text-sm text-green-800 bg-green-100 rounded-full font-nunito">
                   Public
                 </span>
               ) : (
-                <span className="inline-block px-3 py-1 text-sm text-blue-800 bg-blue-100 rounded-full font-orbitron">
+                <span className="inline-block px-3 py-1 text-sm text-blue-800 bg-blue-100 rounded-full font-nunito">
                   Private
                 </span>
               )}
@@ -92,27 +92,27 @@ const QuizCard = ({ quiz, onDelete, showCreator = false, isCreator }) => {
         </div>
 
         {/* Quiz description with ellipsis */}
-        <p className="text-pink-200 mb-4 font-orbitron overflow-hidden text-ellipsis whitespace-nowrap" title={quiz.description}>
+        <p className="text-pink-200 mb-2 font-nunito overflow-hidden text-ellipsis whitespace-nowrap" title={quiz.description}>
           {quiz.description || 'No description provided'}
         </p>
 
-        <div className="text-pink-200 mb-4 font-orbitron">
-          {quiz.questions ? `${quiz.questions.length} questions` : "Loading questions..."}
-        </div>
-
-        {showCreator && quiz.createdBy && (
-          <div className="text-sm text-pink-200 mb-4 font-orbitron">
-            Created by: {getCreatorName()}
+        <div className="flex items-center justify-between mb-4 text-pink-200 font-nunito text-sm">
+          <div>
+            {quiz.questions ? `${quiz.questions.length} questions` : "Loading questions..."}
+            {showCreator && quiz.createdBy && (
+            <div>
+              Created by: {getCreatorName()}
+            </div>
+          )}
           </div>
-        )}
-
-        <div className="flex justify-center mt-4">
-          <Link
-            to={`/quiz/${quiz._id}`}
-            className="w-full px-6 py-2 text-center text-white transition-all duration-300 font-orbitron bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 rounded-xl hover:from-pink-400 hover:to-yellow-400"
-          >
-            Take Quiz
-          </Link>
+          <div className="flex justify-center mt-4">
+            <Link
+              to={`/quiz/${quiz._id}`}
+              className="px-6 py-2 text-center text-white transition-all duration-300 font-nunito bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 rounded-xl hover:from-pink-400 hover:to-yellow-400"
+            >
+              Take Quiz
+            </Link>
+          </div>
         </div>
       </div>
     </div>

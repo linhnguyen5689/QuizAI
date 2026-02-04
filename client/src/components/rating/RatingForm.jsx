@@ -43,7 +43,7 @@ const RatingForm = ({ quizId, onRatingSubmitted }) => {
             animate={{ opacity: 1, y: 0 }}
             className="p-6 backdrop-blur-lg bg-gradient-to-br from-indigo-800/90 via-purple-800/90 to-pink-800/90 rounded-2xl border-2 border-pink-400/30 shadow-xl"
         >
-            <h3 className="text-xl font-bold text-transparent bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 bg-clip-text mb-4 font-orbitron">
+            <h3 className="text-xl font-bold text-transparent bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 bg-clip-text mb-4 font-nunito">
                 Đánh giá Quiz này
             </h3>
 
@@ -51,7 +51,7 @@ const RatingForm = ({ quizId, onRatingSubmitted }) => {
                 <div className="flex flex-col space-y-4">
                     {/* Star Rating */}
                     <div className="mb-4">
-                        <p className="text-pink-200 mb-2 font-orbitron">Đánh giá của bạn:</p>
+                        <p className="text-pink-200 mb-2 font-nunito">Đánh giá của bạn:</p>
                         <div className="flex space-x-1">
                             {[...Array(5)].map((_, index) => {
                                 const ratingValue = index + 1;
@@ -80,7 +80,7 @@ const RatingForm = ({ quizId, onRatingSubmitted }) => {
 
                     {/* Comment */}
                     <div className="mb-4">
-                        <label htmlFor="comment" className="block text-pink-200 mb-2 font-orbitron">
+                        <label htmlFor="comment" className="block text-pink-200 mb-2 font-nunito">
                             Nhận xét (không bắt buộc):
                         </label>
                         <textarea
@@ -99,7 +99,7 @@ const RatingForm = ({ quizId, onRatingSubmitted }) => {
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         disabled={isSubmitting}
-                        className={`inline-flex justify-center py-3 px-6 border border-transparent shadow-sm text-base font-medium rounded-xl text-white bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 hover:from-pink-400 hover:to-yellow-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500 transition-all duration-300 font-orbitron ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
+                        className={`inline-flex justify-center py-3 px-6 border border-transparent shadow-sm text-base font-medium rounded-xl text-white bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 hover:from-pink-400 hover:to-yellow-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500 transition-all duration-300 font-nunito ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
                             }`}
                     >
                         {isSubmitting ? (

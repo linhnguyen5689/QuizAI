@@ -28,8 +28,8 @@ import {
   FaMedal,
   FaUserCog,
   FaEdit,
+  FaRobot,
 } from "react-icons/fa";
-import { FaRobot } from "react-icons/fa";
 
 const Dashboard = ({ user, logout }) => {
   const [quizzes, setQuizzes] = useState([]);
@@ -257,10 +257,10 @@ const Dashboard = ({ user, logout }) => {
           animate={{ opacity: 1, y: 0 }}
           className="p-8 text-center border-4 shadow-2xl bg-gradient-to-br from-blue-900/90 via-blue-800/90 to-blue-700/90 backdrop-blur-xl rounded-3xl border-blue-400/30"
         >
-          <p className="mb-4 text-xl text-blue-200 font-orbitron">{error}</p>
+          <p className="mb-4 text-xl text-blue-200 font-nunito">{error}</p>
           <button
             onClick={() => window.location.reload()}
-            className="px-6 py-3 text-white transition-all duration-300 transform border-2 shadow-lg font-orbitron bg-gradient-to-r from-blue-300 via-blue-500 to-blue-800 rounded-2xl hover:from-blue-400 hover:to-blue-600 hover:scale-105 active:scale-95 border-white/30"
+            className="px-6 py-3 text-white transition-all duration-300 transform border-2 shadow-lg font-nunito bg-gradient-to-r from-blue-300 via-blue-500 to-blue-800 rounded-2xl hover:from-blue-400 hover:to-blue-600 hover:scale-105 active:scale-95 border-white/30"
           >
             Try Again
           </button>
@@ -271,7 +271,6 @@ const Dashboard = ({ user, logout }) => {
 
   return (
     <div className="relative w-screen min-h-screen overflow-x-hidden bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700">
-      {/* Animated SVG background */}
       <svg
         className="absolute top-0 left-0 z-0 w-full h-full pointer-events-none"
         style={{ filter: "blur(2px)" }}
@@ -301,199 +300,200 @@ const Dashboard = ({ user, logout }) => {
       </svg>
 
       <div className="relative z-10 px-4 py-8 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="flex items-center justify-between mb-8"
-        >
-          <h1 className="flex items-center gap-3 text-4xl font-extrabold text-transparent md:text-5xl font-orbitron bg-clip-text bg-gradient-to-r from-blue-300 via-blue-500 to-blue-800 drop-shadow-lg">
-            <FaGamepad className="inline-block text-yellow-300 animate-bounce" />
-            Dashboard
-            <FaStar className="inline-block text-yellow-300 animate-spin-slow" />
-          </h1>
-
-          <div className="relative user-info" ref={dropdownRef}>
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="flex items-center gap-3 cursor-pointer avatar-container"
-              onClick={toggleDropdown}
-            >
+        <div className="flex items-center justify-between mb-8">
+          {/* Sidebar */}
+          <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="fixed top-0 left-0 z-50 w-64 min-h-screen flex-col items-start p-2 border-2 shadow-2xl tab-container bg-gradient-to-br from-blue-900/90 via-blue-800/90 to-blue-700/90 backdrop-blur-xl rounded-2xl border-blue-400/30 min-h-screen  mb-0"
+          >
+            {/* Logo */}
+            <div className="flex justify-center py-8">
               <img
-                src={user?.profilePicture || "/images/df_avatar.png"}
-                alt="User Avatar"
-                className="w-12 h-12 border-2 rounded-full shadow-lg border-blue-400/30"
+                src="https://haitrieu.com/wp-content/uploads/2022/01/Logo-DH-Kien-Truc-Ha-Noi-HAU-Tra-1024x1024.png"
+                className="logo-animated"
+                style={{
+                  width: "70%",
+                  height: "auto",
+                  paddingTop: "20px",
+                  objectFit: "contain",
+                }}
               />
-              <span className="text-black username font-orbitron">
-                {user?.username || "User"}
-              </span>
-            </motion.div>
+            </div>
 
-            <AnimatePresence>
-              {dropdownOpen && (
-                <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  className="absolute right-0 z-20 w-64 mt-2 overflow-hidden border-2 shadow-2xl top-16 bg-gradient-to-br from-blue-900/90 via-blue-800/90 to-blue-700/90 backdrop-blur-xl rounded-2xl border-blue-400/30"
-                >
-                  <div className="flex items-center gap-3 p-4 border-b dropdown-header border-blue-400/30">
-                    <img
-                      src={user?.profilePicture || "/images/df_avatar.png"}
-                      alt="User Avatar"
-                      className="w-12 h-12 border-2 rounded-full border-blue-400/30"
-                    />
-                    <div className="dropdown-header-info">
-                      <div className="text-blue-200 dropdown-header-name font-orbitron">
-                        {user?.username || "User"}
-                      </div>
-                      <div className="text-sm dropdown-header-email font-orbitron text-blue-300/80">
-                        {user?.email || "user@example.com"}
-                      </div>
-                    </div>
-                  </div>
+            {/* Các nút */}
+            <div className="flex flex-col gap-4 flex-grow mt-4 w-full">
+            <button
+              className={`tab-button w-full text-left px-6 flex items-center gap-3 ${activeTab === "quizzes" ? "active" : ""}`}
+              onClick={() => setActiveTab("quizzes")}
+            >
+              <FaGamepad className="w-5 h-5" />
+              My Quizzes
+            </button>
+            <button
+              className={`tab-button w-full text-left px-6 flex items-center gap-3 ${activeTab === "public" ? "active" : ""}`}
+              onClick={() => setActiveTab("public")}
+            >
+              <FaUsers className="w-5 h-5" />
+              Public Quizzes
+            </button>
+            <button
+              className={`tab-button w-full text-left px-6 flex items-center gap-3 ${activeTab === "multiplayer" ? "active" : ""}`}
+              onClick={() => setActiveTab("multiplayer")}
+            >
+              <FaUserFriends className="w-5 h-5" />
+              Multiplayer Quizzes
+            </button>
+            <button
+              className={`tab-button w-full text-left px-6 flex items-center gap-3 ${activeTab === "submissions" ? "active" : ""}`}
+              onClick={() => setActiveTab("submissions")}
+            >
+              <FaTrophy className="w-5 h-5" />
+              My Submissions
+            </button>
+            <button
+              className={`tab-button  w-full text-left px-6 flex items-center gap-3 ${activeTab === "leaderboard" ? "active" : ""}`}
+              onClick={() => setActiveTab("leaderboard")}
+            >
+              <FaMedal className="w-5 h-5" />
+              Leaderboard
+            </button>
+            </div>
 
-                  <Link
-                    to="/profile"
-                    className="flex items-center gap-3 px-4 py-3 dropdown-item hover:bg-black/20"
+            {/* Nút profile */}
+            <div className="relative user-info w-full flex justify-center" ref={dropdownRef}>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="flex items-center gap-3 cursor-pointer avatar-container w-full justify-center bg-white p-2 rounded-full shadow-lg"
+                onClick={toggleDropdown}
+              >
+                <img
+                  src={user?.profilePicture || "/images/df_avatar.png"}
+                  alt="User Avatar"
+                  className="w-12 h-12 border-2 rounded-full shadow-lg border-blue-400/30"
+                />
+                <span className="text-black username font-nunito">
+                  {user?.username || "User"}
+                </span>
+              </motion.div>
+
+              <AnimatePresence>
+                {dropdownOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    className="absolute bottom-full left-0 z-20 w-full mb-2 overflow-hidden border-2 shadow-2xl bg-gradient-to-br from-blue-900/90 via-blue-800/90 to-blue-700/90 backdrop-blur-xl rounded-2xl border-blue-400/30"
                   >
-                    <div className="dropdown-item-icon">
-                      <FaUser className="w-5 h-5 text-blue-300" />
+                    <div className="flex items-center gap-3 p-4 border-b dropdown-header border-blue-400/30">
+                      <img
+                        src={user?.profilePicture || "/images/df_avatar.png"}
+                        alt="User Avatar"
+                        className="w-12 h-12 border-2 rounded-full border-blue-400/30"
+                      />
+                      <div className="dropdown-header-info">
+                        <div className="text-blue-200 dropdown-header-name font-nunito">
+                          {user?.username || "User"}
+                        </div>
+                        <div className="text-sm dropdown-header-email font-nunito text-blue-300/80">
+                          {user?.email || "user@example.com"}
+                        </div>
+                      </div>
                     </div>
-                    <span className="text-blue-200 dropdown-item-text font-orbitron">
-                      Profile
-                    </span>
-                  </Link>
 
-                  <Link
-                    to="/friends"
-                    className="flex items-center gap-3 px-4 py-3 dropdown-item hover:bg-black/20 "
-                  >
-                    <div className="dropdown-item-icon">
-                      <FaUserFriends className="w-5 h-5 text-blue-300" />
-                    </div>
-                    <span className="text-blue-200 dropdown-item-text font-orbitron ">
-                      Friends
-                    </span>
-                  </Link>
-
-                  {/* Admin link - only shown for admin users */}
-                  {user?.accountType === 'admin' && (
                     <Link
-                      to="/admin"
+                      to="/profile"
                       className="flex items-center gap-3 px-4 py-3 dropdown-item hover:bg-black/20"
                     >
                       <div className="dropdown-item-icon">
-                        <FaUserCog className="w-5 h-5 text-blue-300" />
+                        <FaUser className="w-5 h-5 text-blue-300" />
                       </div>
-                      <span className="text-blue-200 dropdown-item-text font-orbitron">
-                        Admin Panel
+                      <span className="text-blue-200 dropdown-item-text font-nunito">
+                        Profile
                       </span>
                     </Link>
-                  )}
 
-                  <Link
-                    to="/achievements"
-                    className="flex items-center gap-3 px-4 py-3 dropdown-item hover:bg-black/20"
-                  >
-                    <div className="dropdown-item-icon">
-                      <FaMedal className="w-5 h-5 text-blue-300" />
-                    </div>
-                    <span className="text-blue-200 dropdown-item-text font-orbitron ">
-                      Achievements
-                    </span>
-                  </Link>
+                    <Link
+                      to="/friends"
+                      className="flex items-center gap-3 px-4 py-3 dropdown-item hover:bg-black/20 "
+                    >
+                      <div className="dropdown-item-icon">
+                        <FaUserFriends className="w-5 h-5 text-blue-300" />
+                      </div>
+                      <span className="text-blue-200 dropdown-item-text font-nunito ">
+                        Friends
+                      </span>
+                    </Link>
 
-                  <div className="border-t dropdown-divider border-blue-400/30"></div>
+                    {/* Admin link - only shown for admin users */}
+                    {user?.accountType === 'admin' && (
+                      <Link
+                        to="/admin"
+                        className="flex items-center gap-3 px-4 py-3 dropdown-item hover:bg-black/20"
+                      >
+                        <div className="dropdown-item-icon">
+                          <FaUserCog className="w-5 h-5 text-blue-300" />
+                        </div>
+                        <span className="text-blue-200 dropdown-item-text font-nunito">
+                          Admin Panel
+                        </span>
+                      </Link>
+                    )}
 
-                  <button
-                    onClick={handleLogout}
-                    className="flex items-center w-full gap-3 px-4 py-3 text-left dropdown-item hover:bg-black/20"
-                  >
-                    <div className="dropdown-item-icon">
-                      <FaSignOutAlt className="w-5 h-5 text-blue-300" />
-                    </div>
-                    <span className="text-blue-200 dropdown-item-text font-orbitron ">
-                      Logout
-                    </span>
-                  </button>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
-        </motion.div>
+                    <Link
+                      to="/achievements"
+                      className="flex items-center gap-3 px-4 py-3 dropdown-item hover:bg-black/20"
+                    >
+                      <div className="dropdown-item-icon">
+                        <FaMedal className="w-5 h-5 text-blue-300" />
+                      </div>
+                      <span className="text-blue-200 dropdown-item-text font-nunito ">
+                        Achievements
+                      </span>
+                    </Link>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="p-2 mb-8 border-2 shadow-2xl tab-container bg-gradient-to-br from-blue-900/90 via-blue-800/90 to-blue-700/90 backdrop-blur-xl rounded-2xl border-blue-400/30"
-        >
-          <button
-            className={`tab-button ${activeTab === "quizzes" ? "active" : ""}`}
-            onClick={() => setActiveTab("quizzes")}
-          >
-            <FaGamepad className="w-5 h-5" />
-            My Quizzes
-          </button>
-          <button
-            className={`tab-button ${activeTab === "public" ? "active" : ""}`}
-            onClick={() => setActiveTab("public")}
-          >
-            <FaUsers className="w-5 h-5" />
-            Public Quizzes
-          </button>
-          <button
-            className={`tab-button ${activeTab === "multiplayer" ? "active" : ""}`}
-            onClick={() => setActiveTab("multiplayer")}
-          >
-            <FaUserFriends className="w-5 h-5" />
-            Multiplayer Quizzes
-          </button>
-          <button
-            className={`tab-button ${activeTab === "submissions" ? "active" : ""}`}
-            onClick={() => setActiveTab("submissions")}
-          >
-            <FaTrophy className="w-5 h-5" />
-            My Submissions
-          </button>
-          <button
-            className={`tab-button ${activeTab === "leaderboard" ? "active" : ""}`}
-            onClick={() => setActiveTab("leaderboard")}
-          >
-            <FaMedal className="w-5 h-5" />
-            Leaderboard
-          </button>
-        </motion.div>
+                    <div className="border-t dropdown-divider border-blue-400/30"></div>
 
-        <AnimatePresence mode="wait">
-          {activeTab === "quizzes" && (
-            <motion.div
-              key="quizzes"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 20 }}
-              transition={{ duration: 0.3 }}
-            >
-              <div className="flex items-center justify-between mb-6">
-                <h2 className="text-2xl font-bold text-transparent font-orbitron bg-clip-text bg-gradient-to-r from-blue-300 via-blue-500 to-blue-800">
-                  My Quizzes
-                </h2>
-                <div className="flex flex-col gap-4 mb-6 md:flex-row md:items-center md:justify-between">
-                  <h2 className="text-2xl font-bold text-transparent font-orbitron bg-clip-text bg-gradient-to-r from-blue-300 via-blue-500 to-blue-800">
-                    My Quizzes
-                  </h2>
-
+                    <button
+                      onClick={handleLogout}
+                      className="flex items-center w-full gap-3 px-4 py-3 text-left dropdown-item hover:bg-black/20"
+                    >
+                      <div className="dropdown-item-icon">
+                        <FaSignOutAlt className="w-5 h-5 text-blue-300" />
+                      </div>
+                      <span className="text-blue-200 dropdown-item-text font-nunito ">
+                        Logout
+                      </span>
+                    </button>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          </motion.div>
+          
+          {/* Content */}
+          <div className="flex-1 ml-60 p-8">
+            <AnimatePresence mode="wait">
+            {activeTab === "quizzes" && (
+              <motion.div
+                key="quizzes"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: 20 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className="flex items-center justify-center mb-6">                 
                   {/* 3 BUTTON ACTIONS */}
-                  <div className="grid w-full gap-3 md:w-auto md:flex">
+                  <div className="flex flex-col w-full gap-5 md:flex-row md:w-auto md:justify-center items-center">
 
                     {/* Create New Quiz */}
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       onClick={() => setIsCreateQuizModalOpen(true)}
-                      className="justify-center px-6 py-3 text-white transition-all duration-300 transform border-2 shadow-lg font-orbitron 
+                      className="justify-center px-6 py-3 text-white transition-all duration-300 transform border-2 shadow-lg font-nunito 
                                 bg-gradient-to-r from-blue-300 via-blue-500 to-blue-800 rounded-2xl hover:from-blue-400 hover:to-blue-600 
                                 hover:scale-105 active:scale-95 border-white/30"
                     >
@@ -505,7 +505,7 @@ const Dashboard = ({ user, logout }) => {
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       onClick={() => navigate("/create-ai-quiz")}
-                      className="justify-center px-6 py-3 text-white transition-all duration-300 transform border-2 shadow-lg font-orbitron 
+                      className="justify-center px-6 py-3 text-white transition-all duration-300 transform border-2 shadow-lg font-nunito 
                                 bg-gradient-to-br from-blue-700 via-blue-800 to-blue-900 rounded-2xl hover:from-blue-800 hover:to-blue-900 
                                 hover:scale-105 active:scale-95 border-white/30"
                     >
@@ -517,212 +517,198 @@ const Dashboard = ({ user, logout }) => {
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       onClick={() => navigate("/create-ai-quiz-2")}
-                      className="justify-center px-6 py-3 text-white transition-all duration-300 transform border-2 shadow-lg font-orbitron
+                      className="justify-center px-6 py-3 text-white transition-all duration-300 transform border-2 shadow-lg font-nunito
                                 bg-gradient-to-br from-purple-600 via-purple-700 to-purple-900 rounded-2xl hover:from-purple-500 hover:to-purple-800 
                                 hover:scale-105 active:scale-95 border-white/30 flex items-center gap-2"
                     >
                       <FaRobot className="w-5 h-5 text-yellow-300 animate-bounce" />
                       AI Quiz Generator 2.0
                     </motion.button>
-
                   </div>
                 </div>
-              </div>
 
-              {/* Add SearchBar */}
-              <div className="mb-6">
-                <SearchBar onSearch={handleSearch} placeholder="Search quiz by name" />
-              </div>
-
-              {loading ? (
-                <div className="flex justify-center py-12">
-                  <div className="w-16 h-16 border-4 border-blue-400 rounded-full border-t-transparent animate-spin"></div>
+                {/* Add SearchBar */}
+                <div className="mb-6">
+                  <SearchBar onSearch={handleSearch} placeholder="Search quiz by name" />
                 </div>
-              ) : filteredQuizzes.length === 0 ? (
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="text-center py-12 bg-gradient-to-br from-blue-900/90 via-blue-800/90 to-blue-700/90 backdrop-blur-xl rounded-3xl shadow-2xl border-4 border-blue-400/30"
-                >
-                  <p className="text-xl text-blue-200 font-orbitron">
-                    Không tìm thấy quiz nào phù hợp với tìm kiếm của bạn.
-                  </p>
-                </motion.div>
-              ) : (
-                <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-                  {filteredQuizzes.map((quiz, index) => {
-                    const userIsCreator = true;
-                    return (
-                      <motion.div
-                        key={quiz._id}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: index * 0.1 }}
-                      >
-                        <QuizCard
-                          quiz={quiz}
-                          isCreator={userIsCreator}
-                          onDelete={handleDeleteQuiz}
-                        />
-                      </motion.div>
-                    );
-                  })}
-                </div>
-              )}
-            </motion.div>
-          )}
 
-          {activeTab === "public" && (
-            <motion.div
-              key="public"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 20 }}
-              transition={{ duration: 0.3 }}
-            >
-              <h2 className="mb-6 text-2xl font-bold text-transparent font-orbitron bg-clip-text bg-gradient-to-r from-blue-300 via-blue-500 to-blue-800">
-                Public Quizzes
-              </h2>
-
-              {/* Add SearchBar */}
-              <div className="mb-6">
-                <SearchBar onSearch={handlePublicSearch} placeholder="Search Quiz by name..." />
-              </div>
-
-              {Array.isArray(filteredPublicQuizzes) && filteredPublicQuizzes.length === 0 ? (
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="p-8 text-center border-4 shadow-2xl bg-gradient-to-br from-blue-900/90 via-blue-800/90 to-blue-700/90 backdrop-blur-xl rounded-3xl border-blue-400/30"
-                >
-                  <p className="text-xl text-blue-200 font-orbitron">
-                    Không tìm thấy quiz nào phù hợp với tìm kiếm của bạn.
-                  </p>
-                </motion.div>
-              ) : (
-                <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-                  {Array.isArray(filteredPublicQuizzes) &&
-                    filteredPublicQuizzes.map((quiz, index) => {
+                {loading ? (
+                  <div className="flex justify-center py-12">
+                    <div className="w-16 h-16 border-4 border-blue-400 rounded-full border-t-transparent animate-spin"></div>
+                  </div>
+                ) : filteredQuizzes.length === 0 ? (
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="text-center py-12 bg-gradient-to-br from-blue-900/90 via-blue-800/90 to-blue-700/90 backdrop-blur-xl rounded-3xl shadow-2xl border-4 border-blue-400/30"
+                  >
+                    <p className="text-xl text-blue-200 font-nunito">
+                      Không tìm thấy quiz nào phù hợp với tìm kiếm của bạn.
+                    </p>
+                  </motion.div>
+                ) : (
+                  <div className="grid grid-cols-1 gap-6 md:grid-cols-1 lg:grid-cols-1">
+                    {filteredQuizzes.map((quiz, index) => {
+                      const userIsCreator = true;
                       return (
-                        <QuizCard
+                        <motion.div
                           key={quiz._id}
-                          quiz={quiz}
-                          isCreator={false}
-                          showCreator={true}
-                          onDelete={handleDeleteQuiz}
-                        />
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.5, delay: index * 0.1 }}
+                        >
+                          <QuizCard
+                            quiz={quiz}
+                            isCreator={userIsCreator}
+                            onDelete={handleDeleteQuiz}
+                          />
+                        </motion.div>
                       );
                     })}
+                  </div>
+                )}
+              </motion.div>
+            )}
+
+            {activeTab === "multiplayer" && (
+              <motion.div
+                key="multiplayer"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: 20 }}
+                transition={{ duration: 0.3 }}
+              >
+                <p className="mb-8 text-blue-200 font-nunito">
+                  Challenge your friends or join public quiz rooms for a competitive
+                  experience.
+                </p>
+
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                  <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    className="p-6 border-2 multiplayer-card bg-gradient-to-br from-blue-900/50 via-blue-800/50 to-blue-700/50 backdrop-blur-xl rounded-2xl border-blue-400/30"
+                  >
+                    <h3 className="mb-3 text-xl font-bold text-transparent font-nunito bg-clip-text bg-gradient-to-r from-blue-300 via-blue-500 to-blue-800">
+                      Create a Room
+                    </h3>
+                    <p className="mb-6 text-blue-200 font-nunito">
+                      Create a multiplayer room with one of your quizzes and invite
+                      others to join.
+                    </p>
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={() => {
+                        if (!Array.isArray(quizzes) || quizzes.length === 0) {
+                          toast.error("You need to create a quiz first!");
+                          setTimeout(() => navigate("/upload"), 1500);
+                        } else {
+                          navigate("/create-room");
+                        }
+                      }}
+                      className="w-full px-6 py-3 text-white transition-all duration-300 transform border-2 shadow-lg font-nunito bg-gradient-to-r from-blue-300 via-blue-500 to-blue-800 rounded-xl hover:from-blue-400 hover:to-blue-600 hover:scale-105 active:scale-95 border-white/30"
+                    >
+                      Create Room
+                    </motion.button>
+                  </motion.div>
+
+                  <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    className="p-6 border-2 multiplayer-card bg-gradient-to-br from-blue-900/50 via-blue-800/50 to-blue-700/50 backdrop-blur-xl rounded-2xl border-blue-400/30"
+                  >
+                    <h3 className="mb-3 text-xl font-bold text-transparent font-nunito bg-clip-text bg-gradient-to-r from-blue-300 via-blue-500 to-blue-800">
+                      Join a Room
+                    </h3>
+                    <p className="mb-6 text-blue-200 font-nunito">
+                      Join an existing quiz room using a room code from another
+                      player.
+                    </p>
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={() => navigate("/join-room")}
+                      className="w-full px-6 py-3 text-white transition-all duration-300 transform border-2 shadow-lg font-nunito bg-gradient-to-r from-blue-300 via-blue-500 to-blue-800 rounded-xl hover:from-blue-400 hover:to-blue-600 hover:scale-105 active:scale-95 border-white/30"
+                    >
+                      Join Room
+                    </motion.button>
+                  </motion.div>
                 </div>
-              )}
-            </motion.div>
-          )}
+              </motion.div>
+            )}
 
-          {activeTab === "submissions" && (
-            <motion.div
-              key="submissions"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 20 }}
-              transition={{ duration: 0.3 }}
-            >
-              <h2 className="mb-6 text-2xl font-bold text-transparent font-orbitron bg-clip-text bg-gradient-to-r from-blue-300 via-blue-500 to-blue-800">
-                My Submissions
-              </h2>
-              <CollapsibleSubmissionsTable submissions={submissions} />
-            </motion.div>
-          )}
+            {activeTab === "public" && (
+              <motion.div
+                key="public"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: 20 }}
+                transition={{ duration: 0.3 }}
+              >
+                {/* Add SearchBar */}
+                <div className="mb-6">
+                  <SearchBar onSearch={handlePublicSearch} placeholder="Search Quiz by name..." />
+                </div>
 
-          {activeTab === "leaderboard" && (
-            <motion.div
-              key="leaderboard"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 20 }}
-              transition={{ duration: 0.3 }}
-            >
-              <h2 className="mb-6 text-2xl font-bold text-transparent font-orbitron bg-clip-text bg-gradient-to-r from-blue-300 via-blue-500 to-blue-800">
-                Global Leaderboard
-              </h2>
-              <Leaderboard />
-            </motion.div>
-          )}
-
-          {activeTab === "multiplayer" && (
-            <motion.div
-              key="multiplayer"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 20 }}
-              transition={{ duration: 0.3 }}
-            >
-              <h2 className="mb-6 text-2xl font-bold text-transparent font-orbitron bg-clip-text bg-gradient-to-r from-blue-300 via-blue-500 to-blue-800">
-                Multiplayer Quizzes
-              </h2>
-              <p className="mb-8 text-blue-200 font-orbitron">
-                Challenge your friends or join public quiz rooms for a competitive
-                experience.
-              </p>
-
-              <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-                <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  className="p-6 border-2 multiplayer-card bg-gradient-to-br from-blue-900/50 via-blue-800/50 to-blue-700/50 backdrop-blur-xl rounded-2xl border-blue-400/30"
-                >
-                  <h3 className="mb-3 text-xl font-bold text-transparent font-orbitron bg-clip-text bg-gradient-to-r from-blue-300 via-blue-500 to-blue-800">
-                    Create a Room
-                  </h3>
-                  <p className="mb-6 text-blue-200 font-orbitron">
-                    Create a multiplayer room with one of your quizzes and invite
-                    others to join.
-                  </p>
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={() => {
-                      if (!Array.isArray(quizzes) || quizzes.length === 0) {
-                        toast.error("You need to create a quiz first!");
-                        setTimeout(() => navigate("/upload"), 1500);
-                      } else {
-                        navigate("/create-room");
-                      }
-                    }}
-                    className="w-full px-6 py-3 text-white transition-all duration-300 transform border-2 shadow-lg font-orbitron bg-gradient-to-r from-blue-300 via-blue-500 to-blue-800 rounded-xl hover:from-blue-400 hover:to-blue-600 hover:scale-105 active:scale-95 border-white/30"
+                {Array.isArray(filteredPublicQuizzes) && filteredPublicQuizzes.length === 0 ? (
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="p-8 text-center border-4 shadow-2xl bg-gradient-to-br from-blue-900/90 via-blue-800/90 to-blue-700/90 backdrop-blur-xl rounded-3xl border-blue-400/30"
                   >
-                    Create Room
-                  </motion.button>
-                </motion.div>
+                    <p className="text-xl text-blue-200 font-nunito">
+                      Không tìm thấy quiz nào phù hợp với tìm kiếm của bạn.
+                    </p>
+                  </motion.div>
+                ) : (
+                  <div className="grid grid-cols-1 gap-6 md:grid-cols-1 lg:grid-cols-1">
+                    {Array.isArray(filteredPublicQuizzes) &&
+                      filteredPublicQuizzes.map((quiz, index) => {
+                        return (
+                          <QuizCard
+                            key={quiz._id}
+                            quiz={quiz}
+                            isCreator={false}
+                            showCreator={true}
+                            onDelete={handleDeleteQuiz}
+                          />
+                        );
+                      })}
+                  </div>
+                )}
+              </motion.div>
+            )}
 
-                <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  className="p-6 border-2 multiplayer-card bg-gradient-to-br from-blue-900/50 via-blue-800/50 to-blue-700/50 backdrop-blur-xl rounded-2xl border-blue-400/30"
-                >
-                  <h3 className="mb-3 text-xl font-bold text-transparent font-orbitron bg-clip-text bg-gradient-to-r from-blue-300 via-blue-500 to-blue-800">
-                    Join a Room
-                  </h3>
-                  <p className="mb-6 text-blue-200 font-orbitron">
-                    Join an existing quiz room using a room code from another
-                    player.
-                  </p>
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={() => navigate("/join-room")}
-                    className="w-full px-6 py-3 text-white transition-all duration-300 transform border-2 shadow-lg font-orbitron bg-gradient-to-r from-blue-300 via-blue-500 to-blue-800 rounded-xl hover:from-blue-400 hover:to-blue-600 hover:scale-105 active:scale-95 border-white/30"
-                  >
-                    Join Room
-                  </motion.button>
-                </motion.div>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+            {activeTab === "submissions" && (
+              <motion.div
+                key="submissions"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: 20 }}
+                transition={{ duration: 0.3 }}
+              >
+                <CollapsibleSubmissionsTable submissions={submissions} />
+              </motion.div>
+            )}
+
+            {activeTab === "leaderboard" && (
+              <motion.div
+                key="leaderboard"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: 20 }}
+                transition={{ duration: 0.3 }}
+              >
+                <Leaderboard />
+              </motion.div>
+            )}
+            </AnimatePresence>
+          </div>
+        </div>
       </div>
-
       <CreateQuizModal
         isOpen={isCreateQuizModalOpen}
         onClose={() => setIsCreateQuizModalOpen(false)}
-      />
+      /> 
     </div>
   );
 };

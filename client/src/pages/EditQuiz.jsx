@@ -282,14 +282,14 @@ const EditQuiz = () => {
                                 transition={{ duration: 0.8, delay: 0.2 }}
                                 className="text-center mb-10"
                             >
-                                <h1 className="text-4xl md:text-5xl font-extrabold font-orbitron text-transparent bg-clip-text bg-gradient-to-r from-[#0077D6] via-[#0096FF] to-[#66D9FF] drop-shadow-lg mb-2 flex items-center justify-center gap-3">
+                                <h1 className="text-4xl md:text-5xl font-extrabold font-nunito text-transparent bg-clip-text bg-gradient-to-r from-[#0077D6] via-[#0096FF] to-[#66D9FF] drop-shadow-lg mb-2 flex items-center justify-center gap-3">
                                     {/* primary small icon color uses HAU Blue accents */}
                                     <FaEdit className="inline-block text-[#66D9FF] animate-bounce" />
                                     Edit Quiz
                                     {/* star color slightly lighter blue for subtle highlight */}
                                     <FaStar className="inline-block text-[#A6E7FF] animate-spin-slow" />
                                 </h1>
-                                <p className="text-lg text-[#DDEEFF] font-orbitron tracking-wide drop-shadow">Edit your quiz content</p>
+                                <p className="text-lg text-[#DDEEFF] font-nunito tracking-wide drop-shadow">Edit your quiz content</p>
                             </motion.div>
 
                             <form onSubmit={handleSubmit}>
@@ -301,7 +301,7 @@ const EditQuiz = () => {
                                 >
                                     <label
                                         htmlFor="title"
-                                        className="block text-sm font-bold mb-2 font-orbitron tracking-wide"
+                                        className="block text-sm font-bold mb-2 font-nunito tracking-wide"
                                         style={{ color: '#BEE6FF' }}
                                     >
                                         Title
@@ -312,14 +312,14 @@ const EditQuiz = () => {
                                         name="title"
                                         value={formData.title}
                                         onChange={handleChange}
-                                        className={`w-full px-4 py-3 border-2 rounded-xl font-orbitron text-lg bg-black/40 text-[#EAF6FF] placeholder:text-[#BEE6FF] focus:ring-2 transition-colors shadow-lg ${errors.title
+                                        className={`w-full px-4 py-3 border-2 rounded-xl font-nunito text-lg bg-black/40 text-[#EAF6FF] placeholder:text-[#BEE6FF] focus:ring-2 transition-colors shadow-lg ${errors.title
                                             ? "border-red-500 focus:ring-red-200"
                                             : "border-[#2B6CB0] focus:border-[#66D9FF]"
                                             }`}
                                         placeholder="Enter title for your quiz"
                                     />
                                     {errors.title && (
-                                        <p className="mt-1 text-sm text-red-400 font-orbitron">{errors.title}</p>
+                                        <p className="mt-1 text-sm text-red-400 font-nunito">{errors.title}</p>
                                     )}
                                 </motion.div>
 
@@ -331,7 +331,7 @@ const EditQuiz = () => {
                                 >
                                     <label
                                         htmlFor="description"
-                                        className="block text-sm font-bold mb-2 font-orbitron tracking-wide"
+                                        className="block text-sm font-bold mb-2 font-nunito tracking-wide"
                                         style={{ color: '#BEE6FF' }}
                                     >
                                         Description
@@ -342,14 +342,14 @@ const EditQuiz = () => {
                                         value={formData.description}
                                         onChange={handleChange}
                                         rows="3"
-                                        className={`w-full px-4 py-3 border-2 rounded-xl font-orbitron text-lg bg-black/40 text-[#EAF6FF] placeholder:text-[#BEE6FF] focus:ring-2 transition-colors shadow-lg ${errors.description
+                                        className={`w-full px-4 py-3 border-2 rounded-xl font-nunito text-lg bg-black/40 text-[#EAF6FF] placeholder:text-[#BEE6FF] focus:ring-2 transition-colors shadow-lg ${errors.description
                                             ? "border-red-500 focus:ring-red-200"
                                             : "border-[#2B6CB0] focus:border-[#66D9FF]"
                                             }`}
                                         placeholder="Describe your quiz"
                                     ></textarea>
                                     {errors.description && (
-                                        <p className="mt-1 text-sm text-red-400 font-orbitron">
+                                        <p className="mt-1 text-sm text-red-400 font-nunito">
                                             {errors.description}
                                         </p>
                                     )}
@@ -363,7 +363,7 @@ const EditQuiz = () => {
                                 >
                                     <label
                                         htmlFor="category"
-                                        className="block text-sm font-bold mb-2 font-orbitron tracking-wide"
+                                        className="block text-sm font-bold mb-2 font-nunito tracking-wide"
                                         style={{ color: '#BEE6FF' }}
                                     >
                                         Category
@@ -373,7 +373,7 @@ const EditQuiz = () => {
                                         name="category"
                                         value={formData.category}
                                         onChange={handleChange}
-                                        className="w-full px-4 py-3 border-2 border-[#2B6CB0] rounded-xl font-orbitron text-lg bg-black/40 text-[#EAF6FF] focus:border-[#66D9FF] focus:ring-2 transition-colors shadow-lg"
+                                        className="w-full px-4 py-3 border-2 border-[#2B6CB0] rounded-xl font-nunito text-lg bg-black/40 text-[#EAF6FF] focus:border-[#66D9FF] focus:ring-2 transition-colors shadow-lg"
                                     >
                                         {categories.map((category) => (
                                             <option key={category} value={category} className="bg-black/80 text-[#0f172a]">
@@ -389,7 +389,7 @@ const EditQuiz = () => {
                                     transition={{ duration: 0.8, delay: 0.6 }}
                                     className="mb-8"
                                 >
-                                    <label className="flex items-center font-orbitron text-[#DCEEFF]">
+                                    <label className="flex items-center font-nunito text-[#DCEEFF]">
                                         <input
                                             type="checkbox"
                                             name="isPublic"
@@ -399,7 +399,7 @@ const EditQuiz = () => {
                                         />
                                         <span className="ml-2">Make this quiz public</span>
                                     </label>
-                                    <p className="text-sm text-[#CFE8FF] mt-1 ml-6 font-orbitron">
+                                    <p className="text-sm text-[#CFE8FF] mt-1 ml-6 font-nunito">
                                         Public quizzes can be viewed and taken by everyone
                                     </p>
                                 </motion.div>
@@ -411,7 +411,7 @@ const EditQuiz = () => {
                                     className="mb-8"
                                 >
                                     <div className="flex justify-between items-center mb-4">
-                                        <h2 className="text-2xl font-bold font-orbitron text-[#66D9FF] drop-shadow">Questions</h2>
+                                        <h2 className="text-2xl font-bold font-nunito text-[#66D9FF] drop-shadow">Questions</h2>
                                     </div>
 
                                     {formData.questions.map((question, questionIndex) => (
@@ -424,12 +424,12 @@ const EditQuiz = () => {
                                             style={{ borderColor: 'rgba(43,108,176,0.25)' }}
                                         >
                                             <div className="flex justify-between items-start mb-4">
-                                                <h3 className="text-lg font-bold font-orbitron text-[#DDEEFF]">Question {questionIndex + 1}</h3>
+                                                <h3 className="text-lg font-bold font-nunito text-[#DDEEFF]">Question {questionIndex + 1}</h3>
                                                 {formData.questions.length > 1 && (
                                                     <button
                                                         type="button"
                                                         onClick={() => removeQuestion(questionIndex)}
-                                                        className="text-[#88C8FF] hover:text-[#BEE6FF] font-orbitron flex items-center space-x-1 transition drop-shadow-glow"
+                                                        className="text-[#88C8FF] hover:text-[#BEE6FF] font-nunito flex items-center space-x-1 transition drop-shadow-glow"
                                                     >
                                                         <FiTrash2 className="w-5 h-5 animate-pulse" />
                                                         <span>Delete</span>
@@ -438,7 +438,7 @@ const EditQuiz = () => {
                                             </div>
 
                                             <div className="mb-4">
-                                                <label className="block text-sm font-bold mb-2 font-orbitron" style={{ color: '#BEE6FF' }}>Question Content</label>
+                                                <label className="block text-sm font-bold mb-2 font-nunito" style={{ color: '#BEE6FF' }}>Question Content</label>
                                                 <input
                                                     type="text"
                                                     value={question.text}
@@ -449,21 +449,21 @@ const EditQuiz = () => {
                                                             e.target.value
                                                         )
                                                     }
-                                                    className={`w-full px-4 py-3 border-2 rounded-xl font-orbitron text-lg bg-black/40 text-[#EAF6FF] placeholder:text-[#BEE6FF] focus:ring-2 transition-colors shadow-lg ${errors[`question_${questionIndex}`]
+                                                    className={`w-full px-4 py-3 border-2 rounded-xl font-nunito text-lg bg-black/40 text-[#EAF6FF] placeholder:text-[#BEE6FF] focus:ring-2 transition-colors shadow-lg ${errors[`question_${questionIndex}`]
                                                         ? "border-red-500 focus:ring-red-200"
                                                         : "border-[#2B6CB0] focus:border-[#66D9FF]"
                                                         }`}
                                                     placeholder="Enter your question"
                                                 />
                                                 {errors[`question_${questionIndex}`] && (
-                                                    <p className="mt-1 text-sm text-red-400 font-orbitron">
+                                                    <p className="mt-1 text-sm text-red-400 font-nunito">
                                                         {errors[`question_${questionIndex}`]}
                                                     </p>
                                                 )}
                                             </div>
 
                                             <div className="space-y-3">
-                                                <label className="block text-sm font-bold mb-2 font-orbitron" style={{ color: '#BEE6FF' }}>Options</label>
+                                                <label className="block text-sm font-bold mb-2 font-nunito" style={{ color: '#BEE6FF' }}>Options</label>
                                                 {question.options.map((option, optionIndex) => (
                                                     <div
                                                         key={optionIndex}
@@ -499,7 +499,7 @@ const EditQuiz = () => {
                                                                     e.target.value
                                                                 )
                                                             }
-                                                            className={`flex-1 px-4 py-3 border-2 rounded-xl font-orbitron text-lg bg-black/40 text-[#EAF6FF] placeholder:text-[#BEE6FF] focus:ring-2 transition-colors shadow-lg ${errors[`option_${questionIndex}_${optionIndex}`]
+                                                            className={`flex-1 px-4 py-3 border-2 rounded-xl font-nunito text-lg bg-black/40 text-[#EAF6FF] placeholder:text-[#BEE6FF] focus:ring-2 transition-colors shadow-lg ${errors[`option_${questionIndex}_${optionIndex}`]
                                                                 ? "border-red-500 focus:ring-red-200"
                                                                 : "border-[#2B6CB0] focus:border-[#66D9FF]"
                                                                 }`}
@@ -508,7 +508,7 @@ const EditQuiz = () => {
                                                     </div>
                                                 ))}
                                                 {errors[`question_${questionIndex}_correct`] && (
-                                                    <p className="mt-1 text-sm text-red-400 font-orbitron">
+                                                    <p className="mt-1 text-sm text-red-400 font-nunito">
                                                         {errors[`question_${questionIndex}_correct`]}
                                                     </p>
                                                 )}
@@ -519,7 +519,7 @@ const EditQuiz = () => {
                                         <button
                                             type="button"
                                             onClick={addQuestion}
-                                            className="px-6 py-2 font-orbitron rounded-xl bg-gradient-to-r from-[#0077D6] via-[#0096FF] to-[#66D9FF] text-white shadow-lg border-2 border-white/10 hover:opacity-95 transition-all text-lg drop-shadow-glow hover:scale-105 active:scale-95"
+                                            className="px-6 py-2 font-nunito rounded-xl bg-gradient-to-r from-[#0077D6] via-[#0096FF] to-[#66D9FF] text-white shadow-lg border-2 border-white/10 hover:opacity-95 transition-all text-lg drop-shadow-glow hover:scale-105 active:scale-95"
                                         >
                                             <FiPlus className="w-5 h-5 inline-block mr-2 align-middle animate-bounce text-[#E6F9FF]" />
                                             <span>Add Question</span>
@@ -536,7 +536,7 @@ const EditQuiz = () => {
                                     <button
                                         type="submit"
                                         disabled={loading}
-                                        className="flex-1 py-4 px-6 font-orbitron bg-gradient-to-r from-[#0077D6] via-[#0096FF] to-[#66D9FF] text-white font-bold rounded-2xl shadow-xl border-2 border-white/10 hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-[#66D9FF] transition-all duration-300 transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed text-xl drop-shadow-glow hover:scale-105 active:scale-95"
+                                        className="flex-1 py-4 px-6 font-nunito bg-gradient-to-r from-[#0077D6] via-[#0096FF] to-[#66D9FF] text-white font-bold rounded-2xl shadow-xl border-2 border-white/10 hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-[#66D9FF] transition-all duration-300 transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed text-xl drop-shadow-glow hover:scale-105 active:scale-95"
                                     >
                                         {loading ? (
                                             <div className="flex items-center justify-center">
@@ -570,7 +570,7 @@ const EditQuiz = () => {
                                     <button
                                         type="button"
                                         onClick={() => navigate("/dashboard")}
-                                        className="flex-1 py-4 px-6 font-orbitron bg-black/40 text-[#DDEEFF] font-bold rounded-2xl border-2" style={{ borderColor: 'rgba(43,108,176,0.25)' }}
+                                        className="flex-1 py-4 px-6 font-nunito bg-black/40 text-[#DDEEFF] font-bold rounded-2xl border-2" style={{ borderColor: 'rgba(43,108,176,0.25)' }}
                                     >
                                         Cancel
                                     </button>

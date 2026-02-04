@@ -157,7 +157,7 @@ const RoomChat = ({ roomCode, roomId }) => {
   return (
     <div className="flex flex-col h-[400px] bg-gradient-to-br from-indigo-800/90 via-purple-800/90 to-pink-800/90 backdrop-blur-xl rounded-3xl border-4 border-pink-400/40 shadow-2xl">
       <div className="p-4 border-b border-pink-400/40">
-        <h2 className="text-lg font-bold text-transparent font-orbitron bg-clip-text bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500">
+        <h2 className="text-lg font-bold text-transparent font-nunito bg-clip-text bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500">
           Room Chat
         </h2>
       </div>
@@ -171,7 +171,7 @@ const RoomChat = ({ roomCode, roomId }) => {
         ) : (
           <>
             {!Array.isArray(messages) || messages.length === 0 ? (
-              <div className="text-center text-pink-200/80 py-4 font-orbitron">
+              <div className="text-center text-pink-200/80 py-4 font-nunito">
                 No messages yet. Be the first to send a message!
               </div>
             ) : (
@@ -187,12 +187,12 @@ const RoomChat = ({ roomCode, roomId }) => {
                       }`}
                   >
                     {message.sender !== user?._id && (
-                      <div className="text-xs text-pink-300/80 mb-1 font-orbitron">
+                      <div className="text-xs text-pink-300/80 mb-1 font-nunito">
                         {message.senderName}
                       </div>
                     )}
-                    <p className="text-sm font-orbitron">{message.content}</p>
-                    <div className="text-xs opacity-70 mt-1 font-orbitron text-right">
+                    <p className="text-sm font-nunito">{message.content}</p>
+                    <div className="text-xs opacity-70 mt-1 font-nunito text-right">
                       {new Date(message.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                     </div>
                   </div>
@@ -207,7 +207,7 @@ const RoomChat = ({ roomCode, roomId }) => {
       {/* Typing indicator */}
       {typingUsers.size > 0 && (
         <div
-          className="px-4 py-2 text-sm text-pink-300/80 font-orbitron"
+          className="px-4 py-2 text-sm text-pink-300/80 font-nunito"
         >
           {Array.from(typingUsers).join(', ')} typing...
         </div>
@@ -222,12 +222,12 @@ const RoomChat = ({ roomCode, roomId }) => {
             onChange={(e) => setNewMessage(e.target.value)}
             onKeyDown={handleTyping}
             placeholder="Type a message..."
-            className="flex-1 p-3 bg-indigo-900/50 border-2 border-pink-400/40 rounded-xl text-pink-200 placeholder-pink-300/50 focus:outline-none focus:border-pink-400 font-orbitron"
+            className="flex-1 p-3 bg-indigo-900/50 border-2 border-pink-400/40 rounded-xl text-pink-200 placeholder-pink-300/50 focus:outline-none focus:border-pink-400 font-nunito"
           />
           <button
             type="submit"
             disabled={!newMessage.trim() || !socketService.isConnected}
-            className={`px-4 py-3 text-white transition-all duration-300 transform border-2 shadow-lg font-orbitron bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 rounded-xl hover:from-pink-400 hover:to-yellow-400 hover:scale-105 active:scale-95 border-white/30 ${(!newMessage.trim() || !socketService.isConnected) ? 'opacity-50 cursor-not-allowed' : ''}`}
+            className={`px-4 py-3 text-white transition-all duration-300 transform border-2 shadow-lg font-nunito bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 rounded-xl hover:from-pink-400 hover:to-yellow-400 hover:scale-105 active:scale-95 border-white/30 ${(!newMessage.trim() || !socketService.isConnected) ? 'opacity-50 cursor-not-allowed' : ''}`}
           >
             <FaPaperPlane className="w-5 h-5" />
           </button>

@@ -370,14 +370,14 @@ function Friends({ user }) {
         <div className="flex items-center justify-between mb-8">
           <div className="flex items-center">
             <button
-              className="mr-4 px-4 py-3 text-white transition-all duration-300 transform border-2 shadow-lg font-orbitron bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 rounded-2xl hover:from-pink-400 hover:to-yellow-400 hover:scale-105 active:scale-95 border-white/30"
+              className="mr-4 px-4 py-3 text-white transition-all duration-300 transform border-2 shadow-lg font-nunito bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 rounded-2xl hover:from-pink-400 hover:to-yellow-400 hover:scale-105 active:scale-95 border-white/30"
               onClick={() => navigate('/dashboard')}
               aria-label="Back to dashboard"
             >
               <FiArrowLeft className="w-6 h-6" />
             </button>
 
-            <h1 className="flex items-center gap-3 text-4xl font-extrabold text-transparent md:text-5xl font-orbitron bg-clip-text bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 drop-shadow-lg">
+            <h1 className="flex items-center gap-3 text-4xl font-extrabold text-transparent md:text-5xl font-nunito bg-clip-text bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 drop-shadow-lg">
               <FaUserFriends className="inline-block text-yellow-300 animate-bounce" />
               Friends
               <FaStar className="inline-block text-pink-300 animate-spin-slow" />
@@ -394,7 +394,7 @@ function Friends({ user }) {
                 alt="User Avatar"
                 className="w-12 h-12 border-2 rounded-full shadow-lg border-pink-400/40"
               />
-              <span className="text-white username font-orbitron">
+              <span className="text-white username font-nunito">
                 {user?.username || "User"}
               </span>
             </div>
@@ -411,10 +411,10 @@ function Friends({ user }) {
                     className="w-12 h-12 border-2 rounded-full border-pink-400/40"
                   />
                   <div className="dropdown-header-info">
-                    <div className="text-pink-200 dropdown-header-name font-orbitron">
+                    <div className="text-pink-200 dropdown-header-name font-nunito">
                       {user?.username || "User"}
                     </div>
-                    <div className="text-sm dropdown-header-email font-orbitron text-pink-300/80">
+                    <div className="text-sm dropdown-header-email font-nunito text-pink-300/80">
                       {user?.email || "user@example.com"}
                     </div>
                   </div>
@@ -427,7 +427,7 @@ function Friends({ user }) {
                   <div className="dropdown-item-icon">
                     <FaUser className="w-5 h-5 text-yellow-400" />
                   </div>
-                  <span className="text-pink-200 dropdown-item-text font-orbitron">
+                  <span className="text-pink-200 dropdown-item-text font-nunito">
                     Profile
                   </span>
                 </Link>
@@ -439,7 +439,7 @@ function Friends({ user }) {
                   <div className="dropdown-item-icon">
                     <FaGamepad className="w-5 h-5 text-yellow-400" />
                   </div>
-                  <span className="text-pink-200 dropdown-item-text font-orbitron">
+                  <span className="text-pink-200 dropdown-item-text font-nunito">
                     Dashboard
                   </span>
                 </Link>
@@ -451,7 +451,7 @@ function Friends({ user }) {
                   <div className="dropdown-item-icon">
                     <FaMedal className="w-5 h-5 text-yellow-400" />
                   </div>
-                  <span className="text-pink-200 dropdown-item-text font-orbitron">
+                  <span className="text-pink-200 dropdown-item-text font-nunito">
                     Achievements
                   </span>
                 </Link>
@@ -465,7 +465,7 @@ function Friends({ user }) {
                     <div className="dropdown-item-icon">
                       <FaUserCog className="w-5 h-5 text-yellow-400" />
                     </div>
-                    <span className="text-pink-200 dropdown-item-text font-orbitron">
+                    <span className="text-pink-200 dropdown-item-text font-nunito">
                       Admin Panel
                     </span>
                   </Link>
@@ -480,7 +480,7 @@ function Friends({ user }) {
                   <div className="dropdown-item-icon">
                     <FaSignOutAlt className="w-5 h-5 text-yellow-400" />
                   </div>
-                  <span className="text-pink-200 dropdown-item-text font-orbitron">
+                  <span className="text-pink-200 dropdown-item-text font-nunito">
                     Logout
                   </span>
                 </button>
@@ -531,14 +531,14 @@ function Friends({ user }) {
               <div>
                 <input
                   type="text"
-                  className="w-full px-4 py-2 mb-4 text-white bg-indigo-900 border-2 rounded-xl border-pink-400/40 focus:outline-none focus:ring-2 focus:ring-pink-400/60 font-orbitron"
+                  className="w-full px-4 py-2 mb-4 text-white bg-indigo-900 border-2 rounded-xl border-pink-400/40 focus:outline-none focus:ring-2 focus:ring-pink-400/60 font-nunito"
                   placeholder="Search friends..."
                   value={searchTerm}
                   onChange={e => setSearchTerm(e.target.value)}
                 />
                 <ul className="space-y-2">
                   {filteredFriends.length === 0 && (
-                    <li className="text-pink-200 font-orbitron">Không có bạn bè nào.</li>
+                    <li className="text-pink-200 font-nunito">Không có bạn bè nào.</li>
                   )}
                   {filteredFriends.map(friend => (
                     <li
@@ -551,7 +551,7 @@ function Friends({ user }) {
                         alt="Avatar"
                         className="w-10 h-10 rounded-full border-2 border-pink-400/40"
                       />
-                      <span className="text-white font-orbitron">{friend.displayName || friend.username}</span>
+                      <span className="text-white font-nunito">{friend.displayName || friend.username}</span>
                     </li>
                   ))}
                 </ul>
@@ -561,7 +561,7 @@ function Friends({ user }) {
               <div>
                 <ul className="space-y-2">
                   {friendRequests.length === 0 && (
-                    <li className="text-pink-200 font-orbitron">You have no friend requests.</li>
+                    <li className="text-pink-200 font-nunito">You have no friend requests.</li>
                   )}
                   {friendRequests.map(req => (
                     <li key={req._id} className="flex items-center gap-3 p-3 rounded-xl bg-pink-400/10">
@@ -570,13 +570,13 @@ function Friends({ user }) {
                         alt="Avatar"
                         className="w-10 h-10 rounded-full border-2 border-pink-400/40"
                       />
-                      <span className="text-white font-orbitron">{req.sender?.displayName || req.sender?.username}</span>
+                      <span className="text-white font-nunito">{req.sender?.displayName || req.sender?.username}</span>
                       <button
-                        className="ml-auto px-3 py-1 bg-green-500 text-white rounded-xl font-orbitron hover:bg-green-600"
+                        className="ml-auto px-3 py-1 bg-green-500 text-white rounded-xl font-nunito hover:bg-green-600"
                         onClick={() => handleAccept(req._id)}
                       >Chấp nhận</button>
                       <button
-                        className="ml-2 px-3 py-1 bg-red-500 text-white rounded-xl font-orbitron hover:bg-red-600"
+                        className="ml-2 px-3 py-1 bg-red-500 text-white rounded-xl font-nunito hover:bg-red-600"
                         onClick={() => handleReject(req._id)}
                       >Từ chối</button>
                     </li>
@@ -588,15 +588,15 @@ function Friends({ user }) {
               <div>
                 <input
                   type="text"
-                  className="w-full px-4 py-2 mb-4 text-white bg-indigo-900 border-2 rounded-xl border-pink-400/40 focus:outline-none focus:ring-2 focus:ring-pink-400/60 font-orbitron"
+                  className="w-full px-4 py-2 mb-4 text-white bg-indigo-900 border-2 rounded-xl border-pink-400/40 focus:outline-none focus:ring-2 focus:ring-pink-400/60 font-nunito"
                   placeholder="Search by username..."
                   value={searchTerm}
                   onChange={e => setSearchTerm(e.target.value)}
                 />
-                {loading && <div className="text-pink-200 font-orbitron">Đang tìm kiếm...</div>}
+                {loading && <div className="text-pink-200 font-nunito">Đang tìm kiếm...</div>}
                 <ul className="space-y-2">
                   {searchResults.length === 0 && !loading && (
-                    <li className="text-pink-200 font-orbitron">User not found.</li>
+                    <li className="text-pink-200 font-nunito">User not found.</li>
                   )}
                   {searchResults.map(u => (
                     <li key={u._id} className="flex items-center gap-3 p-3 rounded-xl bg-pink-400/10">
@@ -605,9 +605,9 @@ function Friends({ user }) {
                         alt="Avatar"
                         className="w-10 h-10 rounded-full border-2 border-pink-400/40"
                       />
-                      <span className="text-white font-orbitron">{u.displayName || u.username}</span>
+                      <span className="text-white font-nunito">{u.displayName || u.username}</span>
                       <button
-                        className="ml-auto px-3 py-1 bg-blue-500 text-white rounded-xl font-orbitron hover:bg-blue-600 disabled:opacity-50"
+                        className="ml-auto px-3 py-1 bg-blue-500 text-white rounded-xl font-nunito hover:bg-blue-600 disabled:opacity-50"
                         onClick={() => handleAddFriend(u._id)}
                         disabled={u.requestSent}
                       >{u.requestSent ? 'Đã gửi' : 'Kết bạn'}</button>
@@ -628,12 +628,12 @@ function Friends({ user }) {
                     alt="Avatar"
                     className="w-10 h-10 rounded-full border-2 border-pink-400/40"
                   />
-                  <span className="text-white text-lg font-orbitron font-bold">{selectedFriend.displayName || selectedFriend.username}</span>
+                  <span className="text-white text-lg font-nunito font-bold">{selectedFriend.displayName || selectedFriend.username}</span>
                 </div>
                 <div className="flex-1 overflow-y-auto mb-4 pr-2 messages-container">
                   <ul className="space-y-2">
                     {chatMessages.length === 0 && (
-                      <li className="text-pink-200 font-orbitron">Chưa có tin nhắn nào.</li>
+                      <li className="text-pink-200 font-nunito">Chưa có tin nhắn nào.</li>
                     )}
                     {chatMessages.map((msg, index) => {
                       // Chuẩn hóa ID người gửi sang dạng string để so sánh
@@ -648,7 +648,7 @@ function Friends({ user }) {
                           key={msg._id || `${senderId}-${msg.createdAt}-${index}`}
                           className={`flex ${isMe ? 'justify-end' : 'justify-start'} mb-2`}
                         >
-                          <div className={`max-w-xs px-4 py-2 rounded-2xl shadow font-orbitron 
+                          <div className={`max-w-xs px-4 py-2 rounded-2xl shadow font-nunito 
                             ${isMe
                               ? 'bg-pink-500 text-white rounded-br-none'
                               : 'bg-indigo-500 text-white rounded-bl-none'}
@@ -669,7 +669,7 @@ function Friends({ user }) {
 
                 {/* Typing indicator */}
                 {typingUsers.size > 0 && (
-                  <div className="px-4 py-2 text-sm text-pink-300/80 font-orbitron animate-pulse">
+                  <div className="px-4 py-2 text-sm text-pink-300/80 font-nunito animate-pulse">
                     {selectedFriend?.displayName || selectedFriend?.username} đang nhập...
                   </div>
                 )}
@@ -677,7 +677,7 @@ function Friends({ user }) {
                 <form onSubmit={handleSendMessage} className="flex gap-2">
                   <input
                     type="text"
-                    className="flex-1 px-4 py-2 text-white bg-indigo-900 border-2 rounded-xl border-pink-400/40 focus:outline-none focus:ring-2 focus:ring-pink-400/60 font-orbitron"
+                    className="flex-1 px-4 py-2 text-white bg-indigo-900 border-2 rounded-xl border-pink-400/40 focus:outline-none focus:ring-2 focus:ring-pink-400/60 font-nunito"
                     placeholder="Type a message..."
                     value={newMessage}
                     onChange={e => setNewMessage(e.target.value)}
@@ -686,13 +686,13 @@ function Friends({ user }) {
                   />
                   <button
                     type="submit"
-                    className="px-6 py-2 text-white bg-pink-500 rounded-xl font-orbitron hover:bg-pink-600 disabled:opacity-50"
+                    className="px-6 py-2 text-white bg-pink-500 rounded-xl font-nunito hover:bg-pink-600 disabled:opacity-50"
                     disabled={!newMessage.trim()}
                   >Send</button>
                 </form>
               </div>
             ) : (
-              <div className="flex items-center justify-center h-full text-pink-200 font-orbitron text-xl">
+              <div className="flex items-center justify-center h-full text-pink-200 font-nunito text-xl">
                 Select a friend to start chatting!
               </div>
             )}

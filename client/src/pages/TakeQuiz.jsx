@@ -282,7 +282,12 @@ const TakeQuiz = () => {
   const progressPercentage = ((currentQuestionIndex + 1) / quiz.questions.length) * 100;
 
   return (
-    <div style={{ position: 'relative', minHeight: '100vh', overflowX: 'hidden', background: `linear-gradient(135deg, ${PRIMARY_DARK}, ${PRIMARY})` }}>
+    <div style={{ 
+      position: 'relative',
+      minHeight: '100vh',
+      overflowX: 'hidden',
+      background: `linear-gradient(135deg, ${PRIMARY_DARK}, ${PRIMARY})`,
+      fontFamily: "'Nunito', sans-serif"}}>
       <svg style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', filter: 'blur(2px)', zIndex: 0 }} xmlns="http://www.w3.org/2000/svg">
         <defs>
           <radialGradient id="g1" cx="50%" cy="50%" r="80%">

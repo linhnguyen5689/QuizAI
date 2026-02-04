@@ -173,7 +173,7 @@ const Leaderboard = () => {
                     <button
                         key={index}
                         onClick={() => typeof pageNum === 'number' ? handlePageChange(pageNum) : null}
-                        className={`px-3 py-1 rounded-lg font-orbitron transition-all duration-300 ${pageNum === page
+                        className={`px-3 py-1 rounded-lg font-nunito transition-all duration-300 ${pageNum === page
                             ? 'bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 text-white'
                             : pageNum === '...'
                                 ? 'text-pink-200'
@@ -207,10 +207,10 @@ const Leaderboard = () => {
                     animate={{ opacity: 1, y: 0 }}
                     className="p-8 text-center border-4 shadow-2xl bg-gradient-to-br from-indigo-800/90 via-purple-800/90 to-pink-800/90 backdrop-blur-xl rounded-3xl border-pink-400/40"
                 >
-                    <p className="mb-4 text-xl text-pink-200 font-orbitron">{error}</p>
+                    <p className="mb-4 text-xl text-pink-200 font-nunito">{error}</p>
                     <button
                         onClick={() => window.location.reload()}
-                        className="px-6 py-3 text-white transition-all duration-300 transform border-2 shadow-lg font-orbitron bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 rounded-2xl hover:from-pink-400 hover:to-yellow-400 hover:scale-105 active:scale-95 border-white/30"
+                        className="px-6 py-3 text-white transition-all duration-300 transform border-2 shadow-lg font-nunito bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 rounded-2xl hover:from-pink-400 hover:to-yellow-400 hover:scale-105 active:scale-95 border-white/30"
                     >
                         Try Again
                     </button>
@@ -225,7 +225,7 @@ const Leaderboard = () => {
                             className="p-6 text-center border-4 shadow-lg bg-gradient-to-br from-indigo-800/90 via-purple-800/90 to-pink-800/90 backdrop-blur-xl rounded-2xl border-pink-400/40"
                         >
                             <FaChartLine className="w-8 h-8 mx-auto mb-2 text-yellow-400" />
-                            <h3 className="text-xl font-bold text-pink-200 font-orbitron">Total Players</h3>
+                            <h3 className="text-xl font-bold text-pink-200 font-nunito">Total Players</h3>
                             <p className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500">
                                 {leaderboardData.stats.totalParticipants}
                             </p>
@@ -238,7 +238,7 @@ const Leaderboard = () => {
                             className="p-6 text-center border-4 shadow-lg bg-gradient-to-br from-indigo-800/90 via-purple-800/90 to-pink-800/90 backdrop-blur-xl rounded-2xl border-pink-400/40"
                         >
                             <FaCheck className="w-8 h-8 mx-auto mb-2 text-green-400" />
-                            <h3 className="text-xl font-bold text-pink-200 font-orbitron">Quizzes Completed</h3>
+                            <h3 className="text-xl font-bold text-pink-200 font-nunito">Quizzes Completed</h3>
                             <p className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500">
                                 {leaderboardData.stats.totalQuizzesTaken}
                             </p>
@@ -251,7 +251,7 @@ const Leaderboard = () => {
                             className="p-6 text-center border-4 shadow-lg bg-gradient-to-br from-indigo-800/90 via-purple-800/90 to-pink-800/90 backdrop-blur-xl rounded-2xl border-pink-400/40"
                         >
                             <FaTrophy className="w-8 h-8 mx-auto mb-2 text-yellow-400" />
-                            <h3 className="text-xl font-bold text-pink-200 font-orbitron">Average Score</h3>
+                            <h3 className="text-xl font-bold text-pink-200 font-nunito">Average Score</h3>
                             <p className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500">
                                 {leaderboardData.stats.averageScore}%
                             </p>
@@ -263,7 +263,7 @@ const Leaderboard = () => {
                         <div className="space-x-2">
                             <button
                                 onClick={() => handleTimeFrameChange('all')}
-                                className={`px-4 py-2 font-orbitron rounded-xl transition-all duration-300 ${timeFrame === 'all'
+                                className={`px-4 py-2 font-nunito rounded-xl transition-all duration-300 ${timeFrame === 'all'
                                     ? 'bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 text-white'
                                     : 'text-pink-200 hover:bg-white/10'
                                     }`}
@@ -272,7 +272,7 @@ const Leaderboard = () => {
                             </button>
                             <button
                                 onClick={() => handleTimeFrameChange('monthly')}
-                                className={`px-4 py-2 font-orbitron rounded-xl transition-all duration-300 ${timeFrame === 'monthly'
+                                className={`px-4 py-2 font-nunito rounded-xl transition-all duration-300 ${timeFrame === 'monthly'
                                     ? 'bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 text-white'
                                     : 'text-pink-200 hover:bg-white/10'
                                     }`}
@@ -281,7 +281,7 @@ const Leaderboard = () => {
                             </button>
                             <button
                                 onClick={() => handleTimeFrameChange('weekly')}
-                                className={`px-4 py-2 font-orbitron rounded-xl transition-all duration-300 ${timeFrame === 'weekly'
+                                className={`px-4 py-2 font-nunito rounded-xl transition-all duration-300 ${timeFrame === 'weekly'
                                     ? 'bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 text-white'
                                     : 'text-pink-200 hover:bg-white/10'
                                     }`}
@@ -293,7 +293,7 @@ const Leaderboard = () => {
                         <div className="space-x-2">
                             <button
                                 onClick={() => handleCategoryChange('score')}
-                                className={`px-4 py-2 font-orbitron rounded-xl transition-all duration-300 ${category === 'score'
+                                className={`px-4 py-2 font-nunito rounded-xl transition-all duration-300 ${category === 'score'
                                     ? 'bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 text-white'
                                     : 'text-pink-200 hover:bg-white/10'
                                     }`}
@@ -302,7 +302,7 @@ const Leaderboard = () => {
                             </button>
                             <button
                                 onClick={() => handleCategoryChange('accuracy')}
-                                className={`px-4 py-2 font-orbitron rounded-xl transition-all duration-300 ${category === 'accuracy'
+                                className={`px-4 py-2 font-nunito rounded-xl transition-all duration-300 ${category === 'accuracy'
                                     ? 'bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 text-white'
                                     : 'text-pink-200 hover:bg-white/10'
                                     }`}
@@ -311,7 +311,7 @@ const Leaderboard = () => {
                             </button>
                             <button
                                 onClick={() => handleCategoryChange('quizzes')}
-                                className={`px-4 py-2 font-orbitron rounded-xl transition-all duration-300 ${category === 'quizzes'
+                                className={`px-4 py-2 font-nunito rounded-xl transition-all duration-300 ${category === 'quizzes'
                                     ? 'bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 text-white'
                                     : 'text-pink-200 hover:bg-white/10'
                                     }`}
@@ -320,7 +320,7 @@ const Leaderboard = () => {
                             </button>
                             <button
                                 onClick={() => handleCategoryChange('streak')}
-                                className={`px-4 py-2 font-orbitron rounded-xl transition-all duration-300 ${category === 'streak'
+                                className={`px-4 py-2 font-nunito rounded-xl transition-all duration-300 ${category === 'streak'
                                     ? 'bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 text-white'
                                     : 'text-pink-200 hover:bg-white/10'
                                     }`}
@@ -335,13 +335,13 @@ const Leaderboard = () => {
                         <table className="w-full">
                             <thead>
                                 <tr className="text-pink-200 border-b border-pink-400/40">
-                                    <th className="p-4 text-left font-orbitron">Rank</th>
-                                    <th className="p-4 text-left font-orbitron">Player</th>
-                                    <th className="p-4 text-center font-orbitron">Total Score</th>
-                                    <th className="p-4 text-center font-orbitron">Quizzes Taken</th>
-                                    <th className="p-4 text-center font-orbitron">Login Streak</th>
-                                    <th className="p-4 text-center font-orbitron">Accuracy</th>
-                                    <th className="p-4 text-center font-orbitron">Total Time</th>
+                                    <th className="p-4 text-left font-nunito">Rank</th>
+                                    <th className="p-4 text-left font-nunito">Player</th>
+                                    <th className="p-4 text-center font-nunito">Total Score</th>
+                                    <th className="p-4 text-center font-nunito">Quizzes Taken</th>
+                                    <th className="p-4 text-center font-nunito">Login Streak</th>
+                                    <th className="p-4 text-center font-nunito">Accuracy</th>
+                                    <th className="p-4 text-center font-nunito">Total Time</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -356,28 +356,28 @@ const Leaderboard = () => {
                                         <td className="p-4">
                                             <div className="flex items-center gap-2">
                                                 {getPlayerRank(index) <= 3 ? getLeaderIcon(getPlayerRank(index) - 1) : null}
-                                                <span className={`font-bold font-orbitron ${getPlayerRank(index) <= 3 ? getMedalColor(getPlayerRank(index) - 1) : 'text-pink-200'}`}>
+                                                <span className={`font-bold font-nunito ${getPlayerRank(index) <= 3 ? getMedalColor(getPlayerRank(index) - 1) : 'text-pink-200'}`}>
                                                     #{getPlayerRank(index)}
                                                 </span>
                                             </div>
                                         </td>
                                         <td className="p-4">
-                                            <span className="font-bold text-pink-200 font-orbitron">{player.username}</span>
+                                            <span className="font-bold text-pink-200 font-nunito">{player.username}</span>
                                         </td>
                                         <td className="p-4 text-center">
-                                            <span className="font-bold text-yellow-400 font-orbitron">{player.score}</span>
+                                            <span className="font-bold text-yellow-400 font-nunito">{player.score}</span>
                                         </td>
                                         <td className="p-4 text-center">
-                                            <span className="text-pink-200 font-orbitron">{player.quizzesTaken}</span>
+                                            <span className="text-pink-200 font-nunito">{player.quizzesTaken}</span>
                                         </td>
                                         <td className="p-4 text-center">
-                                            <span className="text-green-400 font-orbitron">{player.loginStreak}</span>
+                                            <span className="text-green-400 font-nunito">{player.loginStreak}</span>
                                         </td>
                                         <td className="p-4 text-center">
-                                            <span className="text-blue-400 font-orbitron">{player.accuracy}</span>
+                                            <span className="text-blue-400 font-nunito">{player.accuracy}</span>
                                         </td>
                                         <td className="p-4 text-center">
-                                            <span className="text-pink-200 font-orbitron">{player.totalTime}</span>
+                                            <span className="text-pink-200 font-nunito">{player.totalTime}</span>
                                         </td>
                                     </motion.tr>
                                 ))}

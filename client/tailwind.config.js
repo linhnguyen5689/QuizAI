@@ -69,7 +69,8 @@ export default {
   			lexend: [
   				'var(--font-lexend)'
   			],
-  			orbitron: ['Orbitron', 'sans-serif'],
+  			orbitron: ['Nunito', 'sans-serif'],
+			'nunito': ['Nunito', 'sans-serif'],
   		},
   		borderRadius: {
   			lg: 'var(--radius)',

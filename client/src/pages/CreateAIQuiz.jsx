@@ -171,11 +171,11 @@ const CreateAIQuiz = () => {
               className="flex items-center gap-2 text-[#DDEEFF] hover:text-white transition-all"
             >
               <FaArrowLeft className="text-[#BEE6FF]" />
-              <span className="font-orbitron">Back to Dashboard</span>
+              <span className="font-nunito">Back to Dashboard</span>
             </Link>
           </div>
 
-          <h1 className="flex items-center gap-3 text-4xl font-extrabold md:text-5xl font-orbitron text-transparent bg-clip-text"
+          <h1 className="flex items-center gap-3 text-4xl font-extrabold md:text-5xl font-nunito text-transparent bg-clip-text"
               style={{ backgroundImage: 'linear-gradient(90deg,#0077D6,#0096FF,#66D9FF)', WebkitBackgroundClip: 'text' }}>
             <FaRobot className="inline-block text-[#66D9FF] animate-bounce" />
             Create AI Quiz
@@ -198,72 +198,72 @@ const CreateAIQuiz = () => {
                }}>
             <div className="mb-8 p-6 rounded-2xl border-2"
                  style={{ background: 'linear-gradient(180deg, rgba(1,58,107,0.35), rgba(1,42,74,0.25))', borderColor: 'rgba(43,108,176,0.18)' }}>
-              <h2 className="text-2xl font-bold font-orbitron mb-4 text-[#E6F9FF]">
+              <h2 className="text-2xl font-bold font-nunito mb-4 text-[#E6F9FF]">
                 How it works:
               </h2>
-              <p className="text-[#DDEEFF] font-orbitron mb-4">
+              <p className="text-[#DDEEFF] font-nunito mb-4">
                 Enter a topic and our AI will automatically create quiz questions for you!
                 You can specify how many questions (5-30) you want, choose a category, select a language (English or Vietnamese), and add a description to guide the question generation.
               </p>
-              <p className="text-[#DDEEFF] font-orbitron">
+              <p className="text-[#DDEEFF] font-nunito">
                 <span className="text-[#66D9FF] font-bold">Pro tip:</span> Adding a detailed description helps the AI generate more focused and relevant questions. For example, instead of just "Solar System", you could specify "Focus on planetary moons and their unique features."
               </p>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label className="block text-[#CFEFFF] font-orbitron mb-2">Quiz Title</label>
+                <label className="block text-[#CFEFFF] font-nunito mb-2">Quiz Title</label>
                 <input
                   type="text"
                   name="title"
                   value={quizData.title}
                   onChange={handleInputChange}
                   placeholder="Leave blank to auto-generate from topic"
-                  className="w-full p-3 rounded-xl text-[#EAF6FF] placeholder-[#CFEFFF] focus:outline-none font-orbitron"
+                  className="w-full p-3 rounded-xl text-[#EAF6FF] placeholder-[#CFEFFF] focus:outline-none font-nunito"
                   style={{ background: 'rgba(2,60,100,0.45)', border: '2px solid rgba(43,108,176,0.16)' }}
                 />
               </div>
 
               <div>
-                <label className="block text-[#CFEFFF] font-orbitron mb-2">Topic (required)</label>
+                <label className="block text-[#CFEFFF] font-nunito mb-2">Topic (required)</label>
                 <input
                   type="text"
                   name="topic"
                   value={quizData.topic}
                   onChange={handleInputChange}
                   placeholder="e.g., Solar System, World War II, Machine Learning"
-                  className="w-full p-3 rounded-xl text-[#EAF6FF] placeholder-[#CFEFFF] focus:outline-none font-orbitron"
+                  className="w-full p-3 rounded-xl text-[#EAF6FF] placeholder-[#CFEFFF] focus:outline-none font-nunito"
                   style={{ background: 'rgba(2,60,100,0.45)', border: '2px solid rgba(43,108,176,0.16)' }}
                   required
                 />
-                <p className="text-sm text-[#9FD7FF] mt-1 font-orbitron">
+                <p className="text-sm text-[#9FD7FF] mt-1 font-nunito">
                   Be specific for better results: "Ancient Egyptian Mythology" instead of just "History"
                 </p>
               </div>
 
               <div>
-                <label className="block text-[#CFEFFF] font-orbitron mb-2">Description</label>
+                <label className="block text-[#CFEFFF] font-nunito mb-2">Description</label>
                 <textarea
                   name="description"
                   value={quizData.description}
                   onChange={handleInputChange}
                   placeholder="Add specific details or context to guide the AI in generating better questions"
-                  className="w-full p-3 rounded-xl text-[#EAF6FF] placeholder-[#CFEFFF] focus:outline-none font-orbitron h-32"
+                  className="w-full p-3 rounded-xl text-[#EAF6FF] placeholder-[#CFEFFF] focus:outline-none font-nunito h-32"
                   style={{ background: 'rgba(2,60,100,0.45)', border: '2px solid rgba(43,108,176,0.16)' }}
                 />
-                <p className="text-sm text-[#9FD7FF] mt-1 font-orbitron">
+                <p className="text-sm text-[#9FD7FF] mt-1 font-nunito">
                   The description will be used to help the AI understand the specific focus and context of your quiz
                 </p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-[#CFEFFF] font-orbitron mb-2">Category</label>
+                  <label className="block text-[#CFEFFF] font-nunito mb-2">Category</label>
                   <select
                     name="category"
                     value={quizData.category}
                     onChange={handleInputChange}
-                    className="w-full p-3 rounded-xl text-[#EAF6FF] focus:outline-none font-orbitron"
+                    className="w-full p-3 rounded-xl text-[#EAF6FF] focus:outline-none font-nunito"
                     style={{ background: 'rgba(2,60,100,0.45)', border: '2px solid rgba(43,108,176,0.16)' }}
                   >
                     {categories.map(category => (
@@ -275,7 +275,7 @@ const CreateAIQuiz = () => {
                 </div>
 
                 <div>
-                  <label className="block text-[#CFEFFF] font-orbitron mb-2">Number of Questions (5-30)</label>
+                  <label className="block text-[#CFEFFF] font-nunito mb-2">Number of Questions (5-30)</label>
                   <input
                     type="number"
                     name="numQuestions"
@@ -283,15 +283,18 @@ const CreateAIQuiz = () => {
                     onChange={handleNumberInput}
                     min="5"
                     max="30"
-                    className="w-full p-3 rounded-xl text-[#EAF6FF] focus:outline-none font-orbitron"
+                    className="w-full p-3 rounded-xl text-[#EAF6FF] focus:outline-none font-nunito"
                     style={{ background: 'rgba(2,60,100,0.45)', border: '2px solid rgba(43,108,176,0.16)' }}
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-[#CFEFFF] font-orbitron mb-2">Language</label>
-                <div className="flex space-x-6">
+                <label className="block text-[#CFEFFF] font-nunito mb-2">Language</label>
+                <div 
+                  className="flex space-x-6"
+                  style={{ fontFamily: "'Nunito', sans-serif" }}
+                >
                   <label className="flex items-center text-[#EAF6FF]">
                     <input
                       type="radio"
@@ -326,7 +329,7 @@ const CreateAIQuiz = () => {
                   onChange={handleInputChange}
                   className="h-5 w-5 text-[#66D9FF] border-[#66D9FF] focus:ring-[#66D9FF]"
                 />
-                <label htmlFor="isPublic" className="ml-2 text-[#EAF6FF] font-orbitron">
+                <label htmlFor="isPublic" className="ml-2 text-[#EAF6FF] font-nunito">
                   Make this quiz public
                 </label>
               </div>
@@ -337,7 +340,7 @@ const CreateAIQuiz = () => {
                   whileTap={{ scale: 0.95 }}
                   type="button"
                   onClick={() => navigate('/dashboard')}
-                  className="px-6 py-3 text-[#DDEEFF] transition-all duration-300 transform border-2 rounded-xl font-orbitron"
+                  className="px-6 py-3 text-[#DDEEFF] transition-all duration-300 transform border-2 rounded-xl font-nunito"
                   style={{
                     background: 'rgba(1,42,74,0.35)',
                     borderColor: 'rgba(43,108,176,0.18)'
@@ -351,7 +354,7 @@ const CreateAIQuiz = () => {
                   whileTap={{ scale: 0.95 }}
                   type="submit"
                   disabled={isLoading || !quizData.topic}
-                  className={`px-6 py-3 text-white transition-all duration-300 transform border-2 rounded-xl font-orbitron ${isLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
+                  className={`px-6 py-3 text-white transition-all duration-300 transform border-2 rounded-xl font-nunito ${isLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
                   style={{
                     background: 'linear-gradient(90deg,#0077D6,#0096FF,#66D9FF)',
                     borderColor: 'rgba(255,255,255,0.06)'

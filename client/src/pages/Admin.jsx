@@ -128,10 +128,10 @@ const Admin = ({ user }) => {
                     animate={{ opacity: 1, y: 0 }}
                     className="p-8 text-center border-4 shadow-2xl bg-gradient-to-br from-indigo-800/90 via-purple-800/90 to-pink-800/90 backdrop-blur-xl rounded-3xl border-pink-400/40"
                 >
-                    <p className="mb-4 text-xl text-pink-200 font-orbitron">{error}</p>
+                    <p className="mb-4 text-xl text-pink-200 font-nunito">{error}</p>
                     <button
                         onClick={() => window.location.reload()}
-                        className="px-6 py-3 text-white transition-all duration-300 transform border-2 shadow-lg font-orbitron bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 rounded-2xl hover:from-pink-400 hover:to-yellow-400 hover:scale-105 active:scale-95 border-white/30"
+                        className="px-6 py-3 text-white transition-all duration-300 transform border-2 shadow-lg font-nunito bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 rounded-2xl hover:from-pink-400 hover:to-yellow-400 hover:scale-105 active:scale-95 border-white/30"
                     >
                         Try Again
                     </button>
@@ -184,10 +184,10 @@ const Admin = ({ user }) => {
                             className="flex items-center gap-2 text-pink-200 hover:text-white transition-all"
                         >
                             <FaArrowLeft />
-                            <span className="font-orbitron">Back to Dashboard</span>
+                            <span className="font-nunito">Back to Dashboard</span>
                         </Link>
                     </div>
-                    <h1 className="flex items-center gap-3 text-4xl font-extrabold text-transparent md:text-5xl font-orbitron bg-clip-text bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 drop-shadow-lg">
+                    <h1 className="flex items-center gap-3 text-4xl font-extrabold text-transparent md:text-5xl font-nunito bg-clip-text bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 drop-shadow-lg">
                         <FaUsersCog className="inline-block text-yellow-300 animate-bounce" />
                         Admin Panel
                         <FaStar className="inline-block text-pink-300 animate-spin-slow" />
@@ -226,7 +226,7 @@ const Admin = ({ user }) => {
                             exit={{ opacity: 0, x: 20 }}
                             transition={{ duration: 0.3 }}
                         >
-                            <h2 className="mb-6 text-2xl font-bold text-transparent font-orbitron bg-clip-text bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500">
+                            <h2 className="mb-6 text-2xl font-bold text-transparent font-nunito bg-clip-text bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500">
                                 User Management
                             </h2>
 
@@ -234,19 +234,19 @@ const Admin = ({ user }) => {
                                 <table className="w-full overflow-hidden bg-gradient-to-br from-indigo-800/90 via-purple-800/90 to-pink-800/90 backdrop-blur-xl">
                                     <thead className="bg-black/20">
                                         <tr>
-                                            <th className="px-6 py-3 text-xs font-medium tracking-wider text-left text-pink-200 uppercase font-orbitron">
+                                            <th className="px-6 py-3 text-xs font-medium tracking-wider text-left text-pink-200 uppercase font-nunito">
                                                 User
                                             </th>
-                                            <th className="px-6 py-3 text-xs font-medium tracking-wider text-left text-pink-200 uppercase font-orbitron">
+                                            <th className="px-6 py-3 text-xs font-medium tracking-wider text-left text-pink-200 uppercase font-nunito">
                                                 Email
                                             </th>
-                                            <th className="px-6 py-3 text-xs font-medium tracking-wider text-left text-pink-200 uppercase font-orbitron">
+                                            <th className="px-6 py-3 text-xs font-medium tracking-wider text-left text-pink-200 uppercase font-nunito">
                                                 Account Type
                                             </th>
-                                            <th className="px-6 py-3 text-xs font-medium tracking-wider text-left text-pink-200 uppercase font-orbitron">
+                                            <th className="px-6 py-3 text-xs font-medium tracking-wider text-left text-pink-200 uppercase font-nunito">
                                                 Registration Date
                                             </th>
-                                            <th className="px-6 py-3 text-xs font-medium tracking-wider text-left text-pink-200 uppercase font-orbitron">
+                                            <th className="px-6 py-3 text-xs font-medium tracking-wider text-left text-pink-200 uppercase font-nunito">
                                                 Actions
                                             </th>
                                         </tr>
@@ -254,7 +254,7 @@ const Admin = ({ user }) => {
                                     <tbody className="divide-y divide-pink-400/20">
                                         {users.length === 0 ? (
                                             <tr>
-                                                <td colSpan="5" className="px-6 py-4 text-center text-pink-200 font-orbitron">
+                                                <td colSpan="5" className="px-6 py-4 text-center text-pink-200 font-nunito">
                                                     No users found
                                                 </td>
                                             </tr>
@@ -271,19 +271,19 @@ const Admin = ({ user }) => {
                                                                 />
                                                             </div>
                                                             <div className="ml-4">
-                                                                <div className="text-sm font-medium text-pink-200 font-orbitron">
+                                                                <div className="text-sm font-medium text-pink-200 font-nunito">
                                                                     {userData.username}
                                                                 </div>
-                                                                <div className="text-sm text-pink-300/80 font-orbitron">
+                                                                <div className="text-sm text-pink-300/80 font-nunito">
                                                                     {userData.displayName || "No display name"}
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </td>
-                                                    <td className="px-6 py-4 text-sm text-pink-200 font-orbitron">
+                                                    <td className="px-6 py-4 text-sm text-pink-200 font-nunito">
                                                         {userData.email}
                                                     </td>
-                                                    <td className="px-6 py-4 text-sm font-orbitron">
+                                                    <td className="px-6 py-4 text-sm font-nunito">
                                                         <span
                                                             className={`px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full 
                                                             ${userData.accountType === "admin"
@@ -293,7 +293,7 @@ const Admin = ({ user }) => {
                                                             {userData.accountType}
                                                         </span>
                                                     </td>
-                                                    <td className="px-6 py-4 text-sm text-pink-200 font-orbitron">
+                                                    <td className="px-6 py-4 text-sm text-pink-200 font-nunito">
                                                         {new Date(userData.registrationDate).toLocaleDateString()}
                                                     </td>
                                                     <td className="px-6 py-4 whitespace-nowrap">
@@ -337,7 +337,7 @@ const Admin = ({ user }) => {
                             exit={{ opacity: 0, x: 20 }}
                             transition={{ duration: 0.3 }}
                         >
-                            <h2 className="mb-6 text-2xl font-bold text-transparent font-orbitron bg-clip-text bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500">
+                            <h2 className="mb-6 text-2xl font-bold text-transparent font-nunito bg-clip-text bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500">
                                 Quiz Management
                             </h2>
 
@@ -345,19 +345,19 @@ const Admin = ({ user }) => {
                                 <table className="w-full overflow-hidden bg-gradient-to-br from-indigo-800/90 via-purple-800/90 to-pink-800/90 backdrop-blur-xl">
                                     <thead className="bg-black/20">
                                         <tr>
-                                            <th className="px-6 py-3 text-xs font-medium tracking-wider text-left text-pink-200 uppercase font-orbitron">
+                                            <th className="px-6 py-3 text-xs font-medium tracking-wider text-left text-pink-200 uppercase font-nunito">
                                                 Title
                                             </th>
-                                            <th className="px-6 py-3 text-xs font-medium tracking-wider text-left text-pink-200 uppercase font-orbitron">
+                                            <th className="px-6 py-3 text-xs font-medium tracking-wider text-left text-pink-200 uppercase font-nunito">
                                                 Creator
                                             </th>
-                                            <th className="px-6 py-3 text-xs font-medium tracking-wider text-left text-pink-200 uppercase font-orbitron">
+                                            <th className="px-6 py-3 text-xs font-medium tracking-wider text-left text-pink-200 uppercase font-nunito">
                                                 Creation Date
                                             </th>
-                                            <th className="px-6 py-3 text-xs font-medium tracking-wider text-left text-pink-200 uppercase font-orbitron">
+                                            <th className="px-6 py-3 text-xs font-medium tracking-wider text-left text-pink-200 uppercase font-nunito">
                                                 Questions
                                             </th>
-                                            <th className="px-6 py-3 text-xs font-medium tracking-wider text-left text-pink-200 uppercase font-orbitron">
+                                            <th className="px-6 py-3 text-xs font-medium tracking-wider text-left text-pink-200 uppercase font-nunito">
                                                 Actions
                                             </th>
                                         </tr>
@@ -365,7 +365,7 @@ const Admin = ({ user }) => {
                                     <tbody className="divide-y divide-pink-400/20">
                                         {quizzes.length === 0 ? (
                                             <tr>
-                                                <td colSpan="5" className="px-6 py-4 text-center text-pink-200 font-orbitron">
+                                                <td colSpan="5" className="px-6 py-4 text-center text-pink-200 font-nunito">
                                                     No quizzes found
                                                 </td>
                                             </tr>
@@ -373,21 +373,21 @@ const Admin = ({ user }) => {
                                             quizzes.map((quizData) => (
                                                 <tr key={quizData._id} className="hover:bg-white/5 transition-colors">
                                                     <td className="px-6 py-4 whitespace-nowrap">
-                                                        <div className="text-sm font-medium text-pink-200 font-orbitron">
+                                                        <div className="text-sm font-medium text-pink-200 font-nunito">
                                                             {quizData.title}
                                                         </div>
-                                                        <div className="text-sm text-pink-300/80 font-orbitron">
+                                                        <div className="text-sm text-pink-300/80 font-nunito">
                                                             {quizData.description?.substring(0, 50)}
                                                             {quizData.description?.length > 50 ? "..." : ""}
                                                         </div>
                                                     </td>
                                                     <td className="px-6 py-4 whitespace-nowrap">
-                                                        <div className="text-sm text-pink-200 font-orbitron">{quizData.createdBy?.username || "Unknown"}</div>
+                                                        <div className="text-sm text-pink-200 font-nunito">{quizData.createdBy?.username || "Unknown"}</div>
                                                     </td>
-                                                    <td className="px-6 py-4 text-sm text-pink-200 whitespace-nowrap font-orbitron">
+                                                    <td className="px-6 py-4 text-sm text-pink-200 whitespace-nowrap font-nunito">
                                                         {new Date(quizData.createdAt).toLocaleDateString()}
                                                     </td>
-                                                    <td className="px-6 py-4 text-sm text-pink-200 whitespace-nowrap font-orbitron">
+                                                    <td className="px-6 py-4 text-sm text-pink-200 whitespace-nowrap font-nunito">
                                                         {quizData.questions?.length || 0}
                                                     </td>
                                                     <td className="px-6 py-4 text-sm font-medium whitespace-nowrap">

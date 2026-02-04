@@ -162,7 +162,7 @@ function App() {
                 </div>
               </motion.div>
 
-              <h1 className="mt-6 text-5xl font-extrabold text-transparent bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 bg-clip-text drop-shadow-lg font-orbitron">
+              <h1 className="mt-6 text-5xl font-extrabold text-transparent bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 bg-clip-text drop-shadow-lg font-nunito">
                 Quiz AI
               </h1>
             </div>
@@ -228,7 +228,7 @@ function App() {
             initial={{ opacity: 0 }}
             animate={{ opacity: [0, 1, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
-            className="text-lg font-medium text-pink-200 font-orbitron"
+            className="text-lg font-medium text-pink-200 font-nunito"
           >
             Loading Quiz Adventure...
           </motion.p>

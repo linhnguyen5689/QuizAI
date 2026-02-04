@@ -184,7 +184,7 @@ const UploadQuiz = () => {
             <div className="p-10">
               <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} className="text-center mb-10">
                 <h1
-                  className="text-4xl md:text-5xl font-extrabold font-orbitron mb-2 flex items-center justify-center gap-3"
+                  className="text-4xl md:text-5xl font-extrabold font-nunito mb-2 flex items-center justify-center gap-3"
                   style={{
                     background: `linear-gradient(90deg, ${THEME.accent}, ${THEME.fileIcon})`,
                     WebkitBackgroundClip: 'text',
@@ -196,14 +196,14 @@ const UploadQuiz = () => {
                   Upload Quiz
                   <FaStar style={{ color: THEME.fileIcon }} className="inline-block animate-spin-slow" />
                 </h1>
-                <p className="text-lg font-orbitron" style={{ color: THEME.subtle, textShadow: '0 2px 8px rgba(0,0,0,0.35)' }}>
+                <p className="text-lg font-nunito" style={{ color: THEME.subtle, textShadow: '0 2px 8px rgba(0,0,0,0.35)' }}>
                   Create a quiz by uploading a PDF file
                 </p>
               </motion.div>
 
               <form onSubmit={handleSubmit}>
                 <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.3 }} className="mb-6">
-                  <label htmlFor="title" className="block text-sm font-bold mb-2 font-orbitron" style={{ color: THEME.accent }}>
+                  <label htmlFor="title" className="block text-sm font-bold mb-2 font-nunito" style={{ color: THEME.accent }}>
                     Quiz Title
                   </label>
                   <input
@@ -212,7 +212,7 @@ const UploadQuiz = () => {
                     name="title"
                     value={formData.title}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border-2 rounded-xl font-orbitron text-lg placeholder:text-pink-200 focus:ring-2 transition-colors shadow-lg"
+                    className="w-full px-4 py-3 border-2 rounded-xl font-nunito text-lg placeholder:text-pink-200 focus:ring-2 transition-colors shadow-lg"
                     placeholder="Enter a title for your quiz"
                     style={{
                       background: THEME.inputBg,
@@ -223,7 +223,7 @@ const UploadQuiz = () => {
                 </motion.div>
 
                 <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.4 }} className="mb-6">
-                  <label htmlFor="description" className="block text-sm font-bold mb-2 font-orbitron" style={{ color: THEME.accent }}>
+                  <label htmlFor="description" className="block text-sm font-bold mb-2 font-nunito" style={{ color: THEME.accent }}>
                     Description (Optional)
                   </label>
                   <textarea
@@ -232,7 +232,7 @@ const UploadQuiz = () => {
                     value={formData.description}
                     onChange={handleChange}
                     rows="3"
-                    className="w-full px-4 py-3 border-2 rounded-xl font-orbitron text-lg placeholder:text-pink-200 focus:ring-2 transition-colors shadow-lg"
+                    className="w-full px-4 py-3 border-2 rounded-xl font-nunito text-lg placeholder:text-pink-200 focus:ring-2 transition-colors shadow-lg"
                     placeholder="Describe what this quiz is about"
                     style={{
                       background: THEME.inputBg,
@@ -243,7 +243,7 @@ const UploadQuiz = () => {
                 </motion.div>
 
                 <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.5 }} className="mb-6">
-                  <label htmlFor="category" className="block text-sm font-bold mb-2 font-orbitron" style={{ color: THEME.accent }}>
+                  <label htmlFor="category" className="block text-sm font-bold mb-2 font-nunito" style={{ color: THEME.accent }}>
                     Category
                   </label>
                   <select
@@ -251,7 +251,7 @@ const UploadQuiz = () => {
                     name="category"
                     value={formData.category}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border-2 rounded-xl font-orbitron text-lg focus:ring-2 transition-colors shadow-lg"
+                    className="w-full px-4 py-3 border-2 rounded-xl font-nunito text-lg focus:ring-2 transition-colors shadow-lg"
                     style={{
                       background: THEME.inputBg,
                       color: '#E8F3FF',
@@ -267,7 +267,7 @@ const UploadQuiz = () => {
                 </motion.div>
 
                 <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.6 }} className="mb-8">
-                  <label className="flex items-center font-orbitron" style={{ color: THEME.subtle }}>
+                  <label className="flex items-center font-nunito" style={{ color: THEME.subtle }}>
                     <input
                       type="checkbox"
                       name="isPublic"
@@ -278,14 +278,14 @@ const UploadQuiz = () => {
                     />
                     <span className="ml-2">Make this quiz public</span>
                   </label>
-                  <p className="text-sm mt-1 ml-6 font-orbitron" style={{ color: '#CFE8FF' }}>
+                  <p className="text-sm mt-1 ml-6 font-nunito" style={{ color: '#CFE8FF' }}>
                     Public quizzes can be viewed and taken by everyone
                   </p>
                 </motion.div>
 
                 <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.7 }} className="mb-8">
                   <div className="flex justify-between items-center mb-4">
-                    <h2 className="text-2xl font-bold font-orbitron" style={{ color: THEME.accent }}>
+                    <h2 className="text-2xl font-bold font-nunito" style={{ color: THEME.accent }}>
                       Upload PDF File
                     </h2>
                   </div>
@@ -324,14 +324,14 @@ const UploadQuiz = () => {
                         <p className="text-sm" style={{ color: '#CFE8FF' }}>or drag and drop file here</p>
                       </div>
 
-                      <p className="text-xs font-orbitron" style={{ color: '#9EC9FF' }}>PDF up to 10MB</p>
+                      <p className="text-xs font-nunito" style={{ color: '#9EC9FF' }}>PDF up to 10MB</p>
 
                       {fileName && (
                         <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="mt-4 p-3 rounded-xl" style={{ background: 'rgba(0,0,0,0.48)', border: `1px solid rgba(255,255,255,0.04)` }}>
                           <div className="flex items-center justify-between">
                             <div className="flex items-center space-x-2">
                               <FiFileText style={{ color: THEME.accent }} />
-                              <span className="text-sm font-orbitron" style={{ color: '#DFF4FF' }}>{fileName}</span>
+                              <span className="text-sm font-nunito" style={{ color: '#DFF4FF' }}>{fileName}</span>
                             </div>
                             <button
                               type="button"
@@ -355,7 +355,7 @@ const UploadQuiz = () => {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="flex-1 py-4 px-6 font-orbitron text-white font-bold rounded-2xl shadow-xl focus:outline-none focus:ring-2 transition-all duration-300 transform"
+                    className="flex-1 py-4 px-6 font-nunito text-white font-bold rounded-2xl shadow-xl focus:outline-none focus:ring-2 transition-all duration-300 transform"
                     style={{
                       background: `linear-gradient(90deg, ${THEME.accent}, ${THEME.fileIcon})`,
                       border: '1px solid rgba(255,255,255,0.06)',
@@ -378,7 +378,7 @@ const UploadQuiz = () => {
                   <button
                     type="button"
                     onClick={() => navigate("/dashboard")}
-                    className="flex-1 py-4 px-6 font-orbitron font-bold rounded-2xl transition-all duration-300 shadow-xl"
+                    className="flex-1 py-4 px-6 font-nunito font-bold rounded-2xl transition-all duration-300 shadow-xl"
                     style={{
                       background: 'rgba(0,0,0,0.48)',
                       color: '#CFE8FF',

@@ -118,7 +118,7 @@ const QuizDetails = ({ user }) => {
                  borderTopColor: 'transparent'
                }}
           ></div>
-          <p className="mt-4 text-lg" style={{ color: PRIMARY_LIGHT, fontFamily: 'Orbitron, sans-serif' }}>
+          <p className="mt-4 text-lg" style={{ color: PRIMARY_LIGHT, fontFamily: 'Nunito, sans-serif' }}>
             Loading quiz...
           </p>
         </div>
@@ -131,7 +131,7 @@ const QuizDetails = ({ user }) => {
       <div
         className="relative w-screen min-h-screen overflow-x-hidden"
         style={{
-          background: `linear-gradient(135deg, ${PRIMARY_DARK} 0%, ${PRIMARY} 50%, ${PRIMARY_LIGHT} 100%)`
+          background: `linear-gradient(135deg, ${PRIMARY_DARK} 0%, ${PRIMARY} 50%, ${PRIMARY_LIGHT} 100%)`, fontFamily: "'Nunito', sans-serif"
         }}
       >
         <div className="relative z-10 flex items-center justify-center min-h-screen p-4">
@@ -145,7 +145,7 @@ const QuizDetails = ({ user }) => {
               backdropFilter: 'blur(8px)'
             }}
           >
-            <p style={{ color: MUTED_TEXT, fontSize: '1.125rem', fontFamily: 'Orbitron, sans-serif' }}>
+            <p style={{ color: MUTED_TEXT, fontSize: '1.125rem', fontFamily: 'Nunito, sans-serif' }}>
               Quiz not found or you don't have permission to view it.
             </p>
             <Link
@@ -169,7 +169,7 @@ const QuizDetails = ({ user }) => {
     <div
       className="relative w-screen min-h-screen overflow-x-hidden"
       style={{
-        background: `linear-gradient(135deg, ${PRIMARY_DARK} 0%, ${PRIMARY} 50%, ${PRIMARY_LIGHT} 100%)`
+        background: `linear-gradient(135deg, ${PRIMARY_DARK} 0%, ${PRIMARY} 50%, ${PRIMARY_LIGHT} 100%)`, fontFamily: "'Nunito', sans-serif"
       }}
     >
       {/* Animated SVG background */}
@@ -225,7 +225,7 @@ const QuizDetails = ({ user }) => {
 
             <h1 className="flex items-center gap-3 text-4xl font-extrabold md:text-5xl"
                 style={{
-                  fontFamily: 'Orbitron, sans-serif',
+                  fontFamily: 'Nunito, sans-serif',
                   background: `linear-gradient(90deg, ${PRIMARY_LIGHT}, ${PRIMARY})`,
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
@@ -257,7 +257,7 @@ const QuizDetails = ({ user }) => {
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="text-4xl font-bold mb-3"
                 style={{
-                  fontFamily: 'Orbitron, sans-serif',
+                  fontFamily: 'Nunito, sans-serif',
                   background: `linear-gradient(90deg, ${PRIMARY_LIGHT}, ${PRIMARY})`,
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent'
@@ -270,7 +270,7 @@ const QuizDetails = ({ user }) => {
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.3 }}
-                  style={{ color: MUTED_TEXT, fontSize: '1.125rem', fontFamily: 'Orbitron, sans-serif' }}
+                  style={{ color: MUTED_TEXT, fontSize: '1.125rem', fontFamily: 'Nunito, sans-serif' }}
                 >
                   {quiz.description}
                 </motion.p>
@@ -410,7 +410,7 @@ const QuizDetails = ({ user }) => {
                 className={`py-2 px-4 font-medium`}
                 onClick={() => setActiveTab('details')}
                 style={{
-                  fontFamily: 'Orbitron, sans-serif',
+                  fontFamily: 'Nunito, sans-serif',
                   color: activeTab === 'details' ? PRIMARY_LIGHT : MUTED_TEXT,
                   borderBottom: activeTab === 'details' ? `2px solid ${PRIMARY}` : '2px solid transparent',
                   background: 'transparent'
@@ -423,7 +423,7 @@ const QuizDetails = ({ user }) => {
                 className={`py-2 px-4 font-medium`}
                 onClick={() => setActiveTab('ratings')}
                 style={{
-                  fontFamily: 'Orbitron, sans-serif',
+                  fontFamily: 'Nunito, sans-serif',
                   color: activeTab === 'ratings' ? PRIMARY_LIGHT : MUTED_TEXT,
                   borderBottom: activeTab === 'ratings' ? `2px solid ${PRIMARY}` : '2px solid transparent',
                   background: 'transparent'
@@ -453,7 +453,7 @@ const QuizDetails = ({ user }) => {
                   <div>
                     <h3 className="text-xl font-bold mb-4"
                         style={{
-                          fontFamily: 'Orbitron, sans-serif',
+                          fontFamily: 'Nunito, sans-serif',
                           background: `linear-gradient(90deg, ${PRIMARY_LIGHT}, ${PRIMARY})`,
                           WebkitBackgroundClip: 'text',
                           WebkitTextFillColor: 'transparent'
@@ -471,7 +471,7 @@ const QuizDetails = ({ user }) => {
                             borderColor: `${PRIMARY}33`
                           }}
                         >
-                          <p className="font-medium mb-2" style={{ color: '#FFFFFF', fontFamily: 'Orbitron, sans-serif' }}>
+                          <p className="font-medium mb-2" style={{ color: '#FFFFFF', fontFamily: 'Nunito, sans-serif' }}>
                             <span style={{ color: PRIMARY_LIGHT, marginRight: 8 }}>{index + 1}.</span>
                             {question.content.substring(0, 100)}
                             {question.content.length > 100 && "..."}
@@ -488,7 +488,7 @@ const QuizDetails = ({ user }) => {
                   <div>
                     <h3 className="text-xl font-bold mb-4"
                         style={{
-                          fontFamily: 'Orbitron, sans-serif',
+                          fontFamily: 'Nunito, sans-serif',
                           background: `linear-gradient(90deg, ${PRIMARY_LIGHT}, ${PRIMARY})`,
                           WebkitBackgroundClip: 'text',
                           WebkitTextFillColor: 'transparent'
@@ -507,10 +507,10 @@ const QuizDetails = ({ user }) => {
                           <FaUserAlt style={{ width: 20, height: 20 }} />
                         </div>
                         <div>
-                          <h4 style={{ color: '#FFFFFF', fontSize: '1rem', fontFamily: 'Orbitron, sans-serif' }}>
+                          <h4 style={{ color: '#FFFFFF', fontSize: '1rem', fontFamily: 'Nunito, sans-serif' }}>
                             {isOwner ? "You" : "Anonymous User"}
                           </h4>
-                          <p style={{ color: MUTED_TEXT, fontSize: '0.875rem', fontFamily: 'Orbitron, sans-serif' }}>
+                          <p style={{ color: MUTED_TEXT, fontSize: '0.875rem', fontFamily: 'Nunito, sans-serif' }}>
                             Created on {new Date(quiz.createdAt).toLocaleDateString()}
                           </p>
                         </div>
@@ -542,7 +542,7 @@ const QuizDetails = ({ user }) => {
                   >
                     <h3 className="text-xl font-bold mb-4"
                         style={{
-                          fontFamily: 'Orbitron, sans-serif',
+                          fontFamily: 'Nunito, sans-serif',
                           background: `linear-gradient(90deg, ${PRIMARY_LIGHT}, ${PRIMARY})`,
                           WebkitBackgroundClip: 'text',
                           WebkitTextFillColor: 'transparent'
@@ -550,7 +550,7 @@ const QuizDetails = ({ user }) => {
                     >
                       Đánh giá Quiz
                     </h3>
-                    <p style={{ color: MUTED_TEXT, marginBottom: '1rem', fontFamily: 'Orbitron, sans-serif' }}>
+                    <p style={{ color: MUTED_TEXT, marginBottom: '1rem', fontFamily: 'Nunito, sans-serif' }}>
                       Bạn cần đăng nhập để đánh giá quiz này.
                     </p>
                     <motion.button

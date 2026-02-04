@@ -84,7 +84,7 @@ const RatingList = ({ quizId, newRating, currentUserId }) => {
     if (loading) {
         return (
             <div className="p-6 backdrop-blur-lg bg-gradient-to-br from-indigo-800/90 via-purple-800/90 to-pink-800/90 rounded-2xl border-2 border-pink-400/30 shadow-xl">
-                <h3 className="text-xl font-bold text-transparent bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 bg-clip-text mb-4 font-orbitron">
+                <h3 className="text-xl font-bold text-transparent bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 bg-clip-text mb-4 font-nunito">
                     Đánh giá từ người dùng
                 </h3>
                 <div className="flex justify-center py-4">
@@ -97,10 +97,10 @@ const RatingList = ({ quizId, newRating, currentUserId }) => {
     if (error) {
         return (
             <div className="p-6 backdrop-blur-lg bg-gradient-to-br from-indigo-800/90 via-purple-800/90 to-pink-800/90 rounded-2xl border-2 border-pink-400/30 shadow-xl">
-                <h3 className="text-xl font-bold text-transparent bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 bg-clip-text mb-4 font-orbitron">
+                <h3 className="text-xl font-bold text-transparent bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 bg-clip-text mb-4 font-nunito">
                     Đánh giá từ người dùng
                 </h3>
-                <p className="text-pink-200 font-orbitron">{error}</p>
+                <p className="text-pink-200 font-nunito">{error}</p>
             </div>
         );
     }
@@ -111,7 +111,7 @@ const RatingList = ({ quizId, newRating, currentUserId }) => {
             animate={{ opacity: 1, y: 0 }}
             className="p-6 backdrop-blur-lg bg-gradient-to-br from-indigo-800/90 via-purple-800/90 to-pink-800/90 rounded-2xl border-2 border-pink-400/30 shadow-xl"
         >
-            <h3 className="text-xl font-bold text-transparent bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 bg-clip-text mb-4 font-orbitron">
+            <h3 className="text-xl font-bold text-transparent bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 bg-clip-text mb-4 font-nunito">
                 Đánh giá từ người dùng
             </h3>
 
@@ -127,7 +127,7 @@ const RatingList = ({ quizId, newRating, currentUserId }) => {
                         />
                     ))}
                 </div>
-                <div className="font-orbitron">
+                <div className="font-nunito">
                     <span className="text-2xl font-bold text-white">{averageRating.toFixed(1)}</span>
                     <span className="text-pink-200 ml-2">({ratingsCount} đánh giá)</span>
                 </div>
@@ -135,7 +135,7 @@ const RatingList = ({ quizId, newRating, currentUserId }) => {
 
             {/* Danh sách đánh giá */}
             {ratings.length === 0 ? (
-                <p className="text-center text-pink-200 py-4 font-orbitron">Chưa có đánh giá nào cho quiz này</p>
+                <p className="text-center text-pink-200 py-4 font-nunito">Chưa có đánh giá nào cho quiz này</p>
             ) : (
                 <motion.ul
                     variants={containerVariants}
@@ -159,10 +159,10 @@ const RatingList = ({ quizId, newRating, currentUserId }) => {
                                         )}
                                     </div>
                                     <div>
-                                        <p className="font-medium text-white font-orbitron">
+                                        <p className="font-medium text-white font-nunito">
                                             {ratingItem.userId.fullName}
                                         </p>
-                                        <p className="text-xs text-pink-200 mt-1 font-orbitron">
+                                        <p className="text-xs text-pink-200 mt-1 font-nunito">
                                             {formatDate(ratingItem.createdAt)}
                                         </p>
                                         <div className="flex mt-2">

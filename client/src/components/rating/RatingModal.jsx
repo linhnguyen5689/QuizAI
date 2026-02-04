@@ -75,7 +75,7 @@ const RatingModal = ({ isOpen, onClose, quizId, quizTitle }) => {
                         className="w-full max-w-md p-6 rounded-2xl bg-gradient-to-br from-indigo-800 via-purple-800 to-pink-800 shadow-2xl border-2 border-pink-400/30"
                     >
                         <div className="flex justify-between items-center mb-4">
-                            <h3 className="text-xl font-bold text-transparent bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 bg-clip-text font-orbitron">
+                            <h3 className="text-xl font-bold text-transparent bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 bg-clip-text font-nunito">
                                 Đánh giá Quiz
                             </h3>
                             <button
@@ -86,7 +86,7 @@ const RatingModal = ({ isOpen, onClose, quizId, quizTitle }) => {
                             </button>
                         </div>
 
-                        <p className="text-pink-200 mb-6 font-orbitron">
+                        <p className="text-pink-200 mb-6 font-nunito">
                             Bạn đã hoàn thành "{quizTitle}". Hãy để lại đánh giá để giúp người khác biết về trải nghiệm của bạn!
                         </p>
 
@@ -94,7 +94,7 @@ const RatingModal = ({ isOpen, onClose, quizId, quizTitle }) => {
                             <div className="flex flex-col space-y-4">
                                 {/* Star Rating */}
                                 <div className="mb-4">
-                                    <p className="text-pink-200 mb-2 font-orbitron">Đánh giá của bạn:</p>
+                                    <p className="text-pink-200 mb-2 font-nunito">Đánh giá của bạn:</p>
                                     <div className="flex justify-center space-x-3">
                                         {[...Array(5)].map((_, index) => {
                                             const ratingValue = index + 1;
@@ -123,7 +123,7 @@ const RatingModal = ({ isOpen, onClose, quizId, quizTitle }) => {
 
                                 {/* Comment */}
                                 <div className="mb-6">
-                                    <label htmlFor="comment" className="block text-pink-200 mb-2 font-orbitron">
+                                    <label htmlFor="comment" className="block text-pink-200 mb-2 font-nunito">
                                         Nhận xét (không bắt buộc):
                                     </label>
                                     <textarea
@@ -143,7 +143,7 @@ const RatingModal = ({ isOpen, onClose, quizId, quizTitle }) => {
                                         onClick={handleSkip}
                                         whileHover={{ scale: 1.05 }}
                                         whileTap={{ scale: 0.95 }}
-                                        className="flex-1 py-3 px-4 border border-pink-400/30 rounded-xl text-pink-200 hover:bg-indigo-900/50 focus:outline-none focus:ring-2 focus:ring-pink-500 transition-all duration-300 font-orbitron"
+                                        className="flex-1 py-3 px-4 border border-pink-400/30 rounded-xl text-pink-200 hover:bg-indigo-900/50 focus:outline-none focus:ring-2 focus:ring-pink-500 transition-all duration-300 font-nunito"
                                     >
                                         Bỏ qua
                                     </motion.button>
@@ -153,7 +153,7 @@ const RatingModal = ({ isOpen, onClose, quizId, quizTitle }) => {
                                         whileHover={{ scale: 1.05 }}
                                         whileTap={{ scale: 0.95 }}
                                         disabled={isSubmitting}
-                                        className={`flex-1 py-3 px-4 rounded-xl text-white bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 hover:from-pink-400 hover:to-yellow-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500 transition-all duration-300 font-orbitron ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
+                                        className={`flex-1 py-3 px-4 rounded-xl text-white bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 hover:from-pink-400 hover:to-yellow-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500 transition-all duration-300 font-nunito ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
                                             }`}
                                     >
                                         {isSubmitting ? (

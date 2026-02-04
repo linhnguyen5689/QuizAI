@@ -36,7 +36,7 @@ const Hero = () => {
               className="relative inline-block"
             >
               <div className="absolute -inset-1 bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 rounded-lg blur opacity-25"></div>
-              <h1 className="relative text-5xl md:text-6xl lg:text-7xl font-bold mb-6 font-orbitron">
+              <h1 className="relative text-5xl md:text-6xl lg:text-7xl font-bold mb-6 font-nunito">
                 <span className="bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 bg-clip-text text-transparent">
                   Create & Take
                 </span>
@@ -49,7 +49,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-xl md:text-2xl text-pink-200/80 mb-8 max-w-2xl mx-auto lg:mx-0 relative font-orbitron"
+              className="text-xl md:text-2xl text-pink-200/80 mb-8 max-w-2xl mx-auto lg:mx-0 relative font-nunito"
             >
               <span className="absolute -left-4 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-yellow-400 rounded-full"></span>
               Transform your learning experience with AI-powered quiz creation and interactive assessments
@@ -65,19 +65,19 @@ const Hero = () => {
             >
               <div className="flex items-center gap-2 text-pink-200/80">
                 <FaCheckCircle className="text-yellow-400" />
-                <span className="font-orbitron">AI-Powered Quiz Creation</span>
+                <span className="font-nunito">AI-Powered Quiz Creation</span>
               </div>
               <div className="flex items-center gap-2 text-pink-200/80">
                 <FaCheckCircle className="text-yellow-400" />
-                <span className="font-orbitron">Interactive Learning</span>
+                <span className="font-nunito">Interactive Learning</span>
               </div>
               <div className="flex items-center gap-2 text-pink-200/80">
                 <FaCheckCircle className="text-yellow-400" />
-                <span className="font-orbitron">Real-time Analytics</span>
+                <span className="font-nunito">Real-time Analytics</span>
               </div>
               <div className="flex items-center gap-2 text-pink-200/80">
                 <FaCheckCircle className="text-yellow-400" />
-                <span className="font-orbitron">Customizable Templates</span>
+                <span className="font-nunito">Customizable Templates</span>
               </div>
             </motion.div>
             
@@ -90,7 +90,7 @@ const Hero = () => {
               {isLoggedIn ? (
                 <Link 
                   to="/dashboard"
-                  className="group relative px-8 py-4 bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 text-white font-semibold rounded-lg shadow-lg hover:from-pink-400 hover:to-yellow-400 transition-all duration-300 transform hover:-translate-y-1 font-orbitron"
+                  className="group relative px-8 py-4 bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 text-white font-semibold rounded-lg shadow-lg hover:from-pink-400 hover:to-yellow-400 transition-all duration-300 transform hover:-translate-y-1 font-nunito"
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 rounded-lg blur opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <span className="relative flex items-center gap-2">
@@ -102,7 +102,7 @@ const Hero = () => {
                 <>
                   <Link 
                     to="/register"
-                    className="group relative px-8 py-4 bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 text-white font-semibold rounded-lg shadow-lg hover:from-pink-400 hover:to-yellow-400 transition-all duration-300 transform hover:-translate-y-1 font-orbitron"
+                    className="group relative px-8 py-4 bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 text-white font-semibold rounded-lg shadow-lg hover:from-pink-400 hover:to-yellow-400 transition-all duration-300 transform hover:-translate-y-1 font-nunito"
                   >
                     <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 rounded-lg blur opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     <span className="relative flex items-center gap-2">
@@ -112,7 +112,7 @@ const Hero = () => {
                   </Link>
                   <Link 
                     to="/login"
-                    className="group relative px-8 py-4 bg-gradient-to-br from-indigo-800/90 via-purple-800/90 to-pink-800/90 text-pink-200 font-semibold rounded-lg border-2 border-pink-400/40 hover:border-yellow-400 hover:text-yellow-400 transition-all duration-300 transform hover:-translate-y-1 font-orbitron"
+                    className="group relative px-8 py-4 bg-gradient-to-br from-indigo-800/90 via-purple-800/90 to-pink-800/90 text-pink-200 font-semibold rounded-lg border-2 border-pink-400/40 hover:border-yellow-400 hover:text-yellow-400 transition-all duration-300 transform hover:-translate-y-1 font-nunito"
                   >
                     <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/10 via-pink-500/10 to-indigo-500/10 rounded-lg blur opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     <span className="relative flex items-center gap-2">
@@ -156,8 +156,8 @@ const Hero = () => {
                     <FaUsers className="w-6 h-6 text-yellow-400" />
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-pink-200 font-orbitron">1000+</p>
-                    <p className="text-xs text-pink-200/60 font-orbitron">Active Users</p>
+                    <p className="text-sm font-medium text-pink-200 font-nunito">1000+</p>
+                    <p className="text-xs text-pink-200/60 font-nunito">Active Users</p>
                   </div>
                 </div>
               </motion.div>
@@ -173,8 +173,8 @@ const Hero = () => {
                     <FaBook className="w-6 h-6 text-pink-400" />
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-pink-200 font-orbitron">500+</p>
-                    <p className="text-xs text-pink-200/60 font-orbitron">Quizzes Created</p>
+                    <p className="text-sm font-medium text-pink-200 font-nunito">500+</p>
+                    <p className="text-xs text-pink-200/60 font-nunito">Quizzes Created</p>
                   </div>
                 </div>
               </motion.div>

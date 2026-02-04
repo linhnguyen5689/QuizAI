@@ -78,7 +78,7 @@ const QuizResults = () => {
             className="animate-spin rounded-full h-16 w-16 border-4 mx-auto"
             style={{ borderColor: PRIMARY, borderTopColor: 'transparent' }}
           />
-          <p className="mt-4 text-lg" style={{ color: PRIMARY_LIGHT, fontFamily: 'Orbitron, sans-serif' }}>
+          <p className="mt-4 text-lg" style={{ color: PRIMARY_LIGHT, fontFamily: 'Nunito, sans-serif' }}>
             Loading results...
           </p>
         </div>
@@ -90,7 +90,7 @@ const QuizResults = () => {
     return (
       <div
         className="relative w-screen min-h-screen overflow-x-hidden"
-        style={{ background: `linear-gradient(135deg, ${PRIMARY_DARK}, ${PRIMARY})` }}
+        style={{ background: `linear-gradient(135deg, ${PRIMARY_DARK}, ${PRIMARY})`, fontFamily: "'Nunito', sans-serif" }}
       >
         <div className="relative z-10 flex items-center justify-center min-h-screen p-4">
           <motion.div
@@ -132,7 +132,7 @@ const QuizResults = () => {
     return (
       <div
         className="relative w-screen min-h-screen overflow-x-hidden"
-        style={{ background: `linear-gradient(135deg, ${PRIMARY_DARK}, ${PRIMARY})` }}
+        style={{ background: `linear-gradient(135deg, ${PRIMARY_DARK}, ${PRIMARY})`, fontFamily: "'Nunito', sans-serif" }}
       >
         <div className="relative z-10 flex items-center justify-center min-h-screen p-4">
           <motion.div
@@ -178,7 +178,7 @@ const QuizResults = () => {
   return (
     <div
       className="relative w-screen min-h-screen overflow-x-hidden"
-      style={{ background: `linear-gradient(135deg, ${PRIMARY_DARK}, ${PRIMARY})` }}
+      style={{ background: `linear-gradient(135deg, ${PRIMARY_DARK}, ${PRIMARY})`, fontFamily: "'Nunito', sans-serif" }}
     >
       {/* Animated SVG background */}
       <svg className="absolute top-0 left-0 z-0 w-full h-full pointer-events-none" style={{ filter: "blur(2px)" }}>
@@ -216,7 +216,7 @@ const QuizResults = () => {
               alignItems: 'center',
               fontSize: '2.25rem',
               fontWeight: 800,
-              fontFamily: 'Orbitron, sans-serif',
+              fontFamily: 'Nunito, sans-serif',
               background: `linear-gradient(90deg, ${PRIMARY_LIGHT}, ${PRIMARY})`,
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
@@ -240,14 +240,14 @@ const QuizResults = () => {
               fontSize: '2.25rem',
               fontWeight: 800,
               marginBottom: 8,
-              fontFamily: 'Orbitron, sans-serif',
+              fontFamily: 'Nunito, sans-serif',
               background: `linear-gradient(90deg, ${PRIMARY_LIGHT}, ${PRIMARY})`,
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent'
             }}>
               {result.quizId?.title || quiz?.title || 'Quiz Results'}
             </h1>
-            <div style={{ display: 'flex', gap: 16, alignItems: 'center', color: MUTED_TEXT, fontFamily: 'Orbitron, sans-serif' }}>
+            <div style={{ display: 'flex', gap: 16, alignItems: 'center', color: MUTED_TEXT, fontFamily: 'Nunito, sans-serif' }}>
               <span style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                 <FaCertificate style={{ color: PRIMARY_LIGHT }} />
                 Attempt #{result.attemptNumber || 1}
@@ -271,12 +271,12 @@ const QuizResults = () => {
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
                   marginBottom: 8,
-                  fontFamily: 'Orbitron, sans-serif'
+                  fontFamily: 'Nunito, sans-serif'
                 }}>
                   {Math.round(percentageScore)}%
                 </div>
-                <div style={{ color: MUTED_TEXT, fontSize: '1.125rem', fontFamily: 'Orbitron, sans-serif' }}>Your Score</div>
-                <div style={{ display: 'flex', alignItems: 'center', marginTop: 8, gap: 8, color: MUTED_TEXT, fontFamily: 'Orbitron, sans-serif' }}>
+                <div style={{ color: MUTED_TEXT, fontSize: '1.125rem', fontFamily: 'Nunito, sans-serif' }}>Your Score</div>
+                <div style={{ display: 'flex', alignItems: 'center', marginTop: 8, gap: 8, color: MUTED_TEXT, fontFamily: 'Nunito, sans-serif' }}>
                   <FaRegCheckCircle style={{ color: SUCCESS }} />
                   {result.correctAnswers} / {result.totalQuestions} correct
                 </div>
@@ -292,10 +292,10 @@ const QuizResults = () => {
                 ) : (
                   <FaGamepad style={{ color: PRIMARY_LIGHT, fontSize: 48, marginBottom: 8 }} />
                 )}
-                <div style={{ color: MUTED_TEXT, fontSize: '1.125rem', fontFamily: 'Orbitron, sans-serif' }}>
+                <div style={{ color: MUTED_TEXT, fontSize: '1.125rem', fontFamily: 'Nunito, sans-serif' }}>
                   {percentageScore >= 80 ? "Excellent!" : percentageScore >= 60 ? "Good Job!" : "Keep Practicing!"}
                 </div>
-                <div style={{ color: MUTED_TEXT, marginTop: 8, fontFamily: 'Orbitron, sans-serif' }}>
+                <div style={{ color: MUTED_TEXT, marginTop: 8, fontFamily: 'Nunito, sans-serif' }}>
                   {Math.round(result.timeSpent)} minutes
                 </div>
               </div>
@@ -358,7 +358,7 @@ const QuizResults = () => {
                 fontSize: '1.5rem',
                 fontWeight: 700,
                 marginBottom: 16,
-                fontFamily: 'Orbitron, sans-serif',
+                fontFamily: 'Nunito, sans-serif',
                 background: `linear-gradient(90deg, ${PRIMARY_LIGHT}, ${PRIMARY})`,
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent'
@@ -379,14 +379,14 @@ const QuizResults = () => {
                     }}
                   >
                     <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 8 }}>
-                      <span style={{ color: '#fff', fontFamily: 'Orbitron, sans-serif', fontWeight: 600 }}>Question {index + 1}</span>
+                      <span style={{ color: '#fff', fontFamily: 'Nunito, sans-serif', fontWeight: 600 }}>Question {index + 1}</span>
                       {answer.isCorrect ? (
                         <FaRegCheckCircle style={{ color: SUCCESS }} />
                       ) : (
                         <FaRegTimesCircle style={{ color: DANGER }} />
                       )}
                     </div>
-                    <div style={{ color: MUTED_TEXT, fontFamily: 'Orbitron, sans-serif' }}>
+                    <div style={{ color: MUTED_TEXT, fontFamily: 'Nunito, sans-serif' }}>
                       {answer.isCorrect ? "Correct" : "Incorrect"}
                     </div>
                   </div>

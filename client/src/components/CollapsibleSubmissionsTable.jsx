@@ -17,7 +17,7 @@ const CollapsibleSubmissionsTable = ({ submissions }) => {
         animate={{ opacity: 1, y: 0 }}
         className="py-12 text-center rounded-2xl bg-gradient-to-br from-indigo-900/50 via-purple-900/50 to-pink-900/50 backdrop-blur-xl border-2 border-pink-400/40"
       >
-        <p className="text-xl font-orbitron text-pink-200">No submissions found.</p>
+        <p className="text-xl font-nunito text-pink-200">No submissions found.</p>
       </motion.div>
     );
   }
@@ -105,7 +105,7 @@ const CollapsibleSubmissionsTable = ({ submissions }) => {
               <div className="flex items-center justify-between">
                 <div className="flex-1">
                   <div className="flex items-center gap-3">
-                    <h3 className="text-2xl font-orbitron font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500">
+                    <h3 className="text-2xl font-nunito font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500">
                       {latest.quizId?.title || "Untitled Quiz"}
                     </h3>
                     {isExpanded ? (
@@ -117,15 +117,15 @@ const CollapsibleSubmissionsTable = ({ submissions }) => {
                   <div className="grid grid-cols-3 gap-6 mt-4">
                     <div className="flex items-center gap-2 text-pink-200">
                       <FaHistory className="w-5 h-5 text-yellow-400 animate-spin-slow" />
-                      <span className="font-orbitron">Attempts: {quizSubmissions.length}</span>
+                      <span className="font-nunito">Attempts: {quizSubmissions.length}</span>
                     </div>
                     <div className="flex items-center gap-2 text-pink-200">
                       <FaTrophy className="w-5 h-5 text-yellow-400 animate-bounce" />
-                      <span className="font-orbitron">Highest: {highest.toFixed(1)}%</span>
+                      <span className="font-nunito">Highest: {highest.toFixed(1)}%</span>
                     </div>
                     <div className="flex items-center gap-2 text-pink-200">
                       <FaChartLine className="w-5 h-5 text-yellow-400 animate-pulse" />
-                      <span className="font-orbitron">
+                      <span className="font-nunito">
                         Last: {latest.completedAt ? new Date(latest.completedAt).toLocaleDateString() : "N/A"}
                       </span>
                     </div>
@@ -133,7 +133,7 @@ const CollapsibleSubmissionsTable = ({ submissions }) => {
                 </div>
                 <Link
                   to={`/take-quiz/${quizId}`}
-                  className="inline-flex items-center px-6 py-3 ml-4 text-lg font-orbitron text-white bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 rounded-2xl hover:from-pink-400 hover:to-yellow-400 transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg border-2 border-white/30"
+                  className="inline-flex items-center px-6 py-3 ml-4 text-lg font-nunito text-white bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 rounded-2xl hover:from-pink-400 hover:to-yellow-400 transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg border-2 border-white/30"
                   onClick={(e) => e.stopPropagation()}
                 >
                   Retake Quiz
@@ -154,16 +154,16 @@ const CollapsibleSubmissionsTable = ({ submissions }) => {
                     <table className="min-w-full divide-y divide-pink-400/40">
                       <thead className="bg-black/30">
                         <tr>
-                          <th className="px-8 py-4 text-sm font-orbitron tracking-wider text-left text-pink-200 uppercase">
+                          <th className="px-8 py-4 text-sm font-nunito tracking-wider text-left text-pink-200 uppercase">
                             Attempt
                           </th>
-                          <th className="px-8 py-4 text-sm font-orbitron tracking-wider text-left text-pink-200 uppercase">
+                          <th className="px-8 py-4 text-sm font-nunito tracking-wider text-left text-pink-200 uppercase">
                             Score
                           </th>
-                          <th className="px-8 py-4 text-sm font-orbitron tracking-wider text-left text-pink-200 uppercase">
+                          <th className="px-8 py-4 text-sm font-nunito tracking-wider text-left text-pink-200 uppercase">
                             Completed At
                           </th>
-                          <th className="px-8 py-4 text-sm font-orbitron tracking-wider text-right text-pink-200 uppercase">
+                          <th className="px-8 py-4 text-sm font-nunito tracking-wider text-right text-pink-200 uppercase">
                             Actions
                           </th>
                         </tr>
@@ -177,18 +177,18 @@ const CollapsibleSubmissionsTable = ({ submissions }) => {
                             transition={{ duration: 0.3, delay: idx * 0.1 }}
                             className="hover:bg-black/20"
                           >
-                            <td className="px-8 py-4 text-sm font-orbitron text-pink-200 whitespace-nowrap">
+                            <td className="px-8 py-4 text-sm font-nunito text-pink-200 whitespace-nowrap">
                               #{s.attemptNumber || "?"}
                             </td>
                             <td className="px-8 py-4 whitespace-nowrap">
-                              <div className="text-sm font-orbitron text-pink-200">
+                              <div className="text-sm font-nunito text-pink-200">
                                 {s.correctAnswers || 0}/{s.totalQuestions || 0}
                               </div>
-                              <div className="text-sm font-orbitron text-yellow-400">
+                              <div className="text-sm font-nunito text-yellow-400">
                                 {(s.percentageScore || 0).toFixed(1)}%
                               </div>
                             </td>
-                            <td className="px-8 py-4 text-sm font-orbitron text-pink-200 whitespace-nowrap">
+                            <td className="px-8 py-4 text-sm font-nunito text-pink-200 whitespace-nowrap">
                               {s.completedAt
                                 ? new Date(s.completedAt).toLocaleString()
                                 : "N/A"}
@@ -197,7 +197,7 @@ const CollapsibleSubmissionsTable = ({ submissions }) => {
                               {s._id && (
                                 <Link
                                   to={`/results/${s._id}`}
-                                  className="inline-flex items-center px-4 py-2 text-sm font-orbitron text-white bg-gradient-to-r from-indigo-500 to-pink-500 rounded-xl hover:from-pink-500 hover:to-indigo-500 transition-all duration-300"
+                                  className="inline-flex items-center px-4 py-2 text-sm font-nunito text-white bg-gradient-to-r from-indigo-500 to-pink-500 rounded-xl hover:from-pink-500 hover:to-indigo-500 transition-all duration-300"
                                 >
                                   View Details
                                 </Link>
@@ -224,14 +224,14 @@ const CollapsibleSubmissionsTable = ({ submissions }) => {
           <button
             onClick={() => goToPage(1)}
             disabled={currentPage === 1}
-            className="px-4 py-2 font-orbitron bg-gradient-to-r from-indigo-500 to-pink-500 text-white rounded-xl hover:from-pink-500 hover:to-indigo-500 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="px-4 py-2 font-nunito bg-gradient-to-r from-indigo-500 to-pink-500 text-white rounded-xl hover:from-pink-500 hover:to-indigo-500 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             «
           </button>
           <button
             onClick={() => goToPage(currentPage - 1)}
             disabled={currentPage === 1}
-            className="px-4 py-2 font-orbitron bg-gradient-to-r from-indigo-500 to-pink-500 text-white rounded-xl hover:from-pink-500 hover:to-indigo-500 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="px-4 py-2 font-nunito bg-gradient-to-r from-indigo-500 to-pink-500 text-white rounded-xl hover:from-pink-500 hover:to-indigo-500 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             ‹
           </button>
@@ -239,11 +239,11 @@ const CollapsibleSubmissionsTable = ({ submissions }) => {
           {getPageNumbers().map((n, i) => (
             <React.Fragment key={i}>
               {n === "..." ? (
-                <span className="px-4 text-pink-200 font-orbitron">...</span>
+                <span className="px-4 text-pink-200 font-nunito">...</span>
               ) : (
                 <button
                   onClick={() => goToPage(n)}
-                  className={`px-4 py-2 font-orbitron rounded-xl transition-all duration-300 ${
+                  className={`px-4 py-2 font-nunito rounded-xl transition-all duration-300 ${
                     currentPage === n
                       ? "bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 text-white"
                       : "bg-gradient-to-r from-indigo-500 to-pink-500 text-white hover:from-pink-500 hover:to-indigo-500"
@@ -258,19 +258,19 @@ const CollapsibleSubmissionsTable = ({ submissions }) => {
           <button
             onClick={() => goToPage(currentPage + 1)}
             disabled={currentPage === totalPages}
-            className="px-4 py-2 font-orbitron bg-gradient-to-r from-indigo-500 to-pink-500 text-white rounded-xl hover:from-pink-500 hover:to-indigo-500 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="px-4 py-2 font-nunito bg-gradient-to-r from-indigo-500 to-pink-500 text-white rounded-xl hover:from-pink-500 hover:to-indigo-500 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             ›
           </button>
           <button
             onClick={() => goToPage(totalPages)}
             disabled={currentPage === totalPages}
-            className="px-4 py-2 font-orbitron bg-gradient-to-r from-indigo-500 to-pink-500 text-white rounded-xl hover:from-pink-500 hover:to-indigo-500 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="px-4 py-2 font-nunito bg-gradient-to-r from-indigo-500 to-pink-500 text-white rounded-xl hover:from-pink-500 hover:to-indigo-500 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             »
           </button>
 
-          <span className="ml-6 text-sm font-orbitron text-pink-200">
+          <span className="ml-6 text-sm font-nunito text-pink-200">
             Page {currentPage} of {totalPages}
           </span>
         </motion.div>

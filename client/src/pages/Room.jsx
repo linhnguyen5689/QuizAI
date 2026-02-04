@@ -419,11 +419,11 @@ function Room({ user: propUser }) {
             <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
               <Link to="/dashboard" style={{ display: 'flex', gap: 8, alignItems: 'center', color: MUTED_TEXT, textDecoration: 'none' }}>
                 <FaArrowLeft />
-                <span style={{ fontFamily: 'Orbitron, sans-serif' }}>Back to Dashboard</span>
+                <span style={{ fontFamily: 'Nunito, sans-serif' }}>Back to Dashboard</span>
               </Link>
             </div>
 
-            <h1 style={{ display: 'flex', gap: 12, alignItems: 'center', fontSize: 36, fontWeight: 800, fontFamily: 'Orbitron, sans-serif', background: `linear-gradient(90deg, ${PRIMARY_LIGHT}, ${PRIMARY})`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', textShadow: '0 6px 18px rgba(0,0,0,0.12)' }}>
+            <h1 style={{ display: 'flex', gap: 12, alignItems: 'center', fontSize: 36, fontWeight: 800, fontFamily: 'Nunito, sans-serif', background: `linear-gradient(90deg, ${PRIMARY_LIGHT}, ${PRIMARY})`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', textShadow: '0 6px 18px rgba(0,0,0,0.12)' }}>
               <FaGamepad style={{ color: ACCENT_YELLOW }} />
               Room: {code}
               <FaStar style={{ color: PRIMARY_LIGHT, animation: 'spin 6s linear infinite' }} />
@@ -493,7 +493,7 @@ function Room({ user: propUser }) {
                         <div style={{ width: 40, height: 40, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', background: `linear-gradient(90deg, ${PRIMARY_LIGHT}, ${PRIMARY})`, color: '#fff', fontWeight: 800 }}>
                           {getUserInitial(participant.userId)}
                         </div>
-                        <span style={{ color: MUTED_TEXT, fontFamily: 'Orbitron, sans-serif' }}>{getUserName(participant.userId)}</span>
+                        <span style={{ color: MUTED_TEXT, fontFamily: 'Nunito, sans-serif' }}>{getUserName(participant.userId)}</span>
                       </motion.div>
                     ))}
                   </div>
@@ -583,11 +583,11 @@ function Room({ user: propUser }) {
             <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
               <Link to="/dashboard" style={{ display: 'flex', gap: 8, alignItems: 'center', color: MUTED_TEXT, textDecoration: 'none' }}>
                 <FaArrowLeft />
-                <span className="font-orbitron">Back to Dashboard</span>
+                <span className="font-nunito">Back to Dashboard</span>
               </Link>
             </div>
 
-            <h1 style={{ display: 'flex', gap: 12, alignItems: 'center', fontSize: 36, fontWeight: 800, fontFamily: 'Orbitron, sans-serif', background: `linear-gradient(90deg, ${PRIMARY_LIGHT}, ${PRIMARY})`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+            <h1 style={{ display: 'flex', gap: 12, alignItems: 'center', fontSize: 36, fontWeight: 800, fontFamily: 'Nunito, sans-serif', background: `linear-gradient(90deg, ${PRIMARY_LIGHT}, ${PRIMARY})`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
               <FaGamepad style={{ color: ACCENT_YELLOW }} />
               Room: {code}
               <FaStar style={{ color: PRIMARY_LIGHT, animation: 'spin 6s linear infinite' }} />
@@ -680,7 +680,7 @@ function Room({ user: propUser }) {
                           {getUserInitial(participant.userId)}
                         </div>
                         <div>
-                          <span style={{ color: MUTED_TEXT, fontFamily: 'Orbitron, sans-serif' }}>{getUserName(participant.userId)}</span>
+                          <span style={{ color: MUTED_TEXT, fontFamily: 'Nunito, sans-serif' }}>{getUserName(participant.userId)}</span>
                           {participant.score > 0 && <div style={{ marginTop: 4, color: SUCCESS, fontWeight: 700 }}>{participant.score} pts</div>}
                         </div>
                       </motion.div>
@@ -773,11 +773,11 @@ function Room({ user: propUser }) {
             <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
               <Link to="/dashboard" style={{ display: 'flex', gap: 8, alignItems: 'center', color: MUTED_TEXT, textDecoration: 'none' }}>
                 <FaArrowLeft />
-                <span className="font-orbitron">Back to Dashboard</span>
+                <span className="font-nunito">Back to Dashboard</span>
               </Link>
             </div>
 
-            <h1 style={{ display: 'flex', gap: 12, alignItems: 'center', fontSize: 36, fontWeight: 800, fontFamily: 'Orbitron, sans-serif', background: `linear-gradient(90deg, ${PRIMARY_LIGHT}, ${PRIMARY})`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+            <h1 style={{ display: 'flex', gap: 12, alignItems: 'center', fontSize: 36, fontWeight: 800, fontFamily: 'Nunito, sans-serif', background: `linear-gradient(90deg, ${PRIMARY_LIGHT}, ${PRIMARY})`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
               <FaTrophy style={{ color: ACCENT_YELLOW }} />
               Quiz Results
               <FaStar style={{ color: PRIMARY_LIGHT, animation: 'spin 6s linear infinite' }} />

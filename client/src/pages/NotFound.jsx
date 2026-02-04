@@ -62,14 +62,14 @@ const NotFound = () => {
                   repeat: Infinity,
                   ease: "easeInOut"
                 }}
-                className="text-9xl font-extrabold text-transparent bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 bg-clip-text font-orbitron"
+                className="text-9xl font-extrabold text-transparent bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 bg-clip-text font-nunito"
               >
                 404
               </motion.div>
             </div>
           </motion.div>
 
-          <h2 className="text-3xl font-bold text-transparent bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 bg-clip-text font-orbitron mb-4">
+          <h2 className="text-3xl font-bold text-transparent bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 bg-clip-text font-nunito mb-4">
             Page Not Found
           </h2>
 
@@ -78,7 +78,7 @@ const NotFound = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
           >
-            <p className="text-pink-200 mb-8 text-center font-orbitron">
+            <p className="text-pink-200 mb-8 text-center font-nunito">
               The page you are looking for might have been removed, had its name changed,
               or is temporarily unavailable.
             </p>
@@ -91,7 +91,7 @@ const NotFound = () => {
             >
               <Link
                 to="/"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 text-white font-medium rounded-xl hover:from-pink-400 hover:to-yellow-400 transition-all duration-300 shadow-lg hover:shadow-xl font-orbitron w-full"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 text-white font-medium rounded-xl hover:from-pink-400 hover:to-yellow-400 transition-all duration-300 shadow-lg hover:shadow-xl font-nunito w-full"
               >
                 <FaHome className="w-5 h-5" />
                 Go to Homepage
@@ -104,7 +104,7 @@ const NotFound = () => {
             >
               <Link
                 to="/dashboard"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 text-pink-200 font-medium rounded-xl border border-pink-400/30 hover:bg-pink-400/10 transition-all duration-300 font-orbitron w-full"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 text-pink-200 font-medium rounded-xl border border-pink-400/30 hover:bg-pink-400/10 transition-all duration-300 font-nunito w-full"
               >
                 <FaArrowLeft className="w-5 h-5" />
                 Back to Dashboard

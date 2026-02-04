@@ -125,7 +125,7 @@ const styles = `
  * HAU Blue Theme constants (only colors — thay đổi ở đây nếu muốn biến theme)
  * - giữ accent nhỏ (vàng/teal) cho điểm nhấn ở icon / star rating
  */
-const PRIMARY = "#000";         // HAU main blue
+const PRIMARY = "#0859A6";         // HAU main blue
 const PRIMARY_DARK = "#04345B";
 const PRIMARY_LIGHT = "#4EA0FF";
 const PAGE_BG_START = "#021A36";
@@ -284,11 +284,11 @@ const Home = () => {
               transition={{ duration: 1.2, ease: "easeOut", delay: 0.2 }}
               className="mb-16 text-center"
             >
-              <h2 className="mb-4 min-h-14 text-5xl font-bold font-orbitron"
+              <h2 className="mb-4 min-h-14 text-5xl font-bold font-nunito"
                   style={{ background: PRIMARY_GRADIENT, WebkitBackgroundClip: "text", color: "transparent" }}>
                 Explore Popular Quizzes
               </h2>
-              <p className="max-w-2xl mx-auto text-xl leading-relaxed font-orbitron" style={{ color: SUBTLE_TEXT }}>
+              <p className="max-w-2xl mx-auto text-xl leading-relaxed font-nunito" style={{ color: SUBTLE_TEXT }}>
                 Discover and take quizzes created by our community. Test your knowledge and learn something new!
               </p>
             </motion.div>
@@ -299,7 +299,7 @@ const Home = () => {
               </div>
             ) : publicQuizzes.length === 0 ? (
               <div className="py-12 text-center" style={{ background: CARD_BG, borderRadius: 18, padding: 24, boxShadow: "0 20px 40px rgba(0,0,0,0.35)", border: `1px solid ${PRIMARY}22` }}>
-                <p className="text-xl font-orbitron" style={{ color: SUBTLE_TEXT }}>
+                <p className="text-xl font-nunito" style={{ color: SUBTLE_TEXT }}>
                   No quizzes available at the moment.
                 </p>
               </div>
@@ -326,7 +326,7 @@ const Home = () => {
             >
               <Link
                 to="/dashboard"
-                className="inline-flex items-center px-8 py-4 font-medium rounded-xl hover:from-pink-400 hover:to-yellow-400 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-orbitron"
+                className="inline-flex items-center px-8 py-4 font-medium rounded-xl hover:from-pink-400 hover:to-yellow-400 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-nunito"
                 style={{ background: PRIMARY_GRADIENT, color: "#001B2E" }}
               >
                 <span>View All Quizzes</span>
@@ -360,10 +360,10 @@ const Home = () => {
               transition={{ duration: 1.2, ease: "easeOut", delay: 0.2 }}
               className="mb-16 text-center"
             >
-              <h2 className="mb-4 text-5xl font-bold font-orbitron" style={{ background: PRIMARY_GRADIENT, WebkitBackgroundClip: "text", color: "transparent" }}>
+              <h2 className="mb-4 text-5xl font-bold font-nunito" style={{ background: PRIMARY_GRADIENT, WebkitBackgroundClip: "text", color: "transparent" }}>
                 Create Your Own Quiz
               </h2>
-              <p className="max-w-2xl mx-auto text-xl leading-relaxed font-orbitron" style={{ color: SUBTLE_TEXT }}>
+              <p className="max-w-2xl mx-auto text-xl leading-relaxed font-nunito" style={{ color: SUBTLE_TEXT }}>
                 Follow these simple steps to create engaging quizzes for your students or yourself
               </p>
             </motion.div>
@@ -390,10 +390,10 @@ const Home = () => {
               transition={{ duration: 1.2, ease: "easeOut", delay: 0.2 }}
               className="mb-16 text-center"
             >
-              <h2 className="mb-4 text-5xl font-bold font-orbitron" style={{ background: PRIMARY_GRADIENT, WebkitBackgroundClip: "text", color: "transparent" }}>
+              <h2 className="mb-4 text-5xl font-bold font-nunito" style={{ background: PRIMARY_GRADIENT, WebkitBackgroundClip: "text", color: "transparent" }}>
                 Interactive Quiz Experience
               </h2>
-              <p className="max-w-2xl mx-auto text-xl leading-relaxed font-orbitron" style={{ color: SUBTLE_TEXT }}>
+              <p className="max-w-2xl mx-auto text-xl leading-relaxed font-nunito" style={{ color: SUBTLE_TEXT }}>
                 Explore our unique features designed to make learning fun and effective
               </p>
             </motion.div>
@@ -439,10 +439,10 @@ const Home = () => {
                           {features[activeCard].icon}
                         </div>
 
-                        <h3 className="text-3xl font-bold font-orbitron mb-4" style={{ background: PRIMARY_GRADIENT, WebkitBackgroundClip: "text", color: "transparent" }}>
+                        <h3 className="text-3xl font-bold font-nunito mb-4" style={{ background: PRIMARY_GRADIENT, WebkitBackgroundClip: "text", color: "transparent" }}>
                           {features[activeCard].title}
                         </h3>
-                        <p className="font-orbitron" style={{ color: SUBTLE_TEXT, maxWidth: 520 }}>
+                        <p className="font-nunito" style={{ color: SUBTLE_TEXT, maxWidth: 520 }}>
                           {features[activeCard].description}
                         </p>
                       </motion.div>
@@ -494,10 +494,10 @@ const Home = () => {
                     <div className="flex items-start space-x-4">
                       <div className="mt-1">{feature.icon}</div>
                       <div>
-                        <h4 className="text-xl font-bold font-orbitron mb-2" style={{ background: PRIMARY_GRADIENT, WebkitBackgroundClip: "text", color: "transparent" }}>
+                        <h4 className="text-xl font-bold font-nunito mb-2" style={{ background: PRIMARY_GRADIENT, WebkitBackgroundClip: "text", color: "transparent" }}>
                           {feature.title}
                         </h4>
-                        <p className="font-orbitron" style={{ color: SUBTLE_TEXT }}>
+                        <p className="font-nunito" style={{ color: SUBTLE_TEXT }}>
                           {feature.description}
                         </p>
                       </div>
@@ -512,7 +512,7 @@ const Home = () => {
                 >
                   <Link
                     to={isLoggedIn ? "/dashboard" : "/register"}
-                    className="inline-flex items-center px-8 py-4 font-medium rounded-xl transition-all duration-300 shadow-lg transform hover:-translate-y-0.5 font-orbitron"
+                    className="inline-flex items-center px-8 py-4 font-medium rounded-xl transition-all duration-300 shadow-lg transform hover:-translate-y-0.5 font-nunito"
                     style={{ background: PRIMARY_GRADIENT, color: "#001B2E" }}
                   >
                     <span>{isLoggedIn ? "Start Creating" : "Join Now"}</span>
@@ -541,10 +541,10 @@ const Home = () => {
               transition={{ duration: 1.2, ease: "easeOut", delay: 0.2 }}
               className="mb-16 text-center"
             >
-              <h2 className="mb-4 text-5xl font-bold font-orbitron" style={{ background: PRIMARY_GRADIENT, WebkitBackgroundClip: "text", color: "transparent" }}>
+              <h2 className="mb-4 text-5xl font-bold font-nunito" style={{ background: PRIMARY_GRADIENT, WebkitBackgroundClip: "text", color: "transparent" }}>
                 Earn Prestigious Achievements
               </h2>
-              <p className="max-w-2xl mx-auto text-xl leading-relaxed font-orbitron" style={{ color: SUBTLE_TEXT }}>
+              <p className="max-w-2xl mx-auto text-xl leading-relaxed font-nunito" style={{ color: SUBTLE_TEXT }}>
                 Showcase your knowledge and skills with our unique achievement system
               </p>
             </motion.div>
@@ -562,7 +562,7 @@ const Home = () => {
                       <FaAward className="w-16 h-16 text-white" />
                     </div>
                     <div className="absolute inset-0 rotate-y-180 w-full h-full rounded-full" style={{ background: PRIMARY_LIGHT, display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: `0 12px 30px ${GLOW_SOFT}` }}>
-                      <span className="text-white font-orbitron font-bold text-xl left-6 relative">Quiz Master</span>
+                      <span className="text-white font-nunito font-bold text-xl left-6 relative">Quiz Master</span>
                     </div>
                   </div>
                 </motion.div>
@@ -577,7 +577,7 @@ const Home = () => {
                       <FaMedal className="w-20 h-20 text-white" />
                     </div>
                     <div className="absolute inset-0 rotate-y-180 w-full h-full rounded-full" style={{ background: PRIMARY_LIGHT, display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: `0 12px 30px ${GLOW_SOFT}` }}>
-                      <span className="text-white font-orbitron font-bold text-xl">Champion</span>
+                      <span className="text-white font-nunito font-bold text-xl">Champion</span>
                     </div>
                   </div>
                 </motion.div>
@@ -592,7 +592,7 @@ const Home = () => {
                       <FaTrophy className="w-24 h-24 text-white" />
                     </div>
                     <div className="absolute inset-0 rotate-y-180 w-full h-full rounded-full" style={{ background: PRIMARY_LIGHT, display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: `0 12px 30px ${GLOW_SOFT}` }}>
-                      <span className="text-white font-orbitron font-bold text-2xl">LEGEND</span>
+                      <span className="text-white font-nunito font-bold text-2xl">LEGEND</span>
                     </div>
                   </div>
                 </motion.div>
@@ -607,7 +607,7 @@ const Home = () => {
                       <FaGraduationCap className="w-14 h-14 text-white" />
                     </div>
                     <div className="absolute inset-0 rotate-y-180 w-full h-full rounded-full" style={{ background: PRIMARY_LIGHT, display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: `0 12px 30px ${GLOW_SOFT}` }}>
-                      <span className="text-white font-orbitron font-bold text-md">Expert</span>
+                      <span className="text-white font-nunito font-bold text-md">Expert</span>
                     </div>
                   </div>
                 </motion.div>
@@ -620,7 +620,7 @@ const Home = () => {
                         <div style={{ width: "100%", height: "100%", borderRadius: 999, background: CARD_BG, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                           <div className="text-center">
                             <FaStar className="w-20 h-20" style={{ color: ACCENT_YELLOW }} />
-                            <h3 className="text-2xl font-bold font-orbitron" style={{ background: PRIMARY_GRADIENT, WebkitBackgroundClip: 'text', color: 'transparent' }}>Ultimate Quizzer</h3>
+                            <h3 className="text-2xl font-bold font-nunito" style={{ background: PRIMARY_GRADIENT, WebkitBackgroundClip: 'text', color: 'transparent' }}>Ultimate Quizzer</h3>
                           </div>
                         </div>
                       </motion.div>
@@ -635,10 +635,10 @@ const Home = () => {
 
                 {/* Bottom info */}
                 <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 1, delay: 0.7 }} className="absolute left-0 right-0 bottom-0 text-center">
-                  <p className="text-xl font-orbitron max-w-lg mx-auto" style={{ color: SUBTLE_TEXT }}>
+                  <p className="text-xl font-nunito max-w-lg mx-auto" style={{ color: SUBTLE_TEXT }}>
                     Complete quizzes, challenge friends, and rise through the ranks to unlock these prestigious achievements
                   </p>
-                  <Link to="/achievements" className="inline-flex items-center mt-6 px-6 py-3 rounded-xl font-medium transition-all duration-300 shadow-lg transform hover:-translate-y-0.5 font-orbitron" style={{ background: PRIMARY_GRADIENT, color: "#001B2E" }}>
+                  <Link to="/achievements" className="inline-flex items-center mt-6 px-6 py-3 rounded-xl font-medium transition-all duration-300 shadow-lg transform hover:-translate-y-0.5 font-nunito" style={{ background: PRIMARY_GRADIENT, color: "#001B2E" }}>
                     <span>View All Achievements</span>
                     <FaStar className="ml-2 w-4 h-4" style={{ color: PRIMARY_DARK }} />
                   </Link>
@@ -665,10 +665,10 @@ const Home = () => {
               transition={{ duration: 1.2, ease: "easeOut", delay: 0.2 }}
               className=" text-center"
             >
-              <h2 className="mb-4 text-5xl font-bold font-orbitron" style={{ background: PRIMARY_GRADIENT, WebkitBackgroundClip: "text", color: "transparent" }}>
+              <h2 className="mb-4 text-5xl font-bold font-nunito" style={{ background: PRIMARY_GRADIENT, WebkitBackgroundClip: "text", color: "transparent" }}>
                 What Our Users Say
               </h2>
-              <p className="max-w-2xl mx-auto text-xl leading-relaxed font-orbitron" style={{ color: SUBTLE_TEXT }}>
+              <p className="max-w-2xl mx-auto text-xl leading-relaxed font-nunito" style={{ color: SUBTLE_TEXT }}>
                 Hear from our community of quiz enthusiasts
               </p>
             </motion.div>
@@ -688,7 +688,7 @@ const Home = () => {
               >
                 <div className="p-6 rounded-3xl preserve-3d" style={{ background: CARD_BG, border: `1px solid ${PRIMARY}22`, boxShadow: `0 20px 40px rgba(0,0,0,0.35)` }}>
                   <div style={{ marginBottom: 16, color: ACCENT_YELLOW, fontSize: 20 }}>★★★★★</div>
-                  <p className="font-orbitron mb-6" style={{ color: SUBTLE_TEXT }}>
+                  <p className="font-nunito mb-6" style={{ color: SUBTLE_TEXT }}>
                     "This quiz platform completely transformed how I study. The interactive features and achievements keep me motivated. I've improved my test scores by 30%!"
                   </p>
                   <div className="flex items-center">
@@ -696,8 +696,8 @@ const Home = () => {
                       S
                     </div>
                     <div style={{ marginLeft: 12 }}>
-                      <h4 style={{ background: PRIMARY_GRADIENT, WebkitBackgroundClip: "text", color: "transparent", fontWeight: 800 }} className="font-orbitron">Sarah Johnson</h4>
-                      <p style={{ color: SUBTLE_TEXT }} className="font-orbitron text-sm">Biology Student</p>
+                      <h4 style={{ background: PRIMARY_GRADIENT, WebkitBackgroundClip: "text", color: "transparent", fontWeight: 800 }} className="font-nunito">Sarah Johnson</h4>
+                      <p style={{ color: SUBTLE_TEXT }} className="font-nunito text-sm">Biology Student</p>
                     </div>
                   </div>
                 </div>
@@ -713,7 +713,7 @@ const Home = () => {
               >
                 <div className="p-6 rounded-3xl preserve-3d" style={{ background: CARD_BG, border: `1px solid ${PRIMARY}22`, boxShadow: `0 20px 40px rgba(0,0,0,0.35)` }}>
                   <div style={{ marginBottom: 16, color: ACCENT_YELLOW, fontSize: 20 }}>★★★★★</div>
-                  <p className="font-orbitron mb-6" style={{ color: SUBTLE_TEXT }}>
+                  <p className="font-nunito mb-6" style={{ color: SUBTLE_TEXT }}>
                     "The 3D interface makes learning so engaging! I've created over 50 quizzes for my classroom, and my students are more engaged than ever."
                   </p>
                   <div className="flex items-center">
@@ -721,8 +721,8 @@ const Home = () => {
                       M
                     </div>
                     <div style={{ marginLeft: 12 }}>
-                      <h4 style={{ background: PRIMARY_GRADIENT, WebkitBackgroundClip: "text", color: "transparent", fontWeight: 800 }} className="font-orbitron">Michael Rodriguez</h4>
-                      <p style={{ color: SUBTLE_TEXT }} className="font-orbitron text-sm">High School Teacher</p>
+                      <h4 style={{ background: PRIMARY_GRADIENT, WebkitBackgroundClip: "text", color: "transparent", fontWeight: 800 }} className="font-nunito">Michael Rodriguez</h4>
+                      <p style={{ color: SUBTLE_TEXT }} className="font-nunito text-sm">High School Teacher</p>
                     </div>
                   </div>
                 </div>
@@ -738,7 +738,7 @@ const Home = () => {
               >
                 <div className="p-6 rounded-3xl preserve-3d" style={{ background: CARD_BG, border: `1px solid ${PRIMARY}22`, boxShadow: `0 20px 40px rgba(0,0,0,0.35)` }}>
                   <div style={{ marginBottom: 16, color: ACCENT_YELLOW, fontSize: 20 }}>★★★★★</div>
-                  <p className="font-orbitron mb-6" style={{ color: SUBTLE_TEXT }}>
+                  <p className="font-nunito mb-6" style={{ color: SUBTLE_TEXT }}>
                     "I'm addicted to the achievements system! The way badges float in 3D space is so satisfying. I've learned so much while having fun."
                   </p>
                   <div className="flex items-center">
@@ -746,8 +746,8 @@ const Home = () => {
                       A
                     </div>
                     <div style={{ marginLeft: 12 }}>
-                      <h4 style={{ background: PRIMARY_GRADIENT, WebkitBackgroundClip: "text", color: "transparent", fontWeight: 800 }} className="font-orbitron">Alex Thompson</h4>
-                      <p style={{ color: SUBTLE_TEXT }} className="font-orbitron text-sm">Software Engineer</p>
+                      <h4 style={{ background: PRIMARY_GRADIENT, WebkitBackgroundClip: "text", color: "transparent", fontWeight: 800 }} className="font-nunito">Alex Thompson</h4>
+                      <p style={{ color: SUBTLE_TEXT }} className="font-nunito text-sm">Software Engineer</p>
                     </div>
                   </div>
                 </div>
@@ -763,7 +763,7 @@ const Home = () => {
               >
                 <div className="p-6 rounded-3xl preserve-3d" style={{ background: CARD_BG, border: `1px solid ${PRIMARY}22`, boxShadow: `0 20px 40px rgba(0,0,0,0.35)` }}>
                   <div style={{ marginBottom: 16, color: ACCENT_YELLOW, fontSize: 20 }}>★★★★★</div>
-                  <p className="font-orbitron mb-6" style={{ color: SUBTLE_TEXT }}>
+                  <p className="font-nunito mb-6" style={{ color: SUBTLE_TEXT }}>
                     "The multiplayer quiz battles are incredible! I've made so many friends competing globally. The 3D effects make everything feel premium."
                   </p>
                   <div className="flex items-center">
@@ -771,8 +771,8 @@ const Home = () => {
                       E
                     </div>
                     <div style={{ marginLeft: 12 }}>
-                      <h4 style={{ background: PRIMARY_GRADIENT, WebkitBackgroundClip: "text", color: "transparent", fontWeight: 800 }} className="font-orbitron">Emily Chen</h4>
-                      <p style={{ color: SUBTLE_TEXT }} className="font-orbitron text-sm">Marketing Specialist</p>
+                      <h4 style={{ background: PRIMARY_GRADIENT, WebkitBackgroundClip: "text", color: "transparent", fontWeight: 800 }} className="font-nunito">Emily Chen</h4>
+                      <p style={{ color: SUBTLE_TEXT }} className="font-nunito text-sm">Marketing Specialist</p>
                     </div>
                   </div>
                 </div>
@@ -801,7 +801,7 @@ const Home = () => {
                   style={{ background: CARD_BG, border: `1px solid ${PRIMARY}22`, boxShadow: `0 20px 40px rgba(0,0,0,0.35)` }}
                 >
                   <div style={{ marginBottom: 16, color: ACCENT_YELLOW, fontSize: 20, display: 'flex', justifyContent: 'center' }}>★★★★★</div>
-                  <p className="font-orbitron mb-6 text-center text-lg" style={{ color: SUBTLE_TEXT }}>
+                  <p className="font-nunito mb-6 text-center text-lg" style={{ color: SUBTLE_TEXT }}>
                     "This is the future of educational technology. The 3D quiz environment is unlike anything I've seen before. My entire university department now uses it for assessments!"
                   </p>
                   <div className="flex items-center justify-center">
@@ -809,8 +809,8 @@ const Home = () => {
                       J
                     </div>
                     <div style={{ marginLeft: 12 }}>
-                      <h4 style={{ background: PRIMARY_GRADIENT, WebkitBackgroundClip: "text", color: "transparent", fontWeight: 800 }} className="font-orbitron text-xl">Dr. James Wilson</h4>
-                      <p style={{ color: SUBTLE_TEXT }} className="font-orbitron text-sm">University Professor</p>
+                      <h4 style={{ background: PRIMARY_GRADIENT, WebkitBackgroundClip: "text", color: "transparent", fontWeight: 800 }} className="font-nunito text-xl">Dr. James Wilson</h4>
+                      <p style={{ color: SUBTLE_TEXT }} className="font-nunito text-sm">University Professor</p>
                     </div>
                   </div>
 
@@ -839,10 +839,10 @@ const Home = () => {
               transition={{ duration: 1.2, ease: "easeOut", delay: 0.2 }}
               className="mb-16 text-center"
             >
-              <h2 className="mb-4 text-5xl font-bold font-orbitron" style={{ background: PRIMARY_GRADIENT, WebkitBackgroundClip: "text", color: "transparent" }}>
+              <h2 className="mb-4 text-5xl font-bold font-nunito" style={{ background: PRIMARY_GRADIENT, WebkitBackgroundClip: "text", color: "transparent" }}>
                 Quiz Platform Statistics
               </h2>
-              <p className="max-w-2xl mx-auto text-xl leading-relaxed font-orbitron" style={{ color: SUBTLE_TEXT }}>
+              <p className="max-w-2xl mx-auto text-xl leading-relaxed font-nunito" style={{ color: SUBTLE_TEXT }}>
                 Join our growing community of quiz enthusiasts
               </p>
             </motion.div>
@@ -873,43 +873,43 @@ const Home = () => {
                     {/* Front Face */}
                     <div className="absolute inset-0 w-full h-full backface-hidden rounded-3xl p-6" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: CARD_BG, border: `1px solid ${PRIMARY}22`, boxShadow: GLOW_SOFT }}>
                       <FaGamepad className="w-16 h-16" style={{ color: PRIMARY_LIGHT }} />
-                      <h3 className="text-2xl font-bold font-orbitron mb-2" style={{ background: PRIMARY_GRADIENT, WebkitBackgroundClip: "text", color: "transparent" }}>10,000+</h3>
-                      <p style={{ color: SUBTLE_TEXT }} className="font-orbitron text-center">Quizzes Created</p>
+                      <h3 className="text-2xl font-bold font-nunito mb-2" style={{ background: PRIMARY_GRADIENT, WebkitBackgroundClip: "text", color: "transparent" }}>10,000+</h3>
+                      <p style={{ color: SUBTLE_TEXT }} className="font-nunito text-center">Quizzes Created</p>
                     </div>
 
                     {/* Back Face */}
                     <div className="absolute inset-0 w-full h-full backface-hidden rounded-3xl p-6" style={{ transform: "rotateY(180deg) translateZ(-32px)", display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: CARD_BG, border: `1px solid ${PRIMARY}22`, boxShadow: GLOW_SOFT }}>
                       <FaUsers className="w-16 h-16" style={{ color: PRIMARY_LIGHT }} />
-                      <h3 className="text-2xl font-bold font-orbitron mb-2" style={{ background: PRIMARY_GRADIENT, WebkitBackgroundClip: "text", color: "transparent" }}>50,000+</h3>
-                      <p style={{ color: SUBTLE_TEXT }} className="font-orbitron text-center">Active Users</p>
+                      <h3 className="text-2xl font-bold font-nunito mb-2" style={{ background: PRIMARY_GRADIENT, WebkitBackgroundClip: "text", color: "transparent" }}>50,000+</h3>
+                      <p style={{ color: SUBTLE_TEXT }} className="font-nunito text-center">Active Users</p>
                     </div>
 
                     {/* Right Face */}
                     <div className="absolute inset-0 w-full h-full backface-hidden rounded-3xl p-6" style={{ transform: "translateX(32px) rotateY(90deg)", display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: CARD_BG, border: `1px solid ${PRIMARY}22`, boxShadow: GLOW_SOFT }}>
                       <FaTrophy className="w-16 h-16" style={{ color: ACCENT_YELLOW }} />
-                      <h3 className="text-2xl font-bold font-orbitron mb-2" style={{ background: PRIMARY_GRADIENT, WebkitBackgroundClip: "text", color: "transparent" }}>500,000+</h3>
-                      <p style={{ color: SUBTLE_TEXT }} className="font-orbitron text-center">Quiz Submissions</p>
+                      <h3 className="text-2xl font-bold font-nunito mb-2" style={{ background: PRIMARY_GRADIENT, WebkitBackgroundClip: "text", color: "transparent" }}>500,000+</h3>
+                      <p style={{ color: SUBTLE_TEXT }} className="font-nunito text-center">Quiz Submissions</p>
                     </div>
 
                     {/* Left Face */}
                     <div className="absolute inset-0 w-full h-full backface-hidden rounded-3xl p-6" style={{ transform: "translateX(-32px) rotateY(-90deg)", display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: CARD_BG, border: `1px solid ${PRIMARY}22`, boxShadow: GLOW_SOFT }}>
                       <FaRocket className="w-16 h-16" style={{ color: PRIMARY_LIGHT }} />
-                      <h3 className="text-2xl font-bold font-orbitron mb-2" style={{ background: PRIMARY_GRADIENT, WebkitBackgroundClip: "text", color: "transparent" }}>95%</h3>
-                      <p style={{ color: SUBTLE_TEXT }} className="font-orbitron text-center">User Satisfaction</p>
+                      <h3 className="text-2xl font-bold font-nunito mb-2" style={{ background: PRIMARY_GRADIENT, WebkitBackgroundClip: "text", color: "transparent" }}>95%</h3>
+                      <p style={{ color: SUBTLE_TEXT }} className="font-nunito text-center">User Satisfaction</p>
                     </div>
 
                     {/* Top Face */}
                     <div className="absolute inset-0 w-full h-full backface-hidden rounded-3xl p-6" style={{ transform: "translateY(-32px) rotateX(90deg)", display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: CARD_BG, border: `1px solid ${PRIMARY}22`, boxShadow: GLOW_SOFT }}>
                       <FaLightbulb className="w-16 h-16" style={{ color: ACCENT_YELLOW }} />
-                      <h3 className="text-2xl font-bold font-orbitron mb-2" style={{ background: PRIMARY_GRADIENT, WebkitBackgroundClip: "text", color: "transparent" }}>100,000+</h3>
-                      <p style={{ color: SUBTLE_TEXT }} className="font-orbitron text-center">Questions Answered</p>
+                      <h3 className="text-2xl font-bold font-nunito mb-2" style={{ background: PRIMARY_GRADIENT, WebkitBackgroundClip: "text", color: "transparent" }}>100,000+</h3>
+                      <p style={{ color: SUBTLE_TEXT }} className="font-nunito text-center">Questions Answered</p>
                     </div>
 
                     {/* Bottom Face */}
                     <div className="absolute inset-0 w-full h-full backface-hidden rounded-3xl p-6" style={{ transform: "translateY(32px) rotateX(-90deg)", display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: CARD_BG, border: `1px solid ${PRIMARY}22`, boxShadow: GLOW_SOFT }}>
                       <FaChartLine className="w-16 h-16" style={{ color: PRIMARY_LIGHT }} />
-                      <h3 className="text-2xl font-bold font-orbitron mb-2" style={{ background: PRIMARY_GRADIENT, WebkitBackgroundClip: "text", color: "transparent" }}>30%</h3>
-                      <p style={{ color: SUBTLE_TEXT }} className="font-orbitron text-center">Monthly Growth</p>
+                      <h3 className="text-2xl font-bold font-nunito mb-2" style={{ background: PRIMARY_GRADIENT, WebkitBackgroundClip: "text", color: "transparent" }}>30%</h3>
+                      <p style={{ color: SUBTLE_TEXT }} className="font-nunito text-center">Monthly Growth</p>
                     </div>
                   </motion.div>
                 </div>
@@ -946,10 +946,10 @@ const Home = () => {
                         <div className="mb-3 transform group-hover:scale-110 transition-transform duration-300">
                           {stat.icon}
                         </div>
-                        <h3 className="text-4xl font-bold font-orbitron mb-1" style={{ background: PRIMARY_GRADIENT, WebkitBackgroundClip: "text", color: "transparent" }}>
+                        <h3 className="text-4xl font-bold font-nunito mb-1" style={{ background: PRIMARY_GRADIENT, WebkitBackgroundClip: "text", color: "transparent" }}>
                           {stat.value}
                         </h3>
-                        <p style={{ color: SUBTLE_TEXT }} className="font-orbitron">{stat.label}</p>
+                        <p style={{ color: SUBTLE_TEXT }} className="font-nunito">{stat.label}</p>
                       </div>
                     </motion.div>
                   ))}
@@ -962,15 +962,15 @@ const Home = () => {
                   style={{ background: CARD_BG, border: `1px solid ${PRIMARY}22`, boxShadow: `0 20px 40px rgba(0,0,0,0.35)` }}
                 >
                   <div className="flex flex-col items-center text-center">
-                    <h3 className="text-2xl font-bold font-orbitron mb-4" style={{ background: PRIMARY_GRADIENT, WebkitBackgroundClip: "text", color: "transparent" }}>
+                    <h3 className="text-2xl font-bold font-nunito mb-4" style={{ background: PRIMARY_GRADIENT, WebkitBackgroundClip: "text", color: "transparent" }}>
                       Join Our Growing Community
                     </h3>
-                    <p style={{ color: SUBTLE_TEXT }} className="font-orbitron mb-6">
+                    <p style={{ color: SUBTLE_TEXT }} className="font-nunito mb-6">
                       Be part of one of the fastest growing quiz platforms. Create, share, and compete!
                     </p>
                     <Link
                       to={isLoggedIn ? "/dashboard" : "/register"}
-                      className="inline-flex items-center px-8 py-4 rounded-xl font-medium transition-all duration-300 shadow-lg transform hover:-translate-y-0.5 font-orbitron"
+                      className="inline-flex items-center px-8 py-4 rounded-xl font-medium transition-all duration-300 shadow-lg transform hover:-translate-y-0.5 font-nunito"
                       style={{ background: PRIMARY_GRADIENT, color: "#001B2E" }}
                     >
                       <span>{isLoggedIn ? "Go to Dashboard" : "Sign Up Now"}</span>

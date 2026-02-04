@@ -6,7 +6,7 @@
   width: 100%;
   min-height: 100vh;
   padding: 2rem;
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Nunito', sans-serif;
   background: linear-gradient(90deg, #ffffff 0%, #1E74D7 40%, #003A70 100%);
   box-sizing: border-box;
   position: relative;
@@ -89,7 +89,7 @@
   background: transparent;
   color: #003A70;
   transition: all 0.3s ease;
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Nunito', sans-serif;
 }
 
 .quiz-selector-button:hover {
@@ -129,7 +129,7 @@
   background: rgba(255, 255, 255, 0.85);
   color: #003A70;
   transition: all 0.3s ease;
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Nunito', sans-serif;
 }
 
 .form-input:focus,
